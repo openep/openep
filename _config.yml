@@ -1,0 +1,64 @@
+title: OpenEP
+baseurl: /
+permalink: '/:title/'
+collections:
+  posts:
+    permalink: '/posts/:title/'
+palette: blue
+header:
+  logo_img: images/logo.png
+  has_nav: true
+  nav_links:
+    - label: Home
+      url: /
+    - label: Features
+      url: /features
+    - label: Documentation
+      url: /documentation
+    - label: Download
+      url: /download
+      primary: true
+footer:
+  logo_img: images/logo_alt.png
+  tagline: Tagline
+  has_nav: true
+  nav_title: Company
+  nav_links:
+    - label: About Us
+      url: /about
+    - label: Blog
+      url: /blog
+    - label: Sign Up
+      url: signup
+  has_social: true
+  social_title: Community
+  social_links:
+    - label: Twitter
+      url: 'https://twitter.com/'
+      new_window: true
+    - label: Instagram
+      url: 'https://www.instagram.com/'
+      new_window: true
+    - label: LinkedIn
+      url: 'https://www.linkedin.com/'
+      new_window: true
+  has_subscribe: false
+sass:
+  indentWidth: 4
+  style: nested
+  precision: 10
+plugins:
+  - jekyll-menus
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - LICENSE.md
+  - README.md
+  - netlify.toml
+  - stackbit-build.sh
+  - stackbit-pull.js
