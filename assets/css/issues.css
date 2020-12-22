@@ -1,0 +1,29 @@
+.github-count {
+    float: right;
+    top: -32pt;
+    position: relative;
+}
+
+.github-bug {
+    background-color: #eee;
+    border-bottom: 1px solid #999;
+    padding: 2pt 8pt;
+}
+
+.issue-number {
+	color: #eee;
+    background-color: #055eff;
+    padding: 0 2pt;
+    border-radius: 3pt;
+}
+
+.github-bug a {
+    font-weight: bold;
+    text-decoration: none;
+	border: none;
+    padding: 0 2pt;
+}
+
+.github-bug p {
+	margin-bottom: 0;
+}
