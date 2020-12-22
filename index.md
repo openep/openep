@@ -5,52 +5,45 @@ sections:
     type: section_hero
     image: images/hero.png
     image_alt: App preview
-    title: This Is A Big Hero Headline
+    title: The open source solution for electrophysiology data
     content: >-
-      Azimuth is the perfect theme for developers, designers and entrepreneurs
-      who need a sleek, modern SaaS site. 
+      A free and feature-full implementation of data analaysis and
+        plotting for electrophysiology research. 
     actions:
       - label: Learn More
-        url: /features
+        url: /documentation
         primary: true
   - section_id: features
     type: section_features
     background: gray
     title: Features
     subtitle: >-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a metus
-      quis lorem malesuada luctus.
+      Highlighting important aspects of this project.
     features:
-      - title: The Best Feature of Your Services
+      - title: Feature 1
         image: images/feature1.png
-        image_alt: App preview on a phone and tablet
+        image_alt: Image for feature 1
         content: >-
-          Nam pulvinar ante eu ultricies volutpat. Aenean hendrerit, eros sed
-          aliquet luctus, lorem risus volutpat dolor, nec dignissim diam neque
-          consequat ex.
+          The most important feature to highlight - with an iamge to illustrate.
         actions:
           - label: Learn More
-            url: /features
-      - title: Awesome Feature of Your Services
+            url: /examples
+      - title: Feature 2
         image: images/feature2.png
-        image_alt: App users welcoming a new member
+        image_alt: Another great feature preview
         content: >-
-          Etiam vel urna sed massa egestas vulputate eu a velit. Sed ut nisl nec
-          sapien interdum luctus. Cras rhoncus condimentum metus sit amet
-          auctor.
+          Another great feature.
         actions:
           - label: Learn More
-            url: /features
-      - title: Cool Feature of Your Services
-        image: images/feature3.png
-        image_alt: App user profile preview
-        content: >-
-          In ante enim, lobortis quis congue vel, finibus sit amet mi. Aenean
-          quis venenatis sem. Proin eget massa id metus eleifend maximus sit
-          amet nec urna.
-        actions:
-          - label: Learn More
-            url: /features
+            url: /documentation
+  - section_id: call-to-action
+    type: section_cta
+    title: Get started now!
+    subtitle: Apply the analysis to your data quickly and easily by following our documentation.
+    actions:
+      - label: Get Started
+        url: /documentation
+        primary: true
   - section_id: reviews
     type: section_reviews
     background: white
@@ -75,19 +68,6 @@ sections:
         content: >-
           Integer consectetur purus neque, ac porttitor enim convallis vitae.
           Interdum et malesuada fames ac ante ipsum primis in faucibus.
-  - section_id: call-to-action
-    type: section_cta
-    title: This Is Call To Action Block!
-    subtitle: This is an optional description for the call to action block.
-    actions:
-      - label: Get Started
-        url: /signup
-        primary: true
-  - section_id: recent-posts
-    type: section_posts
-    background: gray
-    title: Latest Posts
-meta_title: Stackbit Azimuth Theme
-meta_description: The preview of the Azimuth theme
+
 layout: landing
 ---
