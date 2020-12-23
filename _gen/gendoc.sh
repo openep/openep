@@ -51,7 +51,34 @@ for path in "$dir"/*.m; do
   name=${parts2[0]}
   in=`echo ${parts2[1]} | sed 's/[\(\)]//g'`
 
+  printf "\n\n" >> "$apiFile"
+  content=`cat "$path" | sed '/function/,/% Author/!d;//d'`
+
+  IFS=$'\n'
+  lines=""
+  for line in $content; do
+    lines=$lines${line#"%"}"<br/>"
+  done
+  unset IFS
+  
   printf "\n## %s\n\n" "$name" >> "$apiFile"
+  IFS=""
+  info="$(echo $lines | awk -F'Usage:' '{print $1}')"
+  info=`echo "$info" | sed $'s/<br\/>/\\\\\\n/g'`
+  content="$(echo $lines | awk -F'Usage:' '{print $2}')"
+
+  usage="$(echo $content | awk -F'Where:' '{print $1}')"
+  usage=`echo "$usage" | sed $'s/<br\/>/\\\\\n/g'`
+  c2="$(echo $content | awk -F'Where:' '{print $2}')"
+  
+  printf "%s\n\n" "$info" >> "$apiFile"
+  printf "**Usage:**\n" >> "$apiFile"
+  trim $usage
+  printf "\`\`\`m\n%s\n\`\`\`\n\n" "$trimmed" >> "$apiFile"
+
+
+  printf "<table><tr><td markdown=\"1\">\n" >> "$apiFile"
+  printf "**Variables:**\n" >> "$apiFile"
   IFS=','
   if [[ ! -z $in ]]; then
   printf '* in\n' >> "$apiFile"
@@ -68,25 +95,22 @@ for path in "$dir"/*.m; do
   done
   fi
   unset IFS
-  
-  IFS=$'\n'
-  printf "\n\n" >> "$apiFile"
-  content=`cat "$path" | sed '/function/,/% Author/!d;//d'` #^$/'`
 
+  info="$(echo $c2 | awk -F'<br/><br/>' '{print $1}')"
+  info=`echo "$info" | sed $'s/<br\/>/\\\\\n/g'`
+  content="$(echo $c2 | awk -F'<br/><br/>' '{print $2}')"
+  content=`echo "$content" | sed $'s/<br\/>/\\\\\n/g'`
 
+  printf "</td><td markdown=\"1\">\n" >> "$apiFile"
 
+  printf "**Where:**\n" >> "$apiFile"
+  printf "\`\`\`m\n%s\n\`\`\`\n\n" "$info" >> "$apiFile"
 
+  printf "</td></tr></table>\n" >> "$apiFile"
 
-
-
-  for line in $content ; do
-    plain=${line#"%"}
-    printf '%s  \n' "$plain" >> "$apiFile"
-  done
-  printf "\n" >> "$apiFile"
-  unset IFS
+  printf "%s\n\n" "$content" >> "$apiFile"
  
-  funcLine=`grep -m 1 "^% Author:" "$path"`
-  author=${funcLine#"% Author:"}
+  line=`grep -m 1 "^% Author:" "$path"`
+  author=${line#"% Author:"}
   printf "**Author** %s\n" "$author" >> "$apiFile"
 done
