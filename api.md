@@ -19,7 +19,6 @@ layout: page
 
 ##  cartoMesh2VTK
 
-* in
 
 * out
   * tr
@@ -42,7 +41,7 @@ layout: page
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
   * areas
@@ -69,7 +68,7 @@ layout: page
 
 * in
   * userdata
-  *  varargin
+  * varargin
 
 * out
   * hSurf
@@ -163,8 +162,8 @@ layout: page
 
 * in
   * userdata
-  *  datatype
-  *  varargin
+  * datatype
+  * varargin
 
 * out
   * interpData
@@ -208,11 +207,13 @@ layout: page
 
 * in
   * userdata
-  *  visitag
-  *  varargin
+  * visitag
+  * varargin
 
 * out
-  * ablArea, isAblated, trAbl
+  * ablArea
+  * isAblated
+  * trAbl
 
 
  GETABLATIONAREA Calculates the area of a chamber which has been ablated  
@@ -249,10 +250,13 @@ layout: page
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
-  * FF, l, a, tr
+  * FF
+  * l
+  * a
+  * tr
 
 
  GETANATOMICALSTRUCTURES Returns free boundaries (anatomical structures)  
@@ -277,7 +281,7 @@ layout: page
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
   * area
@@ -302,7 +306,7 @@ layout: page
 ##  getClosedSurface
 
 * in
-  * userdata 
+  * userdata
 
 * out
   * tr
@@ -327,7 +331,7 @@ layout: page
 ##  getConductionVelocity
 
 * in
-  * userdata 
+  * userdata
 
 * out
   * cvdata
@@ -358,10 +362,13 @@ layout: page
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
-  * X, surfX, iPoint, t
+  * X
+  * surfX
+  * iPoint
+  * t
 
 
  GETEARLIESTACTIVATIONSITE Returns the earliest activation site  
@@ -432,10 +439,12 @@ layout: page
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
-  * egmTraces, acttime, egmNames
+  * egmTraces
+  * acttime
+  * egmNames
 
 
  GETEGMSATPOINTS Can be used to access eletrograms from userdata  
@@ -477,7 +486,7 @@ layout: page
 ##  getFaces
 
 * in
-  * userdata 
+  * userdata
 
 * out
   * faces
@@ -498,7 +507,7 @@ layout: page
 
 * in
   * userdata
-  *  pointNumber
+  * pointNumber
 
 * out
   * index
@@ -524,10 +533,13 @@ layout: page
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
-  * X, surfX, iPoint, t
+  * X
+  * surfX
+  * iPoint
+  * t
 
 
  GETLATESTACTIVATIONSITE Returns the earliest activation site  
@@ -598,10 +610,13 @@ layout: page
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
-  * lowVoltageArea, voltages, iTri, tr2
+  * lowVoltageArea
+  * voltages
+  * iTri
+  * tr2
 
 
  GETLOWVOLTAGEAREA Returns the low voltage area  
@@ -658,7 +673,7 @@ end
 ##  getMappingPointsWithinWoI
 
 * in
-  * userdata 
+  * userdata
 
 * out
   * iPoint
@@ -682,7 +697,7 @@ end
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
   * meanVoltage
@@ -717,7 +732,7 @@ end
 
 * in
   * userdata
-  *  varargin
+  * varargin
 
 * out
   * tr
@@ -741,7 +756,7 @@ end
 ##  getNumPts
 
 * in
-  * userdata 
+  * userdata
 
 * out
   * numpts
@@ -764,7 +779,7 @@ end
 
 * in
   * imp
-  *  tim
+  * tim
 
 * out
   * a
@@ -794,7 +809,7 @@ end
 
 * in
   * userdata
-  *  datatype 
+  * datatype
 
 * out
   * data
@@ -818,7 +833,7 @@ end
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
   * tat
@@ -874,10 +889,11 @@ end
 ##  getVertices
 
 * in
-  * userdata 
+  * userdata
 
 * out
-  * vertices, isVertUsed
+  * vertices
+  * isVertUsed
 
 
  GETVERTICES Returns the vertices referenced by userdata  
@@ -895,10 +911,10 @@ end
 ##  getVolume
 
 * in
-  * userdata 
+  * userdata
 
 * out
-  *  volume 
+  * volume
 
 
  GETVOLUME Calculates the volume the chamber described in userdata  
@@ -932,10 +948,12 @@ end
 
 * in
   * point_xyz
-  *  pointFileName
+  * pointFileName
 
 * out
-  * electrogramname_bip, electrogramname_uni, point_xyz_2 
+  * electrogramname_bip
+  * electrogramname_uni
+  * point_xyz_2
 
 
  GETELCTRODENAME finds the electrode at xyz.  
@@ -994,10 +1012,12 @@ end
 
 * in
   * point_xyz
-  *  pointFileName
+  * pointFileName
 
 * out
-  * electrogramname_bip, electrogramname_uni, point_xyz_2 
+  * electrogramname_bip
+  * electrogramname_uni
+  * point_xyz_2
 
 
  GETELCTRODENAME finds the electrode at xyz.  
@@ -1059,7 +1079,8 @@ end
   * varargin
 
 * out
-  * userdata, matFileFullPath
+  * userdata
+  * matFileFullPath
 
 
  IMPORTCARTO provides a data structure from multiple carto files (from zip).  
@@ -1143,7 +1164,8 @@ end
   * varargin
 
 * out
-  * userdata, matFileFullPath
+  * userdata
+  * matFileFullPath
 
 
  IMPORTCARTO provides a data structure from multiple carto files (from zip).  
@@ -1295,7 +1317,8 @@ end
   * varargin
 
 * out
-  * visitag, matFileFullPath
+  * visitag
+  * matFileFullPath
 
 
  IMPORTVISITAG provides a data structure from carto visitag files.  
@@ -1326,7 +1349,7 @@ end
 
 * in
   * userdata
-  *  varargin
+  * varargin
 
 * out
   * path2VTKfile
@@ -1365,10 +1388,7 @@ end
 
 * in
   * userdata
-  *  visitag
-
-* out
-  * 
+  * visitag
 
 
  PLOTABLATIONAREA Adds the ablation area to the current figure  
@@ -1389,7 +1409,7 @@ end
 
 * in
   * egmTraces
-  *  varargin
+  * varargin
 
 * out
   * hFig
@@ -1615,7 +1635,7 @@ end
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
   * hFig
@@ -1663,7 +1683,7 @@ end
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
   * h
@@ -1697,11 +1717,8 @@ end
 
 * in
   * userdata
-  *  visitag
-  *  varargin
-
-* out
-  * 
+  * visitag
+  * varargin
 
 
  PLOTVISITAGS Plots ablation data for a case  
@@ -1734,10 +1751,11 @@ end
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
-  * inoutpts, meshpts
+  * inoutpts
+  * meshpts
 
 
  POINTSTATUS Returns the status of points relevant to userdata  
@@ -1768,7 +1786,7 @@ end
 
 * in
   * userdata
-  *  varargin
+  * varargin
 
 * out
   * hSurf
@@ -1922,10 +1940,11 @@ end
 ##  read_visitag_file_v1
 
 * in
-  * filepath 
+  * filepath
 
 * out
-  *  data, header 
+  * data
+  * header
 
 
  READ_VISITAG_FILE_V1 Reads a data file stored in a WiseTag or VisiTag  
@@ -1952,7 +1971,8 @@ end
   * varargin
 
 * out
-  * data, labels
+  * data
+  * labels
 
 
  READ_VISITAG_SITES loads Carto3 visitag sites.txt file.  
@@ -1997,7 +2017,7 @@ end
 
 * in
   * userdata
-  *  varargin 
+  * varargin
 
 * out
   * areas

@@ -5,6 +5,10 @@ if [[ $# != 1 ]]; then
   exit 1
 fi
 
+function trim {
+  trimmed=`echo $1 | sed -e 's/^[[:space:]]*//' | sed -e 's/[[:space:]]*$//'`
+}
+
 dir=$1
 apiFile=$(dirname $0)'/../api.md'
 
@@ -49,19 +53,32 @@ for path in "$dir"/*.m; do
 
   printf "\n## %s\n\n" "$name" >> "$apiFile"
   IFS=','
+  if [[ ! -z $in ]]; then
   printf '* in\n' >> "$apiFile"
   for var in $in; do
-    printf '  * %s\n' "$var" >> "$apiFile"
+    trim $var
+    printf '  * %s\n' "$trimmed" >> "$apiFile"
   done
+  fi
+  if [[ ! -z $out ]]; then
   printf '\n* out\n' >> "$apiFile"
-  for var in "$out"; do
-    printf '  * %s\n' "$var" >> "$apiFile"
+  for var in $out; do
+	  trim $var
+    printf '  * %s\n' "$trimmed" >> "$apiFile"
   done
+  fi
   unset IFS
   
   IFS=$'\n'
   printf "\n\n" >> "$apiFile"
   content=`cat "$path" | sed '/function/,/% Author/!d;//d'` #^$/'`
+
+
+
+
+
+
+
   for line in $content ; do
     plain=${line#"%"}
     printf '%s  \n' "$plain" >> "$apiFile"
