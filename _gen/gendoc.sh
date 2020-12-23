@@ -9,7 +9,7 @@ dir=$1
 apiFile=$(dirname $0)'/../api.md'
 
 echo '---
-title: API Documentation
+title: API Reference
 subtitle: >-
   Documentation for each available function
 layout: page

@@ -9,6 +9,7 @@ layout: page
 .post-content li p {
   margin: 0;
 }
+
 .post-content > p {
   font-size: 85%;
 }
