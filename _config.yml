@@ -17,8 +17,6 @@ header:
       url: /roadmap
     - label: Documentation
       url: /documentation
-    - label: API Reference
-      url: /api
     - label: GitHub
       url: https://github.com/openep/openep
       primary: true
