@@ -39,6 +39,19 @@ td>p {
 }
 
 td {
+  padding: 0;
+}
+
+pre.highlight {
+  padding: 5pt;
+  font-size: 90%;
+}
+
+td>p {
+  margin: 0;
+}
+
+td {
   padding: 0;//
 }
 </style>
@@ -86,41 +99,40 @@ for path in "$dir"/*.m; do
   c2="$(echo $content | awk -F'Where:' '{print $2}')"
   
   printf "%s\n\n" "$info" >> "$apiFile"
-  printf "**Usage:**\n" >> "$apiFile"
+  printf "### Usage\n" >> "$apiFile"
   printf "\`\`\`m\n%s\n\`\`\`\n\n" "$(trim $usage)" >> "$apiFile"
-
-
-  printf "<table><tr><td markdown=\"1\">\n" >> "$apiFile"
-  printf "**Variables:**\n" >> "$apiFile"
-  IFS=','
-  if [[ ! -z $in ]]; then
-  printf '* in\n' >> "$apiFile"
-  for var in $in; do
-    printf '  * %s\n' "$(trim $var)" >> "$apiFile"
-  done
-  fi
-  if [[ ! -z $out ]]; then
-  printf '\n* out\n' >> "$apiFile"
-  for var in $out; do
-    printf '  * %s\n' "$(trim $var)" >> "$apiFile"
-  done
-  fi
-  unset IFS
 
   info="$(echo $c2 | awk -F'<br/><br/>' '{print $1}')"
   info=`echo "$info" | sed $'s/<br\/>/\\\\\n/g'`
   content="$(echo $c2 | awk -F'<br/><br/>' '{print $2}')"
   content=`echo "$content" | sed $'s/<br\/>/\\\\\n/g'`
 
-  printf "</td><td markdown=\"1\">\n" >> "$apiFile"
+  printf "#### Parameters\n" >> "$apiFile"
   
-  IFS=""
-  printf "**Where:**\n" >> "$apiFile"
-  printf "\`\`\`m\n%s\n\`\`\`\n\n" "$(trim $info)" >> "$apiFile"
+#  info=$(trim $info)
+  IFS=$'\n'
+  delimiter=" - "
+ 
+  for line in $info; do
+
+
+	  s=$line$delimiter  
+	  parts=();  
+	  while [[ $s ]];  
+	  do  
+	  parts+=( "${s%%"$delimiter"*}" );  
+	  s=${s#*"$delimiter"};  
+	  done;  
+
+	  if [[ -z "${parts[1]}" ]]; then # not a parameter line
+		  printf '%s\n' ${parts[0]} >> "$apiFile"
+	  else
+		  printf '\n**%s**\n%s\n' $(trim ${parts[0]}) ${parts[1]} >> "$apiFile"
+	  fi
+  done 
   unset IFS
-
-  printf "</td></tr></table>\n" >> "$apiFile"
-
+  
+  printf "\n\n### Description\n" >> "$apiFile"
   printf "%s\n\n" "$content" >> "$apiFile"
  
   line=`grep -m 1 "^% Author:" "$path"`
