@@ -51,7 +51,7 @@ td {
 
  
 
-### Usage
+#### Usage
 ```m
 tr = cartoMesh2VTK('openfile')
 ```
@@ -62,12 +62,13 @@ tr = cartoMesh2VTK('openfile')
 a TriRep object
 
 
-### Description
+#### Description
  CARTOMESH2VTK Converts a Carto3 mesh to a VTK file and returns a TriRep
  object
 
 **Author**  Steven Williams (2015)
 
+---
 
 
 ##  cvHistogram
@@ -76,7 +77,7 @@ a TriRep object
 
  
 
-### Usage
+#### Usage
 ```m
 cvHistogram( userdata )
 ```
@@ -87,13 +88,14 @@ cvHistogram( userdata )
 see importcarto_mem
 
 
-### Description
+#### Description
  CVHISTOGRAM accepts the following parameter-value pairs
    'limits'    {[0 5]}|array in m/s
    'binwidth'  {0.1}|double in m/s
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  drawMap
@@ -101,7 +103,7 @@ see importcarto_mem
  DRAWMAP plots a Carto LAT map
  
 
-### Usage
+#### Usage
 ```m
 hSurf = drawMap(userdata)
 hSurf = drawMap(userdata, varargin);
@@ -116,7 +118,7 @@ is a handle to the surface
 is a Carto data structure
 
 
-### Description
+#### Description
  DRAWMAP is essentially a wrapper function for colorShell.m. DRAWMAP
  accepts the following parameter-value pairs:
    'data' [d]
@@ -140,6 +142,7 @@ is a Carto data structure
 
 **Author**  Steven Williams (2016)
 
+---
 
 
 ##  editUserdata
@@ -148,7 +151,7 @@ is a Carto data structure
 
  
 
-### Usage
+#### Usage
 ```m
 userdata2 = editUserdata(userdata)
 ```
@@ -162,7 +165,7 @@ is the original Carto dataset
 is the new Carto dataset with elements removed
 
 
-### Description
+#### Description
  EDITUSERDATA uses EDITTRIANGULATION to remove triangles from a TriRep
  object. Controls:
    Left click          - select triangles to remove
@@ -172,6 +175,7 @@ is the new Carto dataset with elements removed
 
 **Author**  Steven Williams (2016)
 
+---
 
 
 ##  fixVoltageAnnotations
@@ -182,7 +186,7 @@ is the new Carto dataset with elements removed
 
  
 
-### Usage
+#### Usage
 ```m
 userdata = fixVoltageAnnotations(userdata)
 ```
@@ -196,11 +200,12 @@ is the output
 is the input, or 'openfile'
 
 
-### Description
+#### Description
  FIXVOLTAGEANNOTATIONS detailed description goes here.
 
 **Author**  Steven Williams (2014)
 
+---
 
 
 ##  generateInterpData
@@ -209,7 +214,7 @@ is the input, or 'openfile'
 
  
 
-### Usage
+#### Usage
 ```m
 interpData = generateInterpData(userdata, datatype)
 ```
@@ -247,7 +252,7 @@ conduction velocity (NOT IMPLEMENTED)
 is the interpolated data
 
 
-### Description
+#### Description
  GENERATEINTERPDATA accepts the following parameter-value pairs
    'interMethod'    nearest|linear|{natural}
        - The interpolation method, default to natural
@@ -258,6 +263,7 @@ is the interpolated data
 
 **Author**  Steven Williams (2018)
 
+---
 
 
 ##  getAblationArea
@@ -266,7 +272,7 @@ is the interpolated data
 
  
 
-### Usage
+#### Usage
 ```m
 area = getAblationArea( userdata, visitag )
 ```
@@ -291,7 +297,7 @@ indexes into userdata.surface.triRep.Triangulation and
 a Triangulation of the ablated tissue
 
 
-### Description
+#### Description
  GETABLATIONAREA accepts the following parameter-value pairs
    'method'     {'tags'}|'grid'
        - specifies whether to calculate area based on the ablation tags or
@@ -305,6 +311,7 @@ a Triangulation of the ablated tissue
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getAnatomicalStructures
@@ -314,7 +321,7 @@ a Triangulation of the ablated tissue
 
  
 
-### Usage
+#### Usage
 ```m
 [trAnatStruct] = getAnatomicalStructures( userdata, varargin )
 ```
@@ -337,12 +344,13 @@ an array of areas of each free boundary
 cell array of triangulations of each free boundary
 
 
-### Description
+#### Description
  GETANATOMICALSTRUCTURES accepts the following parameter-value pairs
    'plot'     {false}|true
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getArea
@@ -351,7 +359,7 @@ cell array of triangulations of each free boundary
 
  
 
-### Usage
+#### Usage
 ```m
 area = getArea( userdata )
 ```
@@ -365,12 +373,13 @@ see importcarto_mem
 the surface area (cm^2)
 
 
-### Description
+#### Description
  GETAREA accepts the following parameter-value pairs
    'method'     {nofill}|fill
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getClosedSurface
@@ -379,7 +388,7 @@ the surface area (cm^2)
 
  
 
-### Usage
+#### Usage
 ```m
 tr = getClosedSurface( userdata )
 ```
@@ -393,7 +402,7 @@ see importcarto_mem
 a triRep object
 
 
-### Description
+#### Description
  GETCLOSEDSURFACE Closes the surface by the following algorithm. First,
  every complete free boundary is identified. Second, the barycentre of the
  free boundary is identified. Third, a triangulation is created covering
@@ -401,6 +410,7 @@ a triRep object
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getConductionVelocity
@@ -410,7 +420,7 @@ a triRep object
 
  
 
-### Usage
+#### Usage
 ```m
 cvdata = getConductionVelocity( userdata )
 ```
@@ -424,7 +434,7 @@ see importcarto_mem
 the conduction velocities, in m/s
 
 
-### Description
+#### Description
  GETCONDUCTIONVELOCITY Calculate conduction velocities by calculating
  gradients of interpolated local activation times. GETCONDUCTIONVELOCITY
  makes use of a modified version of "Scattered Data Interpolation and 
@@ -433,6 +443,7 @@ the conduction velocities, in m/s
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getEarliestActivationSite
@@ -441,7 +452,7 @@ the conduction velocities, in m/s
 
  
 
-### Usage
+#### Usage
 ```m
 [X] = getEarliestActivationSite( userdata )
 [X, surfX] = getEarliestActivationSite( userdata )
@@ -479,7 +490,7 @@ the calculated earliest activation time, relative to the
                    reference annotation
 
 
-### Description
+#### Description
  GETEARLIESTACTIVATIONSITE accepts the following parameter-value pairs
    'method'    {'ptbased'}|'ptbasedprct'|'clinmap'|'clinmapprct'|'openepmap'|'openmapprct'
        - Specifies the method by which the earliest activation is
@@ -510,6 +521,7 @@ the calculated earliest activation time, relative to the
 
 **Author**  Steven Williams (2019)
 
+---
 
 
 ##  getEgmsAtPoints
@@ -518,7 +530,7 @@ the calculated earliest activation time, relative to the
 
  
 
-### Usage
+#### Usage
 ```m
 [ hFig ] = plotOpenEPEgms( userdata, varargin )
 [ hFig, hLine ] = plotOpenEPEgms( userdata, varargin )
@@ -539,7 +551,7 @@ cell array of activation times
 names of the electrograms
 
 
-### Description
+#### Description
  GETEGMSATPOINTS accepts the following parameter-value pairs
    'iEgm'     {:}|[a:b]
            an array indexing into userdata.electric.egm such that
@@ -558,6 +570,7 @@ names of the electrograms
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getFaces
@@ -566,7 +579,7 @@ names of the electrograms
 
  
 
-### Usage
+#### Usage
 ```m
 faces = getFaces( userdata )
 ```
@@ -580,11 +593,12 @@ see importcarto_mem
 all the faces
 
 
-### Description
+#### Description
 
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getIndexFromCartoPointNumber
@@ -593,7 +607,7 @@ all the faces
 
  
 
-### Usage
+#### Usage
 ```m
 [index] = getIndexFromCartoPointNumber(pointNumber)
 ```
@@ -612,11 +626,12 @@ an index (or array of indices) for referenceing into the
                  data fields within userdata.electric
 
 
-### Description
+#### Description
  GETINDEXFROMCARTOPOINTNUMBER Detailed description goes here
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getLatestActivationSite
@@ -625,7 +640,7 @@ an index (or array of indices) for referenceing into the
 
  
 
-### Usage
+#### Usage
 ```m
 [X] = getLatestActivationSite( userdata )
 [X, surfX] = getLatestActivationSite( userdata )
@@ -663,7 +678,7 @@ the calculated latest activation time, relative to the
                    reference annotation
 
 
-### Description
+#### Description
  GETLATESTACTIVATIONSITE accepts the following parameter-value pairs
    'method'    {'ptbased'}|'ptbasedprct'|'clinmap'|'clinmapprct'|'openepmap'|'openmapprct'
        - Specifies the method by which the earliest activation is
@@ -694,6 +709,7 @@ the calculated latest activation time, relative to the
 
 **Author**  Steven Williams (2019)
 
+---
 
 
 ##  getLowVoltageArea
@@ -702,7 +718,7 @@ the calculated latest activation time, relative to the
 
  
 
-### Usage
+#### Usage
 ```m
 lowVoltageArea = getLowVoltageArea( userdata, varargin )
 ```
@@ -727,7 +743,7 @@ indexes into userdata.surface.triRep.Triangulation and refers
 a triangulation of all the triangles referenced in iTri.
 
 
-### Description
+#### Description
 
  GETLOWVOLTAGEAREA accepts the following parameter-value pairs
    'method'    {'map'}      |'egm'
@@ -736,6 +752,7 @@ a triangulation of all the triangles referenced in iTri.
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getMappingPointsWithinWoI
@@ -745,7 +762,7 @@ a triangulation of all the triangles referenced in iTri.
 
  
 
-### Usage
+#### Usage
 ```m
 iPoint = getMappingPointsWithinWoI( userdata )
 ```
@@ -759,11 +776,12 @@ see importcarto_mem
 the list of valid points; indexes into userdata.electric
 
 
-### Description
+#### Description
  GETMAPPINGPOINTSWITHINWOI Detailed description goes here
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getMeanVoltage
@@ -772,7 +790,7 @@ the list of valid points; indexes into userdata.electric
 
  
 
-### Usage
+#### Usage
 ```m
 meanVoltage = getMeanVoltage( userdata, varargin )
 ```
@@ -786,13 +804,14 @@ see importcarto_mem
 the mean chamber voltage (mV)
 
 
-### Description
+#### Description
  GETMEANVOLTAGE accepts the following parameter-value pairs
    'method'    {'map'}|'egm'
    'type'      {bip'}|'uni'
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getMesh
@@ -801,7 +820,7 @@ the mean chamber voltage (mV)
 
  
 
-### Usage
+#### Usage
 ```m
 tr = getMesh(userdata)
 ```
@@ -812,7 +831,7 @@ tr = getMesh(userdata)
 a TriRep object
 
 
-### Description
+#### Description
  GETMESH accepts the following parameter-value pairs
    'type'     {'trirep'}|'triangulation'
        - Specifies whether to return the mesh as a TriRep object or as a
@@ -820,6 +839,7 @@ a TriRep object
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getNumPts
@@ -828,7 +848,7 @@ a TriRep object
 
  
 
-### Usage
+#### Usage
 ```m
 numpts = getNumPts( userdata )
 ```
@@ -842,11 +862,12 @@ see importcarto_mem
 the number of mapping points
 
 
-### Description
+#### Description
  GETNUMPTS Detailed description goes here
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getPointImpedanceValue
@@ -856,7 +877,7 @@ the number of mapping points
 
  
 
-### Usage
+#### Usage
 ```m
 h = myfunction(b)
 ```
@@ -870,7 +891,7 @@ is the output
 impedance values at times tim
 
 
-### Description
+#### Description
  Impedance values are streaming every 100ms to Carto 3 system from the 
  RF Generator. A time range of -7.5s to +2.5s is output for each point and
  saved in userdata.electric.impedances (.time and .value) in the mat
@@ -878,6 +899,7 @@ impedance values at times tim
 
 **Author**  Steven Williams (2014)
 
+---
 
 
 ##  getSurfaceData
@@ -886,7 +908,7 @@ impedance values at times tim
 
  
 
-### Usage
+#### Usage
 ```m
 data = getMappingData( userdata, datatype )
 ```
@@ -901,11 +923,12 @@ the required data. Must be one of:
        'act', 'bip'
 
 
-### Description
+#### Description
  GETSURFACEDATA Detailed description goes here
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getTotalActivationTime
@@ -914,7 +937,7 @@ the required data. Must be one of:
 
  
 
-### Usage
+#### Usage
 ```m
 tat = getTotalActivationTime( userdata )
 ```
@@ -928,7 +951,7 @@ see importcarto_mem
 the total activation time, in ms
 
 
-### Description
+#### Description
  GETTOTALACTIVATIONTIME accepts the following parameter-value pairs
    'method'    {'ptbased'}|'ptbasedprct'|'clinmap'|'clinmapprct'|'openepmap'|'openmapprct'
        - Specifies the method by which total activation time is calculated
@@ -965,6 +988,7 @@ the total activation time, in ms
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getVertices
@@ -973,7 +997,7 @@ the total activation time, in ms
 
  
 
-### Usage
+#### Usage
 ```m
 [vertices, vertsref] = getVertices( userdata )
 ```
@@ -990,11 +1014,12 @@ all the vertices
 whether the vertex is referenced by the triangulation
 
 
-### Description
+#### Description
 
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  getVolume
@@ -1003,7 +1028,7 @@ whether the vertex is referenced by the triangulation
 
  
 
-### Usage
+#### Usage
 ```m
 volume = getVolume(usredata)
 ```
@@ -1017,7 +1042,7 @@ see importcarto_mem
 the volume, in cm^3
 
 
-### Description
+#### Description
  GETVOLUME For details of the calculation see:
    https://stackoverflow.com/questions/1406029/how-to-calculate-the-volume-of-a-3d-mesh-object-the-surface-of-which-is-made-up
    http://chenlab.ece.cornell.edu/Publication/Cha/icip01_Cha.pdf
@@ -1025,6 +1050,7 @@ the volume, in cm^3
 
 **Author**  Steven Williams (2017)
 
+---
 
 
 ##  getpointelectrogramname
@@ -1032,7 +1058,7 @@ the volume, in cm^3
  GETELCTRODENAME finds the electrode at xyz.
  
 
-### Usage
+#### Usage
 ```m
 [ electrogramname_bip, electrogramname_uni ] = getelectrogramname( point_xyz, pointFileName )
 ```
@@ -1055,11 +1081,12 @@ the electrode position corresponding to the second electrode
        electrograms)
 
 
-### Description
+#### Description
  GETELCTRODENAME Detailed description
 
 **Author**  Nick Linton (2012)
 
+---
 
 
 ##  getpointelectrogramname
@@ -1068,7 +1095,7 @@ the electrode position corresponding to the second electrode
 
  
 
-### Usage
+#### Usage
 ```m
 [ electrogramname_bip, electrogramname_uni ] = getelectrogramname( point_xyz, pointFileName )
 ```
@@ -1091,11 +1118,12 @@ the electrode position corresponding to the second electrode
        electrograms)
 
 
-### Description
+#### Description
  GETELCTRODENAME Detailed description
 
 **Author**  Nick Linton (2012)
 
+---
 
 
 ##  importcarto_mem
@@ -1103,7 +1131,7 @@ the electrode position corresponding to the second electrode
  IMPORTCARTO provides a data structure from multiple carto files (from zip).
  
 
-### Usage
+#### Usage
 ```m
 userdata = importcarto_mem(userinput)
 userdata = importcarto_mem()
@@ -1116,7 +1144,7 @@ userdata = importcarto_mem()
    matFileFullPath is the path to the .mat file, if opened or saved
 
 
-### Description
+#### Description
  IMPORTCARTO can load data in 3 ways:
    1) USERINPUT is a .zip file - the zip file will be unzipped into a
    temporary file (deleted at the end). The data is packed into userdata
@@ -1128,6 +1156,7 @@ userdata = importcarto_mem()
 
 **Author**  Nick Linton (2011)
 
+---
 
 
 ##  importcarto_mem
@@ -1135,7 +1164,7 @@ userdata = importcarto_mem()
  IMPORTCARTO provides a data structure from multiple carto files (from zip).
  
 
-### Usage
+#### Usage
 ```m
 userdata = importcarto_mem(userinput)
 userdata = importcarto_mem()
@@ -1148,7 +1177,7 @@ userdata = importcarto_mem()
    matFileFullPath is the path to the .mat file, if opened or saved
 
 
-### Description
+#### Description
  IMPORTCARTO can load data in 3 ways:
    1) USERINPUT is a .zip file - the zip file will be unzipped into a
    temporary file (deleted at the end). The data is packed into userdata
@@ -1160,6 +1189,7 @@ userdata = importcarto_mem()
 
 **Author**  Nick Linton (2011)
 
+---
 
 
 ##  importvisitag
@@ -1199,7 +1229,7 @@ end
 
 
 
-### Usage
+#### Usage
 ```m
 
 ```
@@ -1207,11 +1237,12 @@ end
 #### Parameters
 
 
-### Description
+#### Description
 
 
 **Author**  Steven Williams (2014)
 
+---
 
 
 ##  importvisitag
@@ -1238,7 +1269,7 @@ end
        .FTI
 
 
-### Usage
+#### Usage
 ```m
 
 ```
@@ -1246,11 +1277,12 @@ end
 #### Parameters
 
 
-### Description
+#### Description
 
 
 **Author**  Steven Williams (2014)
 
+---
 
 
 ##  openEP2VTK
@@ -1259,7 +1291,7 @@ end
 
  
 
-### Usage
+#### Usage
 ```m
 tr = openEP2VTK('openfile')
 ```
@@ -1273,7 +1305,7 @@ a TriRep object
 the path to the file that was written
 
 
-### Description
+#### Description
  OPENEP2VTK accepts the following parameter-value pairs
    'datatype'     {'bip'}|'uni'|'lat'
        - the required data, bipolar voltage, unipolar voltage or local
@@ -1290,6 +1322,7 @@ the path to the file that was written
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  plotAblationArea
@@ -1298,7 +1331,7 @@ the path to the file that was written
 
  
 
-### Usage
+#### Usage
 ```m
 plotAblationArea( userdata, visitag )
 ```
@@ -1312,12 +1345,13 @@ see importcarto_mem.m
 see importvisitag.m
 
 
-### Description
+#### Description
  PLOTABLATIONAREA Requires a userdata structure and a visitag structure as 
  its inputS
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  plotElectrograms
@@ -1326,7 +1360,7 @@ see importvisitag.m
 
  
 
-### Usage
+#### Usage
 ```m
 hFig = PLOTELECTROGRAMS(egmTraces)
 hFig = PLOTELECTROGRAMS(egmTraces, varargin)
@@ -1543,11 +1577,12 @@ end
 #### Parameters
 
 
-### Description
+#### Description
 
 
 **Author**  Steven Williams (2012)
 
+---
 
 
 ##  plotOpenEPEgms
@@ -1556,7 +1591,7 @@ end
 
  
 
-### Usage
+#### Usage
 ```m
 [ hFig ] = plotOpenEPEgms( userdata, varargin )
 [ hFig, hLine ] = plotOpenEPEgms( userdata, varargin )
@@ -1571,7 +1606,7 @@ see importcarto_mem
 a handle to the plotted figure
 
 
-### Description
+#### Description
  PLOTOPENEPEGMS accepts the following parameter-value pairs
    'iEgm'     {:}|[a:b]
            an array indexing into userdata.electric.egm such that
@@ -1598,6 +1633,7 @@ a handle to the plotted figure
 
 **Author**  Steven Williams (2017)
 
+---
 
 
 ##  plotTag
@@ -1606,7 +1642,7 @@ a handle to the plotted figure
 
  
 
-### Usage
+#### Usage
 ```m
 area = plotTag( userdata, varargin )
 ```
@@ -1620,7 +1656,7 @@ see importcarto_mem
 is an array of handles referencing the plotted surfaces
 
 
-### Description
+#### Description
  PLOTTAG accepts the following parameter-value pairs
    'coord'     {[x y x]}
        - A set of x,y,z coords where size(coords) = nx3 where n is the
@@ -1634,6 +1670,7 @@ is an array of handles referencing the plotted surfaces
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  plotVisitags
@@ -1642,7 +1679,7 @@ is an array of handles referencing the plotted surfaces
 
  
 
-### Usage
+#### Usage
 ```m
 [ vol ] = plotVisitags( userdata, visitag )
 ```
@@ -1656,7 +1693,7 @@ see importcarto_mem.m
 see importvisitag.m
 
 
-### Description
+#### Description
  PLOTVISITAG accepts the following parameter-value pairs
    'plot'     {'tags'}|'grid'|'both'
        - specifies whether to show the tags, the grid, or both
@@ -1671,6 +1708,7 @@ see importvisitag.m
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  pointStatus
@@ -1679,7 +1717,7 @@ see importvisitag.m
 
  
 
-### Usage
+#### Usage
 ```m
 [inoutpts, meshrefpts] = pointStatus( userdata )
 ```
@@ -1699,7 +1737,7 @@ whether points in the triRep field of userdata are
                (logical(0))
 
 
-### Description
+#### Description
  POINTSTATUS accepts the following parameter-value pairs:
    'distanceThreshold' 2|[d]
        - The distance threshold within which points are considered to be
@@ -1708,6 +1746,7 @@ whether points in the triRep field of userdata are
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  processSmartTouchForceData
@@ -1715,7 +1754,7 @@ whether points in the triRep field of userdata are
  PROCESSSMARTTOUCHFORCEDATA Gets a shell with force data
  
 
-### Usage
+#### Usage
 ```m
 [tr f] = processSmartTouchForceData(userdata)
 ```
@@ -1732,12 +1771,13 @@ are the 1000ms window forces
 are the coordinates of the data in f (size: length(f) * 3) 
 
 
-### Description
+#### Description
  PROCESSSMARTTOUCHFORCEDATA parses the force data at ablation points from
  userdata.
 
 **Author**  Steven Williams (2013)
 
+---
 
 
 ##  read_ecgfile_v4
@@ -1745,7 +1785,7 @@ are the coordinates of the data in f (size: length(f) * 3)
  READ_ECGFILE loads this Carto3 ecg file.
  
 
-### Usage
+#### Usage
 ```m
 channelNames = read_ecgfile(filename);
 [channelNames channelVoltages] = read_ecgfile(filename)
@@ -1760,11 +1800,12 @@ channelVoltages = read_ecgfile(filename, names)
 this helps speed
 
 
-### Description
+#### Description
 
 
 **Author**  Nick Linton (2013)
 
+---
 
 
 ##  read_ecgfile_v4_header
@@ -1772,7 +1813,7 @@ this helps speed
  READ_ECGFILE_V4_HEADER loads the header from an ECG file.
  
 
-### Usage
+#### Usage
 ```m
 [electrodename_bip] = read_ecgfile_v4_header(varargin)
 [electrodename_bip electrodename_uni] = read_ecgfile_v4_header(varargin)
@@ -1785,7 +1826,7 @@ this helps speed
    electrodename_ref   is the name of the reference electrode for the mapping point
 
 
-### Description
+#### Description
         name = '';
         for j = 1:numel(iNeeded)
             name = [name separator tokens{iNeeded(j)}];
@@ -1796,6 +1837,7 @@ end
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  read_forcefile_v2
@@ -1803,7 +1845,7 @@ end
  READ_FORCEFILE loads this Carto3 force file.
  
 
-### Usage
+#### Usage
 ```m
 force = read_forcefile(filename);
 [force axialAngle lateralAngle] = read_forcefile(filename)
@@ -1834,11 +1876,12 @@ is the time course of the axial angle
 is the time course of the lateral angle
 
 
-### Description
+#### Description
    filename is the Carto3 .txt file
 
 **Author**  Steven Williams (2013)
 
+---
 
 
 ##  read_meshfile
@@ -1846,7 +1889,7 @@ is the time course of the lateral angle
  READ_MESHFILE loads this Carto3 mesh file.
  
 
-### Usage
+#### Usage
 ```m
 t = read_meshfile(filename)
 [t isVertexAtEdge] = read_meshfile(filename)
@@ -1860,12 +1903,13 @@ t = read_meshfile(filename)
    act_bip is a matrix of activation times and bipolar voltage by vertex
 
 
-### Description
+#### Description
  READ_MESHFILE reads the triangulation from a TriangulatedMeshVersion 2.0
  file.
 
 **Author**  Nick Linton (2011)
 
+---
 
 
 ##  read_positions_on_annotation_v2
@@ -1873,7 +1917,7 @@ t = read_meshfile(filename)
  READ_POSITIONS_ON_ANNOTATION_V2 loads this Carto3 position file.
  
 
-### Usage
+#### Usage
 ```m
 [iElectrode xyz] = read_positions_on_annotation_v2(filename)
 ```
@@ -1883,11 +1927,12 @@ t = read_meshfile(filename)
    xyz is an array of xyz positions
 
 
-### Description
+#### Description
 
 
 **Author**  Nick Linton (2013)
 
+---
 
 
 ##  read_visitag_file_v1
@@ -1897,7 +1942,7 @@ t = read_meshfile(filename)
 
  
 
-### Usage
+#### Usage
 ```m
 [ data, header ] = read_visitag_file_v1( filepath )
 ```
@@ -1914,7 +1959,7 @@ the the file data
 the file header
 
 
-### Description
+#### Description
  READ_VISITAG_FILE_V1 Reads numeric data from data files stored in WiseTag or
  VisiTag directories. These files all have a standard format - header line
  followed by data lines; tab delimited. The headers are returned in a cell
@@ -1922,6 +1967,7 @@ the file header
 
 **Author**  Steven Williams (2020)
 
+---
 
 
 ##  read_visitag_sites
@@ -1929,7 +1975,7 @@ the file header
  READ_VISITAG_SITES loads Carto3 visitag sites.txt file.
  
 
-### Usage
+#### Usage
 ```m
 [sites] = read_visitag_sites(filename)
 ```
@@ -1940,11 +1986,12 @@ the file header
    filename is the full file path
 
 
-### Description
+#### Description
  READ_VISITAG_SITES detailed description goes here
 
 **Author**  Steven Williams (2015)
 
+---
 
 
 ##  read_visitagsettings
@@ -1952,7 +1999,7 @@ the file header
  READ_VISITAGSETTINGS loads Carto3 visitag settings file.
  
 
-### Usage
+#### Usage
 ```m
 [visitagSettings] = read_visitagsettings(filename)
 ```
@@ -1962,7 +2009,7 @@ the file header
    filename is the full file path
 
 
-### Description
+#### Description
  READ_VISITAGSETTINGS creates a structure with the parameters in
  VisiTagSettings.txt. Data is converted to double if it is numeric or
  remains as a string if it is a string. Beware of equals sign at the end
@@ -1971,6 +2018,7 @@ the file header
 
 **Author**  Steven Williams (2015)
 
+---
 
 
 ##  voltageHistogramAnalysis
@@ -1979,7 +2027,7 @@ the file header
 
  
 
-### Usage
+#### Usage
 ```m
 areas = plotVoltageHistogram( userdata, varargin )
 ```
@@ -1990,7 +2038,7 @@ areas = plotVoltageHistogram( userdata, varargin )
 see importcarto_mem
 
 
-### Description
+#### Description
  GETMEANVOLTAGE accepts the following parameter-value pairs
    'method'    {'map'}|'egm'
    'type'      {bip'}|'uni'
@@ -2005,3 +2053,5 @@ see importcarto_mem
    colors      {colorBrewer colors r, y, g, b, p}|
 
 **Author**  Steven Williams (2020)
+
+---

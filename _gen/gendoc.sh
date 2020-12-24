@@ -99,7 +99,7 @@ for path in "$dir"/*.m; do
   c2="$(echo $content | awk -F'Where:' '{print $2}')"
   
   printf "%s\n\n" "$info" >> "$apiFile"
-  printf "### Usage\n" >> "$apiFile"
+  printf "#### Usage\n" >> "$apiFile"
   printf "\`\`\`m\n%s\n\`\`\`\n\n" "$(trim $usage)" >> "$apiFile"
 
   info="$(echo $c2 | awk -F'<br/><br/>' '{print $1}')"
@@ -132,10 +132,10 @@ for path in "$dir"/*.m; do
   done 
   unset IFS
   
-  printf "\n\n### Description\n" >> "$apiFile"
+  printf "\n\n#### Description\n" >> "$apiFile"
   printf "%s\n\n" "$content" >> "$apiFile"
  
   line=`grep -m 1 "^% Author:" "$path"`
   author=${line#"% Author:"}
-  printf "**Author** %s\n" "$author" >> "$apiFile"
+  printf "**Author** %s\n\n---" "$author" >> "$apiFile"
 done
