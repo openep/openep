@@ -6,12 +6,25 @@ layout: page
 ---
 
 <style>
-.post-content li p {
+.post-content p {
   margin: 0;
 }
 
-.post-content > p {
-  font-size: 85%;
+.post-content {
+  font-size: 90%;
+}
+
+pre.highlight {
+  padding: 5pt;
+  font-size: 90%;
+}
+
+td>p {
+  margin: 0;
+}
+
+td {
+  padding: 0;//
 }
 </style>
 
@@ -27,7 +40,6 @@ layout: page
 
 **Usage:**
 ```m
-
 tr = cartoMesh2VTK('openfile')
 ```
 
@@ -39,8 +51,7 @@ tr = cartoMesh2VTK('openfile')
 </td><td markdown="1">
 **Where:**
 ```m
-
- tr, - a TriRep object
+tr, - a TriRep object
 ```
 
 </td></tr></table>
@@ -59,7 +70,6 @@ tr = cartoMesh2VTK('openfile')
 
 **Usage:**
 ```m
-
 cvHistogram( userdata )
 ```
 
@@ -74,8 +84,7 @@ cvHistogram( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
+userdata - see importcarto_mem
 ```
 
 </td></tr></table>
@@ -94,7 +103,6 @@ cvHistogram( userdata )
 
 **Usage:**
 ```m
-
 hSurf = drawMap(userdata)
 hSurf = drawMap(userdata, varargin);
 ```
@@ -110,9 +118,8 @@ hSurf = drawMap(userdata, varargin);
 </td><td markdown="1">
 **Where:**
 ```m
-
- hSurf - is a handle to the surface
- userdata - is a Carto data structure
+hSurf - is a handle to the surface
+userdata - is a Carto data structure
 ```
 
 </td></tr></table>
@@ -149,7 +156,6 @@ hSurf = drawMap(userdata, varargin);
 
 **Usage:**
 ```m
-
 userdata2 = editUserdata(userdata)
 ```
 
@@ -163,9 +169,8 @@ userdata2 = editUserdata(userdata)
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - is the original Carto dataset
- userdata2 - is the new Carto dataset with elements removed
+userdata - is the original Carto dataset
+userdata2 - is the new Carto dataset with elements removed
 ```
 
 </td></tr></table>
@@ -190,7 +195,6 @@ userdata2 = editUserdata(userdata)
 
 **Usage:**
 ```m
-
 userdata = fixVoltageAnnotations(userdata)
 ```
 
@@ -204,9 +208,8 @@ userdata = fixVoltageAnnotations(userdata)
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - is the output
- userdata - is the input, or 'openfile'
+userdata - is the output
+userdata - is the input, or 'openfile'
 ```
 
 </td></tr></table>
@@ -224,7 +227,6 @@ userdata = fixVoltageAnnotations(userdata)
 
 **Usage:**
 ```m
-
 interpData = generateInterpData(userdata, datatype)
 ```
 
@@ -240,17 +242,16 @@ interpData = generateInterpData(userdata, datatype)
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see, importcarto_mem
- datatype - the desired data type to return
- 'bip-map' - bipolar voltage; from the exported voltage values
- 'uni-map' - unipolar voltage; from the exported voltage values
- 'lat-map' - local activation time; from the annotated electrograms
- 'bip-egm' - bipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
- 'uni-egm' - unipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
- 'lat-egm' - local activation time; measured by OpenEP on the egms (NOT IMPLEMENTED)
- 'cv' - conduction velocity (NOT IMPLEMENTED)
- interpData - is the interpolated data
+userdata - see, importcarto_mem
+datatype - the desired data type to return
+'bip-map' - bipolar voltage; from the exported voltage values
+'uni-map' - unipolar voltage; from the exported voltage values
+'lat-map' - local activation time; from the annotated electrograms
+'bip-egm' - bipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
+'uni-egm' - unipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
+'lat-egm' - local activation time; measured by OpenEP on the egms (NOT IMPLEMENTED)
+'cv' - conduction velocity (NOT IMPLEMENTED)
+interpData - is the interpolated data
 ```
 
 </td></tr></table>
@@ -274,7 +275,6 @@ interpData = generateInterpData(userdata, datatype)
 
 **Usage:**
 ```m
-
 area = getAblationArea( userdata, visitag )
 ```
 
@@ -292,14 +292,13 @@ area = getAblationArea( userdata, visitag )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem.m
- visitag - see importvisitag.m
- ablArea - the total area of the chamber that has been ablated
- isAblated - indexes into userdata.surface.triRep.Triangulation and
- indicates whether a particular triangle is considered
- ablated (1) or not (0).
- trAbl - a Triangulation of the ablated tissue
+userdata - see importcarto_mem.m
+visitag - see importvisitag.m
+ablArea - the total area of the chamber that has been ablated
+isAblated - indexes into userdata.surface.triRep.Triangulation and
+indicates whether a particular triangle is considered
+ablated (1) or not (0).
+trAbl - a Triangulation of the ablated tissue
 ```
 
 </td></tr></table>
@@ -327,7 +326,6 @@ area = getAblationArea( userdata, visitag )
 
 **Usage:**
 ```m
-
 [trAnatStruct] = getAnatomicalStructures( userdata, varargin )
 ```
 
@@ -345,12 +343,11 @@ area = getAblationArea( userdata, visitag )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- FF - see TriRep/freeBoundary, cell array
- l - array of lengths of each free boundary
- a - an array of areas of each free boundary
- tr - cell array of triangulations of each free boundary
+userdata - see importcarto_mem
+FF - see TriRep/freeBoundary, cell array
+l - array of lengths of each free boundary
+a - an array of areas of each free boundary
+tr - cell array of triangulations of each free boundary
 ```
 
 </td></tr></table>
@@ -369,7 +366,6 @@ area = getAblationArea( userdata, visitag )
 
 **Usage:**
 ```m
-
 area = getArea( userdata )
 ```
 
@@ -384,9 +380,8 @@ area = getArea( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- area - the surface area (cm^2)
+userdata - see importcarto_mem
+area - the surface area (cm^2)
 ```
 
 </td></tr></table>
@@ -405,7 +400,6 @@ area = getArea( userdata )
 
 **Usage:**
 ```m
-
 tr = getClosedSurface( userdata )
 ```
 
@@ -419,9 +413,8 @@ tr = getClosedSurface( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- tr - a triRep object
+userdata - see importcarto_mem
+tr - a triRep object
 ```
 
 </td></tr></table>
@@ -443,7 +436,6 @@ tr = getClosedSurface( userdata )
 
 **Usage:**
 ```m
-
 cvdata = getConductionVelocity( userdata )
 ```
 
@@ -457,9 +449,8 @@ cvdata = getConductionVelocity( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- cvdata - the conduction velocities, in m/s
+userdata - see importcarto_mem
+cvdata - the conduction velocities, in m/s
 ```
 
 </td></tr></table>
@@ -481,7 +472,6 @@ cvdata = getConductionVelocity( userdata )
 
 **Usage:**
 ```m
-
 [X] = getEarliestActivationSite( userdata )
 [X, surfX] = getEarliestActivationSite( userdata )
 [X, surfX, iPoint] = getEarliestActivationSite( userdata )
@@ -502,24 +492,23 @@ cvdata = getConductionVelocity( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- X - the earliest activation site, in x,y,z format. For
- map-based methods (i.e. 'clinmap', 'clinmapprct',
- 'openepmap'and 'openepmapprct'), X is identical to
- surfX.
- surfX - the surface projection of the eariest activation site
- iPoint - the closest mapping point to the earliest activation
- site. For point-based methods (i.e. 'ptbased' or 
- 'ptbasedprct'), iPoint indexes into userdata.electric.
- For map-based methods (i.e. 'clinmap', 'clinmapprct',
- 'openepmap', 'openepmapprct'), iPoint indexes into
- userdata.surface.triRep.X. For percentile methods (i.e.
- 'ptbasedprct', 'cinmapprct' or 'openepmapprct') iPoint
- returns all the points that were identified within the
- relevant percentile.
- t - the calculated earliest activation time, relative to the
- reference annotation
+userdata - see importcarto_mem
+X - the earliest activation site, in x,y,z format. For
+map-based methods (i.e. 'clinmap', 'clinmapprct',
+'openepmap'and 'openepmapprct'), X is identical to
+surfX.
+surfX - the surface projection of the eariest activation site
+iPoint - the closest mapping point to the earliest activation
+site. For point-based methods (i.e. 'ptbased' or
+'ptbasedprct'), iPoint indexes into userdata.electric.
+For map-based methods (i.e. 'clinmap', 'clinmapprct',
+'openepmap', 'openepmapprct'), iPoint indexes into
+userdata.surface.triRep.X. For percentile methods (i.e.
+'ptbasedprct', 'cinmapprct' or 'openepmapprct') iPoint
+returns all the points that were identified within the
+relevant percentile.
+t - the calculated earliest activation time, relative to the
+reference annotation
 ```
 
 </td></tr></table>
@@ -563,7 +552,6 @@ cvdata = getConductionVelocity( userdata )
 
 **Usage:**
 ```m
-
 [ hFig ] = plotOpenEPEgms( userdata, varargin )
 [ hFig, hLine ] = plotOpenEPEgms( userdata, varargin )
 ```
@@ -581,11 +569,10 @@ cvdata = getConductionVelocity( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- egmTraces - cell array of the requested electrograms
- acttime - cell array of activation times 
- egmNames - names of the electrograms
+userdata - see importcarto_mem
+egmTraces - cell array of the requested electrograms
+acttime - cell array of activation times
+egmNames - names of the electrograms
 ```
 
 </td></tr></table>
@@ -617,7 +604,6 @@ cvdata = getConductionVelocity( userdata )
 
 **Usage:**
 ```m
-
 faces = getFaces( userdata )
 ```
 
@@ -631,9 +617,8 @@ faces = getFaces( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- faces - all the faces
+userdata - see importcarto_mem
+faces - all the faces
 ```
 
 </td></tr></table>
@@ -651,7 +636,6 @@ faces = getFaces( userdata )
 
 **Usage:**
 ```m
-
 [index] = getIndexFromCartoPointNumber(pointNumber)
 ```
 
@@ -666,12 +650,11 @@ faces = getFaces( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- useredata - a userdata structure
- pointNumber - a point number (or array of point numbers) as displayed
- on the Carto mapping system
- index - an index (or array of indices) for referenceing into the
- data fields within userdata.electric
+useredata - a userdata structure
+pointNumber - a point number (or array of point numbers) as displayed
+on the Carto mapping system
+index - an index (or array of indices) for referenceing into the
+data fields within userdata.electric
 ```
 
 </td></tr></table>
@@ -689,7 +672,6 @@ faces = getFaces( userdata )
 
 **Usage:**
 ```m
-
 [X] = getLatestActivationSite( userdata )
 [X, surfX] = getLatestActivationSite( userdata )
 [X, surfX, iPoint] = getLatestActivationSite( userdata )
@@ -710,24 +692,23 @@ faces = getFaces( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- X - the latest activation site, in x,y,z format. For
- map-based methods (i.e. 'clinmap', 'clinmapprct',
- 'openepmap'and 'openepmapprct'), X is identical to
- surfX.
- surfX - the surface projection of the latest activation site
- iPoint - the closest mapping point to the latest activation
- site. For point-based methods (i.e. 'ptbased' or 
- 'ptbasedprct'), iPoint indexes into userdata.electric.
- For map-based methods (i.e. 'clinmap', 'clinmapprct',
- 'openepmap', 'openepmapprct'), iPoint indexes into
- userdata.surface.triRep.X. For percentile methods (i.e.
- 'ptbasedprct', 'cinmapprct' or 'openepmapprct') iPoint
- returns all the points that were identified within the
- relevant percentile.
- t - the calculated latest activation time, relative to the
- reference annotation
+userdata - see importcarto_mem
+X - the latest activation site, in x,y,z format. For
+map-based methods (i.e. 'clinmap', 'clinmapprct',
+'openepmap'and 'openepmapprct'), X is identical to
+surfX.
+surfX - the surface projection of the latest activation site
+iPoint - the closest mapping point to the latest activation
+site. For point-based methods (i.e. 'ptbased' or
+'ptbasedprct'), iPoint indexes into userdata.electric.
+For map-based methods (i.e. 'clinmap', 'clinmapprct',
+'openepmap', 'openepmapprct'), iPoint indexes into
+userdata.surface.triRep.X. For percentile methods (i.e.
+'ptbasedprct', 'cinmapprct' or 'openepmapprct') iPoint
+returns all the points that were identified within the
+relevant percentile.
+t - the calculated latest activation time, relative to the
+reference annotation
 ```
 
 </td></tr></table>
@@ -771,7 +752,6 @@ faces = getFaces( userdata )
 
 **Usage:**
 ```m
-
 lowVoltageArea = getLowVoltageArea( userdata, varargin )
 ```
 
@@ -789,14 +769,13 @@ lowVoltageArea = getLowVoltageArea( userdata, varargin )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- lowVoltageArea - the low voltage area (cm^2)
- voltages - the voltages point values used to calculate areas
- iTri - indexes into userdata.surface.triRep.Triangulation and refers
- to the triangles that have voltage values within the range,
- threshld
- tr2 - a triangulation of all the triangles referenced in iTri.
+userdata - see importcarto_mem
+lowVoltageArea - the low voltage area (cm^2)
+voltages - the voltages point values used to calculate areas
+iTri - indexes into userdata.surface.triRep.Triangulation and refers
+to the triangles that have voltage values within the range,
+threshld
+tr2 - a triangulation of all the triangles referenced in iTri.
 ```
 
 </td></tr></table>
@@ -819,7 +798,6 @@ lowVoltageArea = getLowVoltageArea( userdata, varargin )
 
 **Usage:**
 ```m
-
 iPoint = getMappingPointsWithinWoI( userdata )
 ```
 
@@ -833,9 +811,8 @@ iPoint = getMappingPointsWithinWoI( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- iPoint - the list of valid points; indexes into userdata.electric
+userdata - see importcarto_mem
+iPoint - the list of valid points; indexes into userdata.electric
 ```
 
 </td></tr></table>
@@ -853,7 +830,6 @@ iPoint = getMappingPointsWithinWoI( userdata )
 
 **Usage:**
 ```m
-
 meanVoltage = getMeanVoltage( userdata, varargin )
 ```
 
@@ -868,9 +844,8 @@ meanVoltage = getMeanVoltage( userdata, varargin )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- meanVoltage - the mean chamber voltage (mV)
+userdata - see importcarto_mem
+meanVoltage - the mean chamber voltage (mV)
 ```
 
 </td></tr></table>
@@ -890,7 +865,6 @@ meanVoltage = getMeanVoltage( userdata, varargin )
 
 **Usage:**
 ```m
-
 tr = getMesh(userdata)
 ```
 
@@ -905,8 +879,7 @@ tr = getMesh(userdata)
 </td><td markdown="1">
 **Where:**
 ```m
-
- tr - a TriRep object
+tr - a TriRep object
 ```
 
 </td></tr></table>
@@ -927,7 +900,6 @@ tr = getMesh(userdata)
 
 **Usage:**
 ```m
-
 numpts = getNumPts( userdata )
 ```
 
@@ -941,9 +913,8 @@ numpts = getNumPts( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- numpts - the number of mapping points
+userdata - see importcarto_mem
+numpts - the number of mapping points
 ```
 
 </td></tr></table>
@@ -962,7 +933,6 @@ numpts = getNumPts( userdata )
 
 **Usage:**
 ```m
-
 h = myfunction(b)
 ```
 
@@ -977,9 +947,8 @@ h = myfunction(b)
 </td><td markdown="1">
 **Where:**
 ```m
-
- a - is the output
- imp - impedance values at times tim
+a - is the output
+imp - impedance values at times tim
 ```
 
 </td></tr></table>
@@ -1000,7 +969,6 @@ h = myfunction(b)
 
 **Usage:**
 ```m
-
 data = getMappingData( userdata, datatype )
 ```
 
@@ -1015,10 +983,9 @@ data = getMappingData( userdata, datatype )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- datatype - the required data. Must be one of:
- 'act', 'bip'
+userdata - see importcarto_mem
+datatype - the required data. Must be one of:
+'act', 'bip'
 ```
 
 </td></tr></table>
@@ -1036,7 +1003,6 @@ data = getMappingData( userdata, datatype )
 
 **Usage:**
 ```m
-
 tat = getTotalActivationTime( userdata )
 ```
 
@@ -1051,9 +1017,8 @@ tat = getTotalActivationTime( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- tat - the total activation time, in ms
+userdata - see importcarto_mem
+tat - the total activation time, in ms
 ```
 
 </td></tr></table>
@@ -1103,7 +1068,6 @@ tat = getTotalActivationTime( userdata )
 
 **Usage:**
 ```m
-
 [vertices, vertsref] = getVertices( userdata )
 ```
 
@@ -1118,10 +1082,9 @@ tat = getTotalActivationTime( userdata )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- vertices - all the vertices
- isVertUsed - whether the vertex is referenced by the triangulation
+userdata - see importcarto_mem
+vertices - all the vertices
+isVertUsed - whether the vertex is referenced by the triangulation
 ```
 
 </td></tr></table>
@@ -1139,7 +1102,6 @@ tat = getTotalActivationTime( userdata )
 
 **Usage:**
 ```m
-
 volume = getVolume(usredata)
 ```
 
@@ -1153,9 +1115,8 @@ volume = getVolume(usredata)
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- volume - the volume, in cm^3
+userdata - see importcarto_mem
+volume - the volume, in cm^3
 ```
 
 </td></tr></table>
@@ -1175,7 +1136,6 @@ volume = getVolume(usredata)
 
 **Usage:**
 ```m
-
 [ electrogramname_bip, electrogramname_uni ] = getelectrogramname( point_xyz, pointFileName )
 ```
 
@@ -1192,16 +1152,15 @@ volume = getVolume(usredata)
 </td><td markdown="1">
 **Where:**
 ```m
-
- point_xyz - 
- pointFileName - 
- electrogramname_bip - the electrode name for the bipolar electrogram at point_xyz
- electrogramname_uni - cell array of the electrode names for the
- unipolar electrogram at point_xyz and it's associated second electrode
- that makes up electrogramname_bip
- point_xyz_2 - the electrode position corresponding to the second electrode
- that makes up the bipole at point_xyz (needed for locating unipolar
- electrograms)
+point_xyz -
+pointFileName -
+electrogramname_bip - the electrode name for the bipolar electrogram at point_xyz
+electrogramname_uni - cell array of the electrode names for the
+unipolar electrogram at point_xyz and it's associated second electrode
+that makes up electrogramname_bip
+point_xyz_2 - the electrode position corresponding to the second electrode
+that makes up the bipole at point_xyz (needed for locating unipolar
+electrograms)
 ```
 
 </td></tr></table>
@@ -1219,7 +1178,6 @@ volume = getVolume(usredata)
 
 **Usage:**
 ```m
-
 [ electrogramname_bip, electrogramname_uni ] = getelectrogramname( point_xyz, pointFileName )
 ```
 
@@ -1236,16 +1194,15 @@ volume = getVolume(usredata)
 </td><td markdown="1">
 **Where:**
 ```m
-
- point_xyz - 
- pointFileName - 
- electrogramname_bip - the electrode name for the bipolar electrogram at point_xyz
- electrogramname_uni - cell array of the electrode names for the
- unipolar electrogram at point_xyz and it's associated second electrode
- that makes up electrogramname_bip
- point_xyz_2 - the electrode position corresponding to the second electrode
- that makes up the bipole at point_xyz (needed for locating unipolar
- electrograms)
+point_xyz -
+pointFileName -
+electrogramname_bip - the electrode name for the bipolar electrogram at point_xyz
+electrogramname_uni - cell array of the electrode names for the
+unipolar electrogram at point_xyz and it's associated second electrode
+that makes up electrogramname_bip
+point_xyz_2 - the electrode position corresponding to the second electrode
+that makes up the bipole at point_xyz (needed for locating unipolar
+electrograms)
 ```
 
 </td></tr></table>
@@ -1262,7 +1219,6 @@ volume = getVolume(usredata)
 
 **Usage:**
 ```m
-
 userdata = importcarto_mem(userinput)
 userdata = importcarto_mem()
 [userdata, matFileFullPath] = ...
@@ -1279,10 +1235,9 @@ userdata = importcarto_mem()
 </td><td markdown="1">
 **Where:**
 ```m
-
- dirName is the directory with all of the files corresponding to a map
- userdata is a single data structure
- matFileFullPath is the path to the .mat file, if opened or saved
+dirName is the directory with all of the files corresponding to a map
+userdata is a single data structure
+matFileFullPath is the path to the .mat file, if opened or saved
 ```
 
 </td></tr></table>
@@ -1306,7 +1261,6 @@ userdata = importcarto_mem()
 
 **Usage:**
 ```m
-
 userdata = importcarto_mem(userinput)
 userdata = importcarto_mem()
 [userdata, matFileFullPath] = ...
@@ -1323,10 +1277,9 @@ userdata = importcarto_mem()
 </td><td markdown="1">
 **Where:**
 ```m
-
- dirName is the directory with all of the files corresponding to a map
- userdata is a single data structure
- matFileFullPath is the path to the .mat file, if opened or saved
+dirName is the directory with all of the files corresponding to a map
+userdata is a single data structure
+matFileFullPath is the path to the .mat file, if opened or saved
 ```
 
 </td></tr></table>
@@ -1463,7 +1416,6 @@ end
 
 **Usage:**
 ```m
-
 tr = openEP2VTK('openfile')
 ```
 
@@ -1478,9 +1430,8 @@ tr = openEP2VTK('openfile')
 </td><td markdown="1">
 **Where:**
 ```m
-
- tr - a TriRep object
- path2VTKfile - the path to the file that was written
+tr - a TriRep object
+path2VTKfile - the path to the file that was written
 ```
 
 </td></tr></table>
@@ -1510,7 +1461,6 @@ tr = openEP2VTK('openfile')
 
 **Usage:**
 ```m
-
 plotAblationArea( userdata, visitag )
 ```
 
@@ -1522,9 +1472,8 @@ plotAblationArea( userdata, visitag )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem.m
- visitag - see importvisitag.m
+userdata - see importcarto_mem.m
+visitag - see importvisitag.m
 ```
 
 </td></tr></table>
@@ -1543,7 +1492,6 @@ plotAblationArea( userdata, visitag )
 
 **Usage:**
 ```m
-
 hFig = PLOTELECTROGRAMS(egmTraces)
 hFig = PLOTELECTROGRAMS(egmTraces, varargin)
 
@@ -1785,7 +1733,6 @@ end
 
 **Usage:**
 ```m
-
 [ hFig ] = plotOpenEPEgms( userdata, varargin )
 [ hFig, hLine ] = plotOpenEPEgms( userdata, varargin )
 ```
@@ -1801,9 +1748,8 @@ end
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- hFig - a handle to the plotted figure
+userdata - see importcarto_mem
+hFig - a handle to the plotted figure
 ```
 
 </td></tr></table>
@@ -1843,7 +1789,6 @@ end
 
 **Usage:**
 ```m
-
 area = plotTag( userdata, varargin )
 ```
 
@@ -1858,9 +1803,8 @@ area = plotTag( userdata, varargin )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- h(i) - is an array of handles referencing the plotted surfaces
+userdata - see importcarto_mem
+h(i) - is an array of handles referencing the plotted surfaces
 ```
 
 </td></tr></table>
@@ -1887,7 +1831,6 @@ area = plotTag( userdata, varargin )
 
 **Usage:**
 ```m
-
 [ vol ] = plotVisitags( userdata, visitag )
 ```
 
@@ -1900,9 +1843,8 @@ area = plotTag( userdata, varargin )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem.m
- visitag - see importvisitag.m
+userdata - see importcarto_mem.m
+visitag - see importvisitag.m
 ```
 
 </td></tr></table>
@@ -1930,7 +1872,6 @@ area = plotTag( userdata, varargin )
 
 **Usage:**
 ```m
-
 [inoutpts, meshrefpts] = pointStatus( userdata )
 ```
 
@@ -1946,13 +1887,12 @@ area = plotTag( userdata, varargin )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
- inoutpts - whether points are internal (logical(1)) or external
- (logical(0)) to the triangulation in userdata
- meshpts - whether points in the triRep field of userdata are
- referenced in the triangulation (logical(1)) or not
- (logical(0))
+userdata - see importcarto_mem
+inoutpts - whether points are internal (logical(1)) or external
+(logical(0)) to the triangulation in userdata
+meshpts - whether points in the triRep field of userdata are
+referenced in the triangulation (logical(1)) or not
+(logical(0))
 ```
 
 </td></tr></table>
@@ -1973,7 +1913,6 @@ area = plotTag( userdata, varargin )
 
 **Usage:**
 ```m
-
 [tr f] = processSmartTouchForceData(userdata)
 ```
 
@@ -1988,10 +1927,9 @@ area = plotTag( userdata, varargin )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - is a Carto dataset
- f - are the 1000ms window forces
- loc - are the coordinates of the data in f (size: length(f) Gemfile Gemfile.lock README.md THEME-LICENSE.md _config.yml _gen _includes _layouts _plugins _sass _site api.md assets documentation.md examples.md images index.md js roadmap.md 3) 
+userdata - is a Carto dataset
+f - are the 1000ms window forces
+loc - are the coordinates of the data in f (size: length(f) Gemfile Gemfile.lock README.md THEME-LICENSE.md _config.yml _gen _includes _layouts _plugins _sass _site api.md assets documentation.md examples.md images index.md js roadmap.md 3)
 ```
 
 </td></tr></table>
@@ -2009,7 +1947,6 @@ area = plotTag( userdata, varargin )
 
 **Usage:**
 ```m
-
 channelNames = read_ecgfile(filename);
 [channelNames channelVoltages] = read_ecgfile(filename)
 channelVoltages = read_ecgfile(filename, names)
@@ -2025,10 +1962,9 @@ channelVoltages = read_ecgfile(filename, names)
 </td><td markdown="1">
 **Where:**
 ```m
-
- channelVoltages channelNames are voltages and names
- filename is the Carto3 .txt file
- names is optional and is the desired channel names - this helps speed
+channelVoltages channelNames are voltages and names
+filename is the Carto3 .txt file
+names is optional and is the desired channel names - this helps speed
 ```
 
 </td></tr></table>
@@ -2045,7 +1981,6 @@ channelVoltages = read_ecgfile(filename, names)
 
 **Usage:**
 ```m
-
 [electrodename_bip] = read_ecgfile_v4_header(varargin)
 [electrodename_bip electrodename_uni] = read_ecgfile_v4_header(varargin)
 [electrodename_bip electrodename_uni electrodename_ref] = read_ecgfile_v4_header(varargin)
@@ -2061,10 +1996,9 @@ channelVoltages = read_ecgfile(filename, names)
 </td><td markdown="1">
 **Where:**
 ```m
-
- electrodename_bip is the name of the electrode pair collecting the bipolar mapping point
- electrodename_uni is the name of the electrode collecting the unipolar mapping point
- electrodename_ref is the name of the reference electrode for the mapping point
+electrodename_bip is the name of the electrode pair collecting the bipolar mapping point
+electrodename_uni is the name of the electrode collecting the unipolar mapping point
+electrodename_ref is the name of the reference electrode for the mapping point
 ```
 
 </td></tr></table>
@@ -2087,7 +2021,6 @@ end
 
 **Usage:**
 ```m
-
 force = read_forcefile(filename);
 [force axialAngle lateralAngle] = read_forcefile(filename)
 [force axialAngle lateralAngle t_time t_force t_axialAngle t_lateralAngle] = read_forcefile(filename)
@@ -2103,14 +2036,13 @@ force = read_forcefile(filename);
 </td><td markdown="1">
 **Where:**
 ```m
-
- force - is the fixed time point force for this point
- axialAngle - is the fixed time point axial angle for this point
- lateralAngle - is the fixed time point lateral angle for this point
- t_time - is the time array (e.g. -7000ms->5000ms) for the time data
- t_force - is the time course of force
- t_axialAngle - is the time course of the axial angle
- t_lateralAngle - is the time course of the lateral angle
+force - is the fixed time point force for this point
+axialAngle - is the fixed time point axial angle for this point
+lateralAngle - is the fixed time point lateral angle for this point
+t_time - is the time array (e.g. -7000ms->5000ms) for the time data
+t_force - is the time course of force
+t_axialAngle - is the time course of the axial angle
+t_lateralAngle - is the time course of the lateral angle
 ```
 
 </td></tr></table>
@@ -2127,7 +2059,6 @@ force = read_forcefile(filename);
 
 **Usage:**
 ```m
-
 t = read_meshfile(filename)
 [t isVertexAtEdge] = read_meshfile(filename)
 [t isVertexAtEdge act_bip normals] = read_meshfile(filename)
@@ -2143,11 +2074,10 @@ t = read_meshfile(filename)
 </td><td markdown="1">
 **Where:**
 ```m
-
- filename is the filename
- t is a TriRep object
- isVertexAtEdge is a logical array indicating vertices at an edge
- act_bip is a matrix of activation times and bipolar voltage by vertex
+filename is the filename
+t is a TriRep object
+isVertexAtEdge is a logical array indicating vertices at an edge
+act_bip is a matrix of activation times and bipolar voltage by vertex
 ```
 
 </td></tr></table>
@@ -2165,7 +2095,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 [iElectrode xyz] = read_positions_on_annotation_v2(filename)
 ```
 
@@ -2179,9 +2108,8 @@ t = read_meshfile(filename)
 </td><td markdown="1">
 **Where:**
 ```m
-
- iElectrode is a vector of electrode numbers
- xyz is an array of xyz positions
+iElectrode is a vector of electrode numbers
+xyz is an array of xyz positions
 ```
 
 </td></tr></table>
@@ -2200,7 +2128,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 [ data, header ] = read_visitag_file_v1( filepath )
 ```
 
@@ -2215,10 +2142,9 @@ t = read_meshfile(filename)
 </td><td markdown="1">
 **Where:**
 ```m
-
- filepath - path to the file to be read
- data - the the file data
- header - the file header
+filepath - path to the file to be read
+data - the the file data
+header - the file header
 ```
 
 </td></tr></table>
@@ -2238,7 +2164,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 [sites] = read_visitag_sites(filename)
 ```
 
@@ -2253,10 +2178,9 @@ t = read_meshfile(filename)
 </td><td markdown="1">
 **Where:**
 ```m
-
- data is a matrix of all the data from the file
- labels is a cell array of the header lines from the file
- filename is the full file path
+data is a matrix of all the data from the file
+labels is a cell array of the header lines from the file
+filename is the full file path
 ```
 
 </td></tr></table>
@@ -2273,7 +2197,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 [visitagSettings] = read_visitagsettings(filename)
 ```
 
@@ -2287,9 +2210,8 @@ t = read_meshfile(filename)
 </td><td markdown="1">
 **Where:**
 ```m
-
- visitagSettings is a structure of the visitag settings
- filename is the full file path
+visitagSettings is a structure of the visitag settings
+filename is the full file path
 ```
 
 </td></tr></table>
@@ -2311,7 +2233,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 areas = plotVoltageHistogram( userdata, varargin )
 ```
 
@@ -2326,8 +2247,7 @@ areas = plotVoltageHistogram( userdata, varargin )
 </td><td markdown="1">
 **Where:**
 ```m
-
- userdata - see importcarto_mem
+userdata - see importcarto_mem
 ```
 
 </td></tr></table>

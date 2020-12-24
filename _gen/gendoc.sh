@@ -5,8 +5,9 @@ if [[ $# != 1 ]]; then
   exit 1
 fi
 
-function trim {
-  trimmed=`echo $1 | sed -e 's/^[[:space:]]*//' | sed -e 's/[[:space:]]*$//'`
+function trim() {
+    local trimmed=`echo $1 | sed -e 's/^[[:space:]]*//' | sed -e 's/[[:space:]]*$//' | sed '/./,$!d'`
+    echo -n "$trimmed"  # Output trimmed string.
 }
 
 dir=$1
@@ -20,12 +21,25 @@ layout: page
 ---
 
 <style>
-.post-content li p {
+.post-content p {
   margin: 0;
 }
 
-.post-content > p {
-  font-size: 85%;
+.post-content {
+  font-size: 90%;
+}
+
+pre.highlight {
+  padding: 5pt;
+  font-size: 90%;
+}
+
+td>p {
+  margin: 0;
+}
+
+td {
+  padding: 0;//
 }
 </style>
 
@@ -73,8 +87,7 @@ for path in "$dir"/*.m; do
   
   printf "%s\n\n" "$info" >> "$apiFile"
   printf "**Usage:**\n" >> "$apiFile"
-  trim $usage
-  printf "\`\`\`m\n%s\n\`\`\`\n\n" "$trimmed" >> "$apiFile"
+  printf "\`\`\`m\n%s\n\`\`\`\n\n" "$(trim $usage)" >> "$apiFile"
 
 
   printf "<table><tr><td markdown=\"1\">\n" >> "$apiFile"
@@ -83,15 +96,13 @@ for path in "$dir"/*.m; do
   if [[ ! -z $in ]]; then
   printf '* in\n' >> "$apiFile"
   for var in $in; do
-    trim $var
-    printf '  * %s\n' "$trimmed" >> "$apiFile"
+    printf '  * %s\n' "$(trim $var)" >> "$apiFile"
   done
   fi
   if [[ ! -z $out ]]; then
   printf '\n* out\n' >> "$apiFile"
   for var in $out; do
-	  trim $var
-    printf '  * %s\n' "$trimmed" >> "$apiFile"
+    printf '  * %s\n' "$(trim $var)" >> "$apiFile"
   done
   fi
   unset IFS
@@ -102,9 +113,11 @@ for path in "$dir"/*.m; do
   content=`echo "$content" | sed $'s/<br\/>/\\\\\n/g'`
 
   printf "</td><td markdown=\"1\">\n" >> "$apiFile"
-
+  
+  IFS=""
   printf "**Where:**\n" >> "$apiFile"
-  printf "\`\`\`m\n%s\n\`\`\`\n\n" "$info" >> "$apiFile"
+  printf "\`\`\`m\n%s\n\`\`\`\n\n" "$(trim $info)" >> "$apiFile"
+  unset IFS
 
   printf "</td></tr></table>\n" >> "$apiFile"
 
