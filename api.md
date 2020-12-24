@@ -6,12 +6,25 @@ layout: page
 ---
 
 <style>
-.post-content li p {
+.post-content p, {
   margin: 0;
 }
 
 .post-content > p {
   font-size: 85%;
+}
+
+pre.highlight {
+  padding: 5pt;
+  font-size: 80%;
+}
+
+td>p {
+  margin: 0;
+}
+
+td {
+  padding: 0;//
 }
 </style>
 
@@ -27,7 +40,6 @@ layout: page
 
 **Usage:**
 ```m
-
 tr = cartoMesh2VTK('openfile')
 ```
 
@@ -59,7 +71,6 @@ tr = cartoMesh2VTK('openfile')
 
 **Usage:**
 ```m
-
 cvHistogram( userdata )
 ```
 
@@ -94,7 +105,6 @@ cvHistogram( userdata )
 
 **Usage:**
 ```m
-
 hSurf = drawMap(userdata)
 hSurf = drawMap(userdata, varargin);
 ```
@@ -149,7 +159,6 @@ hSurf = drawMap(userdata, varargin);
 
 **Usage:**
 ```m
-
 userdata2 = editUserdata(userdata)
 ```
 
@@ -190,7 +199,6 @@ userdata2 = editUserdata(userdata)
 
 **Usage:**
 ```m
-
 userdata = fixVoltageAnnotations(userdata)
 ```
 
@@ -224,7 +232,6 @@ userdata = fixVoltageAnnotations(userdata)
 
 **Usage:**
 ```m
-
 interpData = generateInterpData(userdata, datatype)
 ```
 
@@ -274,7 +281,6 @@ interpData = generateInterpData(userdata, datatype)
 
 **Usage:**
 ```m
-
 area = getAblationArea( userdata, visitag )
 ```
 
@@ -327,7 +333,6 @@ area = getAblationArea( userdata, visitag )
 
 **Usage:**
 ```m
-
 [trAnatStruct] = getAnatomicalStructures( userdata, varargin )
 ```
 
@@ -369,7 +374,6 @@ area = getAblationArea( userdata, visitag )
 
 **Usage:**
 ```m
-
 area = getArea( userdata )
 ```
 
@@ -405,7 +409,6 @@ area = getArea( userdata )
 
 **Usage:**
 ```m
-
 tr = getClosedSurface( userdata )
 ```
 
@@ -443,7 +446,6 @@ tr = getClosedSurface( userdata )
 
 **Usage:**
 ```m
-
 cvdata = getConductionVelocity( userdata )
 ```
 
@@ -481,7 +483,6 @@ cvdata = getConductionVelocity( userdata )
 
 **Usage:**
 ```m
-
 [X] = getEarliestActivationSite( userdata )
 [X, surfX] = getEarliestActivationSite( userdata )
 [X, surfX, iPoint] = getEarliestActivationSite( userdata )
@@ -563,7 +564,6 @@ cvdata = getConductionVelocity( userdata )
 
 **Usage:**
 ```m
-
 [ hFig ] = plotOpenEPEgms( userdata, varargin )
 [ hFig, hLine ] = plotOpenEPEgms( userdata, varargin )
 ```
@@ -617,7 +617,6 @@ cvdata = getConductionVelocity( userdata )
 
 **Usage:**
 ```m
-
 faces = getFaces( userdata )
 ```
 
@@ -651,7 +650,6 @@ faces = getFaces( userdata )
 
 **Usage:**
 ```m
-
 [index] = getIndexFromCartoPointNumber(pointNumber)
 ```
 
@@ -689,7 +687,6 @@ faces = getFaces( userdata )
 
 **Usage:**
 ```m
-
 [X] = getLatestActivationSite( userdata )
 [X, surfX] = getLatestActivationSite( userdata )
 [X, surfX, iPoint] = getLatestActivationSite( userdata )
@@ -771,7 +768,6 @@ faces = getFaces( userdata )
 
 **Usage:**
 ```m
-
 lowVoltageArea = getLowVoltageArea( userdata, varargin )
 ```
 
@@ -819,7 +815,6 @@ lowVoltageArea = getLowVoltageArea( userdata, varargin )
 
 **Usage:**
 ```m
-
 iPoint = getMappingPointsWithinWoI( userdata )
 ```
 
@@ -853,7 +848,6 @@ iPoint = getMappingPointsWithinWoI( userdata )
 
 **Usage:**
 ```m
-
 meanVoltage = getMeanVoltage( userdata, varargin )
 ```
 
@@ -890,7 +884,6 @@ meanVoltage = getMeanVoltage( userdata, varargin )
 
 **Usage:**
 ```m
-
 tr = getMesh(userdata)
 ```
 
@@ -927,7 +920,6 @@ tr = getMesh(userdata)
 
 **Usage:**
 ```m
-
 numpts = getNumPts( userdata )
 ```
 
@@ -962,7 +954,6 @@ numpts = getNumPts( userdata )
 
 **Usage:**
 ```m
-
 h = myfunction(b)
 ```
 
@@ -1000,7 +991,6 @@ h = myfunction(b)
 
 **Usage:**
 ```m
-
 data = getMappingData( userdata, datatype )
 ```
 
@@ -1036,7 +1026,6 @@ data = getMappingData( userdata, datatype )
 
 **Usage:**
 ```m
-
 tat = getTotalActivationTime( userdata )
 ```
 
@@ -1103,7 +1092,6 @@ tat = getTotalActivationTime( userdata )
 
 **Usage:**
 ```m
-
 [vertices, vertsref] = getVertices( userdata )
 ```
 
@@ -1139,7 +1127,6 @@ tat = getTotalActivationTime( userdata )
 
 **Usage:**
 ```m
-
 volume = getVolume(usredata)
 ```
 
@@ -1175,7 +1162,6 @@ volume = getVolume(usredata)
 
 **Usage:**
 ```m
-
 [ electrogramname_bip, electrogramname_uni ] = getelectrogramname( point_xyz, pointFileName )
 ```
 
@@ -1219,7 +1205,6 @@ volume = getVolume(usredata)
 
 **Usage:**
 ```m
-
 [ electrogramname_bip, electrogramname_uni ] = getelectrogramname( point_xyz, pointFileName )
 ```
 
@@ -1262,7 +1247,6 @@ volume = getVolume(usredata)
 
 **Usage:**
 ```m
-
 userdata = importcarto_mem(userinput)
 userdata = importcarto_mem()
 [userdata, matFileFullPath] = ...
@@ -1306,7 +1290,6 @@ userdata = importcarto_mem()
 
 **Usage:**
 ```m
-
 userdata = importcarto_mem(userinput)
 userdata = importcarto_mem()
 [userdata, matFileFullPath] = ...
@@ -1463,7 +1446,6 @@ end
 
 **Usage:**
 ```m
-
 tr = openEP2VTK('openfile')
 ```
 
@@ -1510,7 +1492,6 @@ tr = openEP2VTK('openfile')
 
 **Usage:**
 ```m
-
 plotAblationArea( userdata, visitag )
 ```
 
@@ -1543,7 +1524,6 @@ plotAblationArea( userdata, visitag )
 
 **Usage:**
 ```m
-
 hFig = PLOTELECTROGRAMS(egmTraces)
 hFig = PLOTELECTROGRAMS(egmTraces, varargin)
 
@@ -1785,7 +1765,6 @@ end
 
 **Usage:**
 ```m
-
 [ hFig ] = plotOpenEPEgms( userdata, varargin )
 [ hFig, hLine ] = plotOpenEPEgms( userdata, varargin )
 ```
@@ -1843,7 +1822,6 @@ end
 
 **Usage:**
 ```m
-
 area = plotTag( userdata, varargin )
 ```
 
@@ -1887,7 +1865,6 @@ area = plotTag( userdata, varargin )
 
 **Usage:**
 ```m
-
 [ vol ] = plotVisitags( userdata, visitag )
 ```
 
@@ -1930,7 +1907,6 @@ area = plotTag( userdata, varargin )
 
 **Usage:**
 ```m
-
 [inoutpts, meshrefpts] = pointStatus( userdata )
 ```
 
@@ -1973,7 +1949,6 @@ area = plotTag( userdata, varargin )
 
 **Usage:**
 ```m
-
 [tr f] = processSmartTouchForceData(userdata)
 ```
 
@@ -2009,7 +1984,6 @@ area = plotTag( userdata, varargin )
 
 **Usage:**
 ```m
-
 channelNames = read_ecgfile(filename);
 [channelNames channelVoltages] = read_ecgfile(filename)
 channelVoltages = read_ecgfile(filename, names)
@@ -2045,7 +2019,6 @@ channelVoltages = read_ecgfile(filename, names)
 
 **Usage:**
 ```m
-
 [electrodename_bip] = read_ecgfile_v4_header(varargin)
 [electrodename_bip electrodename_uni] = read_ecgfile_v4_header(varargin)
 [electrodename_bip electrodename_uni electrodename_ref] = read_ecgfile_v4_header(varargin)
@@ -2087,7 +2060,6 @@ end
 
 **Usage:**
 ```m
-
 force = read_forcefile(filename);
 [force axialAngle lateralAngle] = read_forcefile(filename)
 [force axialAngle lateralAngle t_time t_force t_axialAngle t_lateralAngle] = read_forcefile(filename)
@@ -2127,7 +2099,6 @@ force = read_forcefile(filename);
 
 **Usage:**
 ```m
-
 t = read_meshfile(filename)
 [t isVertexAtEdge] = read_meshfile(filename)
 [t isVertexAtEdge act_bip normals] = read_meshfile(filename)
@@ -2165,7 +2136,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 [iElectrode xyz] = read_positions_on_annotation_v2(filename)
 ```
 
@@ -2200,7 +2170,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 [ data, header ] = read_visitag_file_v1( filepath )
 ```
 
@@ -2238,7 +2207,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 [sites] = read_visitag_sites(filename)
 ```
 
@@ -2273,7 +2241,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 [visitagSettings] = read_visitagsettings(filename)
 ```
 
@@ -2311,7 +2278,6 @@ t = read_meshfile(filename)
 
 **Usage:**
 ```m
-
 areas = plotVoltageHistogram( userdata, varargin )
 ```
 
