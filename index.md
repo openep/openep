@@ -3,12 +3,12 @@ title: Home
 sections:
   - section_id: hero
     type: section_hero
-    image: images/hero.png
+    image: images/home.png
     image_alt: App preview
-    title: The open source solution for electrophysiology data
+    title: The open source solution for electrophysiology data analysis
     content: >-
-      A free and feature-full implementation of data analaysis and
-        plotting for electrophysiology research. 
+      A free and feature-full implementation of data parsing and
+        analysis tools for electrophysiology research.
     actions:
       - label: Learn More
         url: /documentation
@@ -18,31 +18,33 @@ sections:
     background: gray
     title: Features
     subtitle: >-
-      Highlighting important aspects of this project.
+      OpenEP is a cross-platform electroanatomic mapping data format and analysis platform for electrophysiology research.
     features:
-      - title: Feature 1
+      - title: Data Parsing
         image: images/feature1.png
-        image_alt: Image for feature 1
+        image_alt: Data parsing modules
         content: >-
-          The most important feature to highlight - with an iamge to illustrate.
+          OpenEP Data Parsing Modules allow proprietary data formats from major electroanatomic mapping platforms to be converted into the OpenEP data format.
+          Batch processing, command line-only and graphical interfaces are provided for importing data.
         actions:
           - label: Learn More
             url: /examples
-      - title: Feature 2
+      - title: Data Analysis
         image: images/feature2.png
-        image_alt: Another great feature preview
+        image_alt: Data analysis modules
         content: >-
-          Another great feature.
+          OpenEP Data Analysis Modules are available that cover 90%* of the analysis techniques in use in contemporary electrophysiology research.
+          OpenEP is under active development with additional functionality being continually added during the course of the developers' research.
         actions:
           - label: Learn More
             url: /documentation
   - section_id: call-to-action
     type: section_cta
     title: Get started now!
-    subtitle: Apply the analysis to your data quickly and easily by following our documentation.
+    subtitle: Download the OpenEP platform from Github and streamline your electrophysiology data analysis now!
     actions:
-      - label: Get Started
-        url: /documentation
+      - label: Github
+        url: https://github.com/openep
         primary: true
   - section_id: reviews
     type: section_reviews
@@ -50,7 +52,7 @@ sections:
     title: Testimonials
     subtitle: >-
       Aliquam malesuada ligula eget est fringilla blandit. Integer finibus
-      semper libero id sodales. 
+      semper libero id sodales.
     reviews:
       - author: John Doe
         avatar: images/review1.jpg
