@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $# != 1 ]]; then
-  echo "Usage _gen/gen.sh <carto dir>"
+  echo "Usage _gen/gen.sh <openep dir>"
   exit 1
 fi
 
@@ -58,7 +58,7 @@ td {
 
 ' > "$apiFile"
 
-for path in "$dir"/*.m; do 
+for path in "$dir"/*.m; do
   file=$(basename "$path")
   name=`echo "$file" | cut -d'.' -f1`
 
@@ -87,7 +87,7 @@ for path in "$dir"/*.m; do
     lines=$lines${line#"%"}"<br/>"
   done
   unset IFS
-  
+
   printf "\n## %s\n\n" "$name" >> "$apiFile"
   IFS=""
   info="$(echo $lines | awk -F'Usage:' '{print $1}')"
@@ -97,7 +97,7 @@ for path in "$dir"/*.m; do
   usage="$(echo $content | awk -F'Where:' '{print $1}')"
   usage=`echo "$usage" | sed $'s/<br\/>/\\\\\n/g'`
   c2="$(echo $content | awk -F'Where:' '{print $2}')"
-  
+
   printf "%s\n\n" "$info" >> "$apiFile"
   printf "#### Usage\n" >> "$apiFile"
   printf "\`\`\`m\n%s\n\`\`\`\n\n" "$(trim $usage)" >> "$apiFile"
@@ -108,33 +108,33 @@ for path in "$dir"/*.m; do
   content=`echo "$content" | sed $'s/<br\/>/\\\\\n/g'`
 
   printf "#### Parameters\n" >> "$apiFile"
-  
+
 #  info=$(trim $info)
   IFS=$'\n'
   delimiter=" - "
- 
+
   for line in $info; do
 
 
-	  s=$line$delimiter  
-	  parts=();  
-	  while [[ $s ]];  
-	  do  
-	  parts+=( "${s%%"$delimiter"*}" );  
-	  s=${s#*"$delimiter"};  
-	  done;  
+	  s=$line$delimiter
+	  parts=();
+	  while [[ $s ]];
+	  do
+	  parts+=( "${s%%"$delimiter"*}" );
+	  s=${s#*"$delimiter"};
+	  done;
 
 	  if [[ -z "${parts[1]}" ]]; then # not a parameter line
 		  printf '%s\n' ${parts[0]} >> "$apiFile"
 	  else
 		  printf '\n**%s**\n%s\n' $(trim ${parts[0]}) ${parts[1]} >> "$apiFile"
 	  fi
-  done 
+  done
   unset IFS
-  
+
   printf "\n\n#### Description\n" >> "$apiFile"
   printf "%s\n\n" "$content" >> "$apiFile"
- 
+
   line=`grep -m 1 "^% Author:" "$path"`
   author=${line#"% Author:"}
   printf "**Author** %s\n\n---" "$author" >> "$apiFile"
