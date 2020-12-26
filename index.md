@@ -49,24 +49,23 @@ sections:
   - section_id: reviews
     type: section_reviews
     background: white
-    title: Testimonials
+    title: Partner Institutions
     subtitle: >-
-      Aliquam malesuada ligula eget est fringilla blandit. Integer finibus
-      semper libero id sodales.
+      OpenEP has been developed at King's College London, Imperial College London and The University of Edinburgh.
     reviews:
-      - author: John Doe
-        avatar: images/review1.jpg
+      - author: King's College London
+        avatar: images/kcl_logo.png
         content: >-
           Vestibulum a nunc ut eros condimentum posuere. Nullam dapibus quis
           nunc non interdum. Pellentesque tortor ligula, gravida ac commodo eu.
-      - author: Jane Roe
-        avatar: images/review2.jpg
+      - author: Imperial College London
+        avatar: images/imperial_logo.png
         content: >-
           Sed laoreet magna commodo libero euismod sodales. Nunc ac libero
           convallis, interdum ligula vel, pretium diam. Integer commodo sem at
           dui sollicitudin, vel posuere justo laoreet.
-      - author: Richard Roe
-        avatar: images/review3.jpg
+      - author: The University of Edinburgh
+        avatar: images/edinburgh_logo.png
         content: >-
           Integer consectetur purus neque, ac porttitor enim convallis vitae.
           Interdum et malesuada fames ac ante ipsum primis in faucibus.

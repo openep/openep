@@ -1,7 +1,7 @@
 ---
 title: Examples
 subtitle: >-
-  Illustrations of how to use the OpenEP libraries
+  The following examples illustrate how to use the OpenEP libraries
 layout: page
 ---
 
