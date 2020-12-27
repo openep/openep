@@ -19,9 +19,9 @@ The steps to get installed
 * Step 1  
   Download [some things?](google.com)
 * Step 2
-  ```
-  $ commands
-  $ to run
+  ```matlab
+  openEpPath = '~/openep-core';
+  addpath(genpath(openEpPath);
   ```
 * Step 3
 
