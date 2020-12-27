@@ -160,12 +160,39 @@ cvHistogram.m
 ## Data input and storage
 <img src="/images/gallery-dataimport.png">
 
-To run this example, load Example 1:
+The Data Parsing modules serve to convert proprietary electroanatomic mapping export dataformats into the OpenEP data format. There are several ways to use the import functions including in semi-graphical mode and command line mode.
+
 ```matlab
-load openep_dataset_1.mat;
+% Semi graphical mode
+userdata = importcarto_mem()
+
+% Command line mode
+studyXmlFile = <path to study XML file> (string)
+maptoread = <name of map> (string)
+refchannel = 'CS9-CS10';
+ecgchannel = 'V1';
+savefilename = '~/openep/data/1.mat'
+userdata = importcarto_mem(studyXmlFile, 'maptoread', maptoread, 'refchannel', refchannel, 'ecgchannel', ecgchannel, 'savefilename', savefilename)
 ```
 
+In command line mode, the map to read can also be identified by the number of points in that map, as long as the number of points in the map of interest is unique for that case. For example, for a map containing 1059 points:
+```matlab
+studyXmlFile = <path to study XML file> (string)
+maptoread = 1059
+refchannel = 'CS9-CS10';
+ecgchannel = 'V1';
+savefilename = '~/openep/data/1.mat'
+userdata = importcarto_mem(studyXmlFile, 'maptoread', maptoread, 'refchannel', refchannel, 'ecgchannel', ecgchannel, 'savefilename', savefilename)
+```
+
+Fully automating import, for example of a set of study files is a more complicated process which requires copy the data from its original location, unzipping the data, identifying the study XML file, identifying the map and performing the input. It is recommended to use `batchImport.m`, modified where necessary, to perform these tasks.
+
+```matlab
+batchImport
+```
 ### API Links
+importcarto_mem.m
+batchImport.m
 
 ## Data interpolation
 <img src="/images/">
