@@ -110,12 +110,52 @@ generateInterpData.m
 ## Conduction velocity
 <img src="/images/gallery-cv.png">
 
+OpenEP includes functions to create conduction velocity maps from local activation time maps, which can be displayed using the `drawMap.m` function. In addition, conduction velocity histogram analysis is available via the `cvHistogram.m` function. A triangulation-based method to calculate the gradient of local activation times is employed to calculate conduction velocities independent of wavefront direction.
+
 To run this example, load Example 1:
 ```matlab
 load openep_dataset_1.mat;
 ```
 
+There are now two options. Firstly, `drawMap.m` can be used directly to calculate the conduction velocity data and draw the figure.
+```matlab
+% Automatic colour scale
+drawMap(userdata, 'type', 'cv', 'orientation', 'ap');
+
+% Limit colour scale to physiological values
+drawMap(userdata, 'type', 'cv', 'orientation', 'ap', 'colorscale', [0 2]);
+```
+
+Alternatively, the `'data'` flag of the `drawMap.m` function can be used, together with `getConductionVelocity.m` which will return the conduction velocity data. This method can be used, for example, to remove non-physiological values before plotting.
+```matlab
+cvdata = getConductionVelocity(userdata);
+cvdata(cvdata>2) = NaN;
+drawMap(userdata, 'type', 'cv', 'orientation', 'ap', 'data', cvdata);
+```
+
+Examples of all three maps are shown below.
+<img src="/images/cv-example.png">
+
+OpenEP can also draw histograms of the conduction velocity.
+```matlab
+% default settings
+cvHistogram(userdata);
+
+% show all the data
+cvHistogram(userdata, 'limits', [-Inf Inf]);
+
+% limit to physiological values
+cvHistogram(userdata, 'limits', [0 2]);
+
+% adjust the bin width
+cvHistogram(userdata, 'limits', [0 2], 'binwidth', 0.01);
+```
+
 ### API Links
+getConductionVelocity.m
+drawMap.m
+cvHistogram.m
+
 
 ## Data input and storage
 <img src="/images/gallery-dataimport.png">
