@@ -14,18 +14,26 @@ Matlab R2020a, or later.
 
 ## Installation
 
-The steps to get installed
+OpenEP installation is as simple as downloading the source code and adding to the Matlab path. Depending on your experience you can simply download the code [here](https://github.com/openep/openep-core/), or you can install using version control as outlined below.
 
-* Step 1  
-  Download [some things?](google.com)
+* Step 1
+
+Grab the source code using git
+```bash
+mkdir ~/openep
+cd ~/openep
+git clone https://github.com/openep/openep-core.git
+```
 * Step 2
+
+Launch Matlab and add the OpenEP directories to the path
   ```matlab
-  openEpPath = '~/openep-core';
+  openEpPath = '~/openep/openep-core';
   addpath(genpath(openEpPath);
   ```
 * Step 3
 
-Conclusion
+OpenEP is now ready to use!
 
 ## Usage
 
