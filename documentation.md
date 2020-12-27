@@ -6,11 +6,11 @@ subtitle: >-
 layout: page
 ---
 
-This page is a good place to document how to get started
+The current implementation of OpenEP is a Matlab library which depends upon access to the Matlab executable to run. Once you have Matlab installed on your system, download the OpenEP source code, or clone from Github and add the entire directory to your Matlab path. Then you are ready to begin exploring OpenEP.
 
 ## Prerequisites
 
-Things that might be needed before starting
+Matlab R2020a, or later.
 
 ## Installation
 
