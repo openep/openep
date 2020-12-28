@@ -6,7 +6,9 @@ subtitle: >-
 layout: page
 ---
 
-Something introduction
+Thigs we have said we will add :
+
+getWindowOfInterest.m
 
 ## 📦 Planned Releases (date / version?)
 
@@ -48,8 +50,8 @@ $(document).ready(function () {
     $.getJSON(issueURL, function (allIssues) {
         $("div#issues").append("<span class=\"github-count\">found " + allIssues.length + " issues</span>");
         $.each(allIssues, function (i, issue) {
-            var trimmedBody = issue.body.length > trim ? 
-                issue.body.substring(0, trim - 3) + "..." : 
+            var trimmedBody = issue.body.length > trim ?
+                issue.body.substring(0, trim - 3) + "..." :
                 issue.body;
             $("div#issues").append("<div class=\"github-bug\">"
                 + "<span class=\"issue-number\">" + issue.number + "</span><a href=\"" + issue.html_url + "\">" + issue.title + "</a>"

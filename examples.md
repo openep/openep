@@ -248,7 +248,7 @@ Basing the site of earliest/latest activation on the very earliest map point or 
 ```
 
 Three final observations:
-* Rather than using the interpolated map created by the clinical mapping system, we can also re-interpolate the activation map using OpenEP. This is desireable if, for example, data is being analysed from multiple mapping systems for a single study. The equivalent methods are `'openepmap'` and `'openepmapprct'`.
+* Rather than using the interpolated map created by the clinical mapping system, we can also re-interpolate the activation map using OpenEP. This is desirable if, for example, data is being analysed from multiple mapping systems for a single study. The equivalent methods are `'openepmap'` and `'openepmapprct'`.
 * The percentile used for the percentile-based methods can be changed from the default of 2.5 by using the `'prct'` flag and passing in a double value.
 * Whilst the above discussion has focussed on `getEarliestActivationSite.m` the same parameter/value pairs are used to customise the function `getLatestActivationSite.m`.
 
@@ -258,12 +258,64 @@ getEarliestActivationSite.m getLatestActivationSite.m
 ## Electrogram display/annotation
 <img src="/images/gallery-egm.png">
 
-To run this example, load Example 1:
+Although electroanatomic mapping systems provide detailed mapping representations of eletrophysiological data sometimes it is essential to access the individual electrograms which are used to create these maps. For example, it might be desirable to provide desirable to apply a uniform interpolation scheme across data collected by different mapping systems. Or, the purpose of a study may be to analyse electrogram characteristics in ways which are not currently implemented in the clinical systems. OpenEP therefore provides methods to access and display electrogram data for such purposes.
+
+To run this example, load Example 1 or Example 2:
 ```matlab
 load openep_dataset_1.mat;
+% or
+load openep_dataset_2.mat;
+```
+
+In order to identify the electrogram of interest it is necessary to know the point number of that point which can be identified from the `'userdata'` or from the clinical system. Note that in the case of Carto data it is necessary to convert the point number displayed on the clinical system into the point number used within OpenEP:
+```matlab
+pointNumber = 1042; % for example
+iEgm = getIndexFromCartoPointNumber(userdata,pointNumber))
+```
+
+Once we have the correct index for the desired point number we can plot the electrograms associated with that point using `plotOpenEPEgms.m`
+```matlab
+plotOpenEPEgms(userdata, 'iegm', iEgm))
+```
+A call to `plotOpenEPEgms.m` such as the above will, by default, plot the bipolar electrogram associated with the mapping point together with the associated unipolar mapping pair. The range of the plotted electrogram will be equivalent to the mapping window with a buffer of 50 samples before and after applied. The reference and electrogram channels will both be shown on the plot. All of these preferences can be changed using the appropriate parameter/value pairs (see the API documentation for the full list). For example, if we do not want to show the reference channel we can call the following:
+```matlab
+plotOpenEPEgms(userdata, 'iegm', iEgm, 'reference', 'off'))
+```
+Similarly, if we only want to show the bipolar electrogram then we can call the following:
+```matlab
+plotOpenEPEgms(userdata, 'iegm', iEgm, 'egmtype', 'bip'))
+```
+
+For signal processing purposes it is necessary not just to display the electrograms but to access the raw electrogram data. This is done via the OpenEP function `getEgmsAtPoints.m`. For example, if we want to access the bipolar electrogram associated with the above mapping point then we would call:
+```matlab
+egmTraces = getEgmsAtPoints(userdata, 'iegm', iEgm, 'egmtype', 'bip');
+```
+If we also wanted the unipolar electrograms then we would call the following (or simply not specify `'egmtype'`):
+```matlab
+egmTraces = getEgmsAtPoints(userdata, 'iegm', iEgm, 'egmtype', 'bip-uni');
+```
+
+In addition to returning the raw electrograms, the OpenEP function `'getEgmsAtPoints.m'` can also be used to access the annotations and the electrogram names, which are returned as additional output arguments:
+```matlab
+[egmTraces, acttime, egmNames ] = getEgmsAtPoints(userdata, 'iegm', iEgm);
+```
+
+When working with the electrogram data, it can be useful to access the windows of interest. A getter function is planned in the OpenEP Roadmap to expose this information. For now it can be accessed at the low level by directly interrogating `userdata` and is stored in the following location:
+```matlab
+userdata.electric.annotations.woi
+```
+
+One final observation:
+* A key step in creating maps in OpenEP is to identify the mapping points which have annotations within the window of interest. Note that OpenEP does not currently provide functionalities for editing the annotations. Instead, any electrograms with annotations outwith the window of interest could be identified and discarded in your algorithms before processing. The OpenEP function `'getMappingPointsWithinWoI.m'` is provided for this purpose:
+```matlab
+iPoint = getMappingPointsWithinWoI(userdata);
 ```
 
 ### API Links
+getIndexFromCartoPointNumber.m
+plotOpenEPEgms.m
+getEgmsAtPoints.m
+getMappingPointsWithinWoI.m
 
 ## Geometry analysis
 
