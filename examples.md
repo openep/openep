@@ -201,16 +201,6 @@ batchProcess
 importcarto_mem.m
 batchImport.m
 
-## Data interpolation
-<img src="/images/">
-
-To run this example, load Example 1:
-```matlab
-load openep_dataset_1.mat;
-```
-
-### API Links
-
 ## Earliest/Latest activation
 <img src="/images/gallery-earlylateact.png">
 
@@ -318,39 +308,196 @@ getEgmsAtPoints.m
 getMappingPointsWithinWoI.m
 
 ## Geometry analysis
+<img src="/images/gallery-geometry.png">
+OpenEP provides some tools for analysing the geometry stored in OpenEP data format. These tools are particularly important for electroanatomic mapping data analysis since they are quantifiable and avoid any ambiguity regarding how similar metrics are calculated in clinical systems. Their use has been validated and OpenEP users are strongly encouraged to use these methods rather than the equivalent methods available in the clinical electroanatomic mapping systems.
 
-To run this example, load Example 1:
+To run this example, load a dataset:
 ```matlab
 load openep_dataset_1.mat;
 ```
+### Chamber shape and size
+OpenEP can be used to calculate the area and the volume of the geometry stored in `'userdata'`. For example, to calculate the area, simply call:
+```matlab
+area = getArea(userdata)
+```
+Similarly, to calculate the volume of the mapped chamber, simply call:
+```matlab
+volume = getVolume(userdata)
+```
+Another function that is particularly useful for standardising co-ordinate systems (for example for machine learning tasks) is to be able to centre all chambers around the same point. This can be done using `'getCentreOfMass.m'` as follows:
+```matlab
+% get two userdata objects
+userdata(1) = load('openep_dataset_1.mat');
+userdata(2) = load('openep_dataset_2.mat');
+
+% calculate the centre of mass of each chamber and draw a figure
+for i = 1:numel(userdata)
+  figure
+  C = getCentreOfMass(userdata(i).userdata, 'plot', true);
+end
+```
+Once we have the co-ordinates of the centre of the mass they can be subtracted from the co-ordinates of the surface points to position the centre on the origin.
+<img src="/images/centre-example.png">
+
+### Structures and surfaces
+Anatomical structures are added to electroanatomic mapping system meshes in the form of orifices representing for example pulmonary vein ostia or valves. These anatomical structures are frequently used as important fiducial points for registration problems. OpenEP provides a function, `getAnatomicalStructures.m` to access these structures. For example:
+```matlab
+% First, lets re-load the first example
+load openep_dataset_1;
+
+% Return the anatomical structures, but don't plot anything
+FF = getAnatomicalStructures(userdata);
+
+% Return the anatomical structures, and also plot a figure showing what was done
+FF = getAnatomicalStructures(userdata, 'plot', true)
+```
+Calling the second of these function calls displays a figure representing the anatomical structures.
+
+It is also possible to use `getAnatomicalStructures.m` to return information about each anatomical structure such as the perimeter and the area:
+```matlab
+[~, l, a]] = getAnatomicalStructures(userdata);
+```
+
+The same function, `getAnatomicalStructures.m` can create new triangulation representations of each anatomical structure:
+```matlab
+[~, ~, ~, tr] = getAnatomicalStructures(userdata);
+```
+
+Sometimes it is desirable to create a closed surface where all the anatomical structures are 'filled in'. OpenEP makes this process simple by providing the `getClosedSurface.m` function. Use this function as follows:
+```matlab
+% call getClosedSurface.m
+tr = getClosedSurface(userdata)
+
+% create a figure of the results
+drawMap(userdata, 'type', 'none')
+figure
+trisurf(tr, 'facecolor', 'g', 'edgecolor', 'none')
+axis equal vis3d
+cameraLight
+```
+<img src="/images/closed-example.png">
+
+### Distances
+Calculating distances between mapping points, or between points on the surface of the mesh, is commonly performed for example to determine the size of a chamber, to determine the distance between ablation points, or to get a distance for use in a conduction velocity calculation. OpenEP provides two methods to calculate these distances. Distances can be calculated as a 'straight line' between two points. Such straight line distances will always be shorter than the distance across the surface of the shell. OpenEP also calculates therefore the geodesic distance across the surface of the shell. Use of the geodesic distance may make conduction velocity calculations more accurate, although this assertion will depend of course on the quality of the shell. To calculate such distances use `distanceBetweenPoints.m`. For example:
+```matlab
+% linear method
+distance = distanceBetweenPoints(userdata, 1, 100, 'plot', 'true', 'method', 'linear')
+
+% geodesic method
+distance = distanceBetweenPoints(userdata, 1, 100, 'plot', 'true', 'method', 'geodesic')
+```
+<img src="/images/distances-example.png">
+
+### Mesh data
+OpenEP provides the basic getter methods for accessing information about the mesh: `getMesh.m`, `getVertices.m`, `getFaces.m`:
+```matlab
+mesh = getMesh(userdata);
+vertices = getVertices(userdata);
+faces = getFaces(userdata);
+```
 
 ### API Links
+getArea.m
+getVolume.m
+getCentreOfMass.m
+getAnatomicalStructures.m
+getClosedSurface.m
+distanceBetweenPoints.m
+getFaces.m
+getMesh.m
+getVertices.m
 
 ## Voltage mapping
 <img src="/images/gallery-voltage.png">
+OpenEP provides a number of functions for displaying and analysing voltage maps. OpenEP can reproduce the voltage map created by the clinical electroanatomic mapping system. OpenEP can also create voltage maps de novo based on the electrogram data and a specified interpolation scheme. OpenEP can also perform analysis of low voltage areas, volage distributions and perform analysis of voltages falling within particular pre-set voltage ranges (voltage histogram analysis).
 
-To run this example, load Example 1:
+### Conventional voltage mapping
+To run these examples, load an example dataset:
 ```matlab
 load openep_dataset_1.mat;
 ```
 
+First, lets draw a voltage map using the OpenEP function `drawMap.m`:
+```matlab
+drawMap(userdata, 'type', 'bip', 'orientation', 'pa');
+```
+
+We can also specify the color window that we are interested in, for example to highlight low voltage areas; here specified as 1mV for effect.
+```matlab
+drawMap(userdata, 'type', 'bip', 'orientation', 'pa', 'coloraxis', [0.9 1]);
+```
+
+We can also specify that we only want the map to be shaded within a certain distance of an _actual_ mapping point; here shown as 1mm for effect.
+```matlab
+drawMap(userdata, 'type', 'bip', 'orientation', 'pa', 'coloraxis', [0.9 1], 'colorfillthreshold', 1);
+```
+These three function calls should result in the figures shown below:
+<img src="/images/voltage-example.png">
+
+A common measurement made in contemporary electroanatomic mapping studies is to measure the area of a shell (both as an area and as a percentage) within which low voltage electrograms are recorded. OpenEP makes performing these calculations, and displaying the results, easy. The relevant function is `getLowVoltageArea.m` which is fully documented in the API reference. Some interesting features of this function are that it can calculate the low voltage area based on the mapping data exported by the electroanatomic mapping system, or by using the raw eletrograms. This latter method may be preferrably if a study is being performed which uses multiple different mapping platforms. If re-interpolation is required from raw electrogram data than `getLowVoltageArea.m` uses `generateInterpData.m` to reinterpolate a volage map first before calculating the required low voltage areas.
+```matlab
+% Calculate area on the clinical electroanatomic map which has a bipolar voltage less than 0.5mV (default operation)
+lowVArea = getLowVoltageArea(userdata)
+
+% Change the low voltage threshold
+lowVThreshold = [0 2];
+lowVArea = getLowVoltageArea(userdata, 'threshold', lowVThreshold)
+```
+The first of these function calls returns a low voltage area of only 0.7cm^2, consistent with the figures above. By setting the low voltage area threshold to <2mV, a much larger area of 39.3cm^2 is returned as expected.
+
+In order to present the low voltage areas as percentages of the total surface area you can make use of the OpenEP function getArea() as follows:
+```matlab
+totalArea = getArea(userdata);
+lowVPercentage = lowVArea/totalArea*100;
+disp(['The low voltage area is ' num2str(lowVArea) 'cm^2 which is ' num2str(lowVPercentage) '% of the total area.'])
+```
+If you have been following along with this example then the output should be:
+```matlab
+The low voltage area is 39.2615cm^2 which is 35.3819% of the total area.
+```
+
+Helpfully, `getLowVoltageArea.m` also returns triangle indices as well as triangulation representations of the low voltage area. These can be used for visualisation of the low voltage area, for example:
+```matlab
+[~, ~, ~, tr2] = getLowVoltageArea(userdata, 'threshold', lowVThreshold)
+drawMap(userdata, 'type', 'none')
+hold on
+hS = trisurf(tr2, 'facecolor', colorBrewer('r'), 'edgecolor', 'none')
+```
+<img src="/images/lowvoltage-example.png">
+
+
+You can also calculate the mean voltage of an entire chamber using the OpenEP function `getMeanVoltage.m`. This function will calculate the mean voltage using either the map or the individual electrograms and can return both the mean bipolar voltage and the mean unipolar voltage, as shown below:
+```matlab
+% calculate the mean bipolar voltage calculated from the mapping data
+v = getMeanVoltage(userdata)
+
+% calculate the mean bipolar voltage calculated from the raw electrograms
+v = getMeanVoltage(userdata, 'method', 'egm')
+
+% calculate the mean unipolar voltage
+v = getMeanVoltage(userdata, 'method', 'egm', 'type', 'uni')
+```
 ### API Links
+drawMap.m
+getLowVoltageArea.m
+getMeanVoltage.m
+generateInterpData.m
 
 ## Voltage histogram analysis
 <img src="/images/gallery-vha.png">
+Voltage Histogram Analysis is an emerging technique which seeks to provide quantitative analysis of voltage maps over and above a low voltage area. Essentially, voltage histogram analysis is an extension of voltage area calculations where multiple areas are calculated each with a separate voltage range of interest. Voltage histogram analysis is provided through the OpenEP function `voltageHistogramAnalysis.m`. By default the ranges used are as previously published:
+* 0.01 - 0.11mV
+* 0.11 - 0.21mV
+* 0.21 - 0.30mV
+* 0.30 - 0.40mV
+* 0.40 - 0.50mV
 
-To run this example, load Example 1:
+To perform voltage histogram analysis:
 ```matlab
-load openep_dataset_1.mat;
+areas = voltageHistogramAnalysis(userdata)
 ```
+Compared to the technique available in clinical systems, voltage histogram analysis performed in OpenEP can make use of the map-based data or the electrogram-based data, by setting `'method'` to either `'map'` or `'egm'` and can operate on either unipolar or bipolar voltage data. See the API docs for full details.
 
 ### API Links
-
-## Visualisation
-
-To run this example, load Example 1:
-```matlab
-load openep_dataset_1.mat;
-```
-
-### API Links
+voltageHistogramAnalysis.m
+generateInterpData.m
