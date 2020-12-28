@@ -37,7 +37,14 @@ OpenEP is now ready to use!
 
 ## Usage
 
-Then perhaps a demo that the installation is working
+To test out your new OpenEP installation, try:
+```matlab
+openep_demo
+```
+
+If everything is working correctly you should see a figure similar to the following:
+<img src="/images/openep-demo.png">
+(Note however that there is currently a bug where the colormap of the colorbar in the conduction velocity panel is not correct).
 
 ## API reference
 

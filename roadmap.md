@@ -1,40 +1,28 @@
 ---
 title: Roadmap
 subtitle: >-
-  The planned future for our project
+  This page summarises the planned development of OpenEP
 
 layout: page
 ---
 
-Thigs we have said we will add :
+## Current Roadmap
+There are four major streams in the Roadmap for Development
+* Infrastructure projects
+* Data parsing projects
+* Data analysis projects
+* Visualisation projects
 
-getWindowOfInterest.m
+Since OpenEP is under active development within the core contributors labs the prioritisation given to each of these projects is related to our ongoing research. That said, there are times when work arounds are quickly implemented and if there was interest from other researchers in submitting issues within each stream and potentially contributing to their development then we are very keen to support this. One way that this can be done is to build and include fully-featured OpenEP solutions to particular problems when there are areas of mutual interest.
 
-## 📦 Planned Releases (date / version?)
+So, if you have seen something which you would really like implemented in OpenEP then please do get in touch!
 
-Intro again perhaps
+We are also keen to support developers who may be interested in contributing their own EP analysis solutions to the projets. If this sounds like you then again please get in touch!
 
-### 1️⃣ Version number / name
+Each of the above streams is hosted as a project on github.
 
-highlight
-
-* feature 1
-* feature 2
-
-### 2️⃣ Next number / name
-
-a summary
-
-* feature 3
-* feature 4
-
-
-## 🎁 Nice to have (teasers etc)
-
-Working on these items has less priority probably.
-
-* Something
-* another
+## Development plan
+We are following the git-flow framework for development. The active branch is currently 'develop'. When it is time for the first release, this will be merged into master and a release will be created. If you are working on an issue then please create a feature by forking develop and submit a pull request when you are ready.
 
 ## Open issues
 
