@@ -157,7 +157,7 @@ drawMap.m
 cvHistogram.m
 
 
-## Data input and storage
+## Data input, storage and batch processing
 <img src="/images/gallery-dataimport.png">
 
 The Data Parsing modules serve to convert proprietary electroanatomic mapping export dataformats into the OpenEP data format. There are several ways to use the import functions including in semi-graphical mode and command line mode.
@@ -190,6 +190,13 @@ Fully automating import, for example of a set of study files is a more complicat
 ```matlab
 batchImport
 ```
+
+To process multiple OpenEP datasets, an example batch processing script is also provided and can be modified to use any of the OpenEP data analysis modules.
+
+```matlab
+batchProcess
+```
+
 ### API Links
 importcarto_mem.m
 batchImport.m
