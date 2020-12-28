@@ -41,4 +41,8 @@ Then perhaps a demo that the installation is working
 
 ## API reference
 
-If we don't want it in the menu then we could link to the [API docs](/api/) here.
+Each OpenEP function is fully documented within the file header. A complete list of the API Reference Documentation is also available here - [API Reference Documentation](/api/).
+
+## Citing OpenEP
+
+OpenEP has been in continually development for the past 10 years during the course of the developers' active electrophysiology research. The OpenEP platform itself was available to selected collaborators throughout this time but was made available to the community at the end of 2020 with the first official release planned for early 2021. At this time a manuscript is under review with Frontiers in Physiology and the full citation will be posted here if accepted.

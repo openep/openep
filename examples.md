@@ -214,12 +214,46 @@ load openep_dataset_1.mat;
 ## Earliest/Latest activation
 <img src="/images/gallery-earlylateact.png">
 
-To run this example, load Example 1:
+OpenEP provides modules for calculating the site of earliest activation and the site of latest activation on a local activation time map. These positions can be used, for example, to measure the chamber total activation or identify the earliest activation site closest to a pacing site. A number of different methods are provided for identifying these sites as outlined below.
+
+To run these examples, load Example 1:
 ```matlab
 load openep_dataset_1.mat;
 ```
 
+First, we can access the site of earliest activation consistent with the clinical mapping system. This is defined as the earliest point on the interpolated activation map and is accessed as follows:
+```matlab
+X = getEarliestActivationSite(userdata, 'method', 'clinmap');
+```
+This OpenEP function call returns the Cartesian co-ordinates of the earliest activating point on the local activation time map.
+
+We can also return the index of the mapping point closest to this activating site, along with the activation time, relative to the reference annotation.
+```matlab
+[X, ~, iPoint, t] = getEarliestActivationSite(userdata, 'method', 'clinmap');
+```
+
+If we are only interested in the earliest activation times recorded on an _actual_ electrogram, rather than interpolated on the activation map, then we can access that, too:
+```matlab
+[X, surfX, iPoint, t] = getEarliestActivationSite(userdata, 'method', 'ptbased');
+```
+Here, we have returned two Cartesian co-ordinates, X and surfX. Using `getEarliestActivationSite.m` (or `getLatestActivationSite.m`) with the `'method'` flag set to `'ptbased'` returns the Cartesian co-ordinates of the earliest annotated electrogram (`X`) as well as its surface projection (`surfX`).
+
+Basing the site of earliest/latest activation on the very earliest map point or electrogram point can be error-prone if for example, there is a single point which is annotated too early. OpenEP therefore provides percentile methods where the earliest 2.5th percentile (or latest 2.5th percentile) electrograms or surface mapping points are first identified, then the mean of their x, y and z co-ordinates are calculated. These methods are accessed by setting the `'method'` flag to `'ptbasedprct'` or `'clinmapprct'`. For example:
+```matlab
+% electrogram based calculation
+[X, surfX, iPoint, t] = getEarliestActivationSite(userdata, 'method', 'ptbasedprct');
+
+% map based calculation
+[X, surfX, iPoint, t] = getEarliestActivationSite(userdata, 'method', 'clinmapprct');
+```
+
+Three final observations:
+* Rather than using the interpolated map created by the clinical mapping system, we can also re-interpolate the activation map using OpenEP. This is desireable if, for example, data is being analysed from multiple mapping systems for a single study. The equivalent methods are `'openepmap'` and `'openepmapprct'`.
+* The percentile used for the percentile-based methods can be changed from the default of 2.5 by using the `'prct'` flag and passing in a double value.
+* Whilst the above discussion has focussed on `getEarliestActivationSite.m` the same parameter/value pairs are used to customise the function `getLatestActivationSite.m`.
+
 ### API Links
+getEarliestActivationSite.m getLatestActivationSite.m
 
 ## Electrogram display/annotation
 <img src="/images/gallery-egm.png">
