@@ -45,6 +45,7 @@ td {
 
 
 
+<a name=" cartoMesh2VTK" />
 ##  cartoMesh2VTK
 
  CARTOMESH2VTK Converts a Carto mesh file to VTK file
@@ -71,6 +72,7 @@ a TriRep object
 ---
 
 
+<a name=" cvHistogram" />
 ##  cvHistogram
 
  CVHISTOGRAM Draws a conduction velocity histogram
@@ -98,6 +100,7 @@ see importcarto_mem
 ---
 
 
+<a name=" distanceBetweenPoints" />
 ##  distanceBetweenPoints
 
  DISTANCEBETWEENPOINTS Returns the distance from A to B.
@@ -132,6 +135,7 @@ is the second point
 ---
 
 
+<a name=" drawMap" />
 ##  drawMap
 
  DRAWMAP plots an OpenEP map
@@ -179,6 +183,7 @@ is a Carto data structure
 ---
 
 
+<a name=" editUserdata" />
 ##  editUserdata
 
  EDITUSERDATA Graphically remove regions from a Carto dataset
@@ -212,6 +217,7 @@ is the new Carto dataset with elements removed
 ---
 
 
+<a name=" fixVoltageAnnotations" />
 ##  fixVoltageAnnotations
 
  FIXVOLTAGEANNOTATIONS Fixes the uni/bip reversal identified in
@@ -242,6 +248,7 @@ is the input, or 'openfile'
 ---
 
 
+<a name=" generateInterpData" />
 ##  generateInterpData
 
  GENERATEINTERPDATA Performs spatial interpolation of scalar data
@@ -283,6 +290,7 @@ is the interpolated data
          'uni-egm' - unipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
          'lat-egm' - local activation time; measured by OpenEP on the egms (NOT IMPLEMENTED)
          'cv' - conduction velocity
+         'egmduration' - electrogram duration
  GENERATEINTERPDATA removes any NaN values in data (and their
  corresponding location(s) in coords) before calling scatteredInterpolant
  with the interpolation/extrapolation methods specified. Any values greater
@@ -293,6 +301,7 @@ is the interpolated data
 ---
 
 
+<a name=" getAblationArea" />
 ##  getAblationArea
 
  GETABLATIONAREA Calculates the area of a chamber which has been ablated
@@ -301,7 +310,7 @@ is the interpolated data
 
 #### Usage
 ```m
-area = getAblationArea( userdata )
+[ablArea, isAblated, trAbl] = getAblationArea( userdata )
 ```
 
 #### Parameters
@@ -338,6 +347,7 @@ a Triangulation of the ablated tissue
 ---
 
 
+<a name=" getAnatomicalStructures" />
 ##  getAnatomicalStructures
 
  GETANATOMICALSTRUCTURES Returns the free boundaries (anatomical 
@@ -377,6 +387,7 @@ cell array of triangulations of each anatomical structure
 ---
 
 
+<a name=" getArea" />
 ##  getArea
 
  GETAREA Returns the surface area of an anatomical model
@@ -406,6 +417,7 @@ the surface area (cm^2)
 ---
 
 
+<a name=" getCentreOfMass" />
 ##  getCentreOfMass
 
  GETCENTREOFMASS Returns the centre of mass of the anatomical model 
@@ -436,6 +448,7 @@ the Cartesian co-ordinates of the centre of mass
 ---
 
 
+<a name=" getClosedSurface" />
 ##  getClosedSurface
 
  GETCLOSEDSURFACE Fills all the holes in the userdata surface
@@ -469,6 +482,7 @@ a triRep object
 ---
 
 
+<a name=" getConductionVelocity" />
 ##  getConductionVelocity
 
  GETCONDUCTIONVELOCITY Returns the conduction velocity map of the 
@@ -504,6 +518,7 @@ the conduction velocities, in m/s
 ---
 
 
+<a name=" getEarliestActivationSite" />
 ##  getEarliestActivationSite
 
  GETEARLIESTACTIVATIONSITE Returns the earliest activation site
@@ -562,6 +577,7 @@ the calculated earliest activation time, relative to the
 ---
 
 
+<a name=" getEgmsAtPoints" />
 ##  getEgmsAtPoints
 
  GETEGMSATPOINTS Access eletrograms from stored in the OpenEP data format
@@ -608,6 +624,45 @@ names of the electrograms
 ---
 
 
+<a name=" getElectrogramDuration" />
+##  getElectrogramDuration
+
+ GETELECTROGRAMDURATION Returns the electrogram durations
+
+ 
+
+#### Usage
+```m
+egmDuration = getElectrogramDuration( userdata )
+```
+
+#### Parameters
+
+**userdata**
+see importcarto_mem
+
+**egmDuration**
+the duration of activation for each electrogram
+
+
+#### Description
+ GETELECTROGRAMDURATION Calculates electrogram durations for each bipolar
+ electrogram in userdata. The method is as follows. First, we iterate
+ through all the bipolar mapping points in userdata.electric. For each
+ mapping point we get the electrogram within the window of interest. We
+ apply the non-linear energy operator to this electrogram. We identify the
+ earliest and latest activation of the energy operator. We calculate the
+ difference and assign that to egmDuration. We also remove any values that
+ are not within +/- 2 standard deviations of the mean. This is an
+ arbritary cut off but some filtering is necessary to avoid identifying
+ noise as continuous activation, for example.
+
+**Author**  Steven Williams (2020) (Copyright)
+
+---
+
+
+<a name=" getFaces" />
 ##  getFaces
 
  GETFACES Returns the faces referenced by userdata
@@ -636,6 +691,7 @@ all the faces
 ---
 
 
+<a name=" getImpedanceValues" />
 ##  getImpedanceValues
 
  GETIMPEDANCEVALUE Returns the impedance value of given point(s)
@@ -667,6 +723,7 @@ the impedance values (Ohms)
 ---
 
 
+<a name=" getIndexFromCartoPointNumber" />
 ##  getIndexFromCartoPointNumber
 
  GETINDEXFROMCARTOPOINTNUMBER Finds the index of the mapping point at the 
@@ -702,6 +759,7 @@ an index (or array of indices) for referencing into the
 ---
 
 
+<a name=" getLatestActivationSite" />
 ##  getLatestActivationSite
 
  GETLATESTACTIVATIONSITE Returns the latest activation site
@@ -760,6 +818,7 @@ The calculated latest activation time, relative to the
 ---
 
 
+<a name=" getLowVoltageArea" />
 ##  getLowVoltageArea
 
  GETLOWVOLTAGEAREA Returns the low voltage area
@@ -768,7 +827,7 @@ The calculated latest activation time, relative to the
 
 #### Usage
 ```m
-lowVoltageArea = getLowVoltageArea( userdata, varargin )
+[lowVArea, voltages, iTri, tr2] = getLowVoltageArea( userdata, varargin )
 ```
 
 #### Parameters
@@ -776,7 +835,7 @@ lowVoltageArea = getLowVoltageArea( userdata, varargin )
 **userdata**
 see importcarto_mem
 
-**lowVoltageArea**
+**lowVArea**
 the low voltage area (cm^2)
 
 **voltages**
@@ -803,6 +862,7 @@ a triangulation of all the triangles referenced in iTri.
 ---
 
 
+<a name=" getMappingPointsWithinWoI" />
 ##  getMappingPointsWithinWoI
 
  GETMAPPINGPOINTSWITHINWOI Returns the indices of the mapping points with
@@ -833,6 +893,7 @@ the list of valid points; indexes into userdata.electric
 ---
 
 
+<a name=" getMeanVoltage" />
 ##  getMeanVoltage
 
  GETMEANVOLTAGE Returns the mean voltage
@@ -863,6 +924,7 @@ the mean chamber voltage (mV)
 ---
 
 
+<a name=" getMesh" />
 ##  getMesh
 
  GETMESH Returns the triangulation-based mesh from userdata
@@ -891,6 +953,7 @@ a TriRep, or Triangulation, object
 ---
 
 
+<a name=" getNumPts" />
 ##  getNumPts
 
  GETNUMPTS Returns the number of mapping points in the OpenEP dataset
@@ -919,6 +982,7 @@ the number of mapping points
 ---
 
 
+<a name=" getPointImpedanceValue" />
 ##  getPointImpedanceValue
 
  GETPOINTIMPEDANCEVALUE Provides an algorithm for giving point impedance
@@ -951,6 +1015,39 @@ impedance values at times tim
 ---
 
 
+<a name=" getReferenceAnnotation" />
+##  getReferenceAnnotation
+
+ GETREFERENCEANNOTATION Returns the value of the reference annotation 
+
+ 
+
+#### Usage
+```m
+ref = getReferenceAnnotation( userdata )
+```
+
+#### Parameters
+
+**userdata**
+see importcarto_mem
+
+**ref**
+the value of the reference annotation
+
+
+#### Description
+ GETREFERENCEANNOTATION Accepts the following parameter-value pairs.
+   'iegm'    {:} | integer | array
+        - The electrogram point(s) for which the reference annotation is
+        required
+
+**Author**  Steven Williams (2020) (Copyright)
+
+---
+
+
+<a name=" getSurfaceData" />
 ##  getSurfaceData
 
  GETSURFACEDATA Returns surface mapping data from userdata
@@ -959,7 +1056,7 @@ impedance values at times tim
 
 #### Usage
 ```m
-data = getMappingData( userdata, datatype )
+data = getSurfaceData( userdata, datatype )
 ```
 
 #### Parameters
@@ -989,6 +1086,7 @@ The returned surface mapping data
 ---
 
 
+<a name=" getTotalActivationTime" />
 ##  getTotalActivationTime
 
  GETTOTALACTIVATIONTIME Returns the total activation time of the chamber
@@ -1022,6 +1120,7 @@ the total activation time, in ms
 ---
 
 
+<a name=" getVertices" />
 ##  getVertices
 
  GETVERTICES Returns the vertices referenced by userdata
@@ -1053,6 +1152,7 @@ whether the vertex is referenced by the triangulation
 ---
 
 
+<a name=" getVolume" />
 ##  getVolume
 
  GETVOLUME Calculates the volume of the chamber described in userdata
@@ -1084,6 +1184,40 @@ the volume, in cm^3
 ---
 
 
+<a name=" getWindowOfInterest" />
+##  getWindowOfInterest
+
+ GETWINDOWOFINTERST Returns the window of interest 
+
+ 
+
+#### Usage
+```m
+woi = getWindowOfInterest( userdata )
+```
+
+#### Parameters
+
+**userdata**
+see importcarto_mem
+
+**woi**
+two-element array specifying the window of interest relative to
+          the reference annotation
+
+
+#### Description
+ GETWINDOWOFINTEREST Accepts the following parameter-value pairs.
+   'iEgm'    {:} | integer | array
+        - The electrogram point(s) for which the window of interst is
+        required
+
+**Author**  Steven Williams (2020) (Copyright)
+
+---
+
+
+<a name=" getpointelectrogramname" />
 ##  getpointelectrogramname
 
  GETPOINTELECTROGRAMNAME finds the electrode at xyz.
@@ -1120,6 +1254,7 @@ the electrode position corresponding to the second electrode
 ---
 
 
+<a name=" getpointelectrogramname" />
 ##  getpointelectrogramname
 
  GETELCTRODENAME finds the electrode at xyz.
@@ -1157,6 +1292,7 @@ the electrode position corresponding to the second electrode
 ---
 
 
+<a name=" importcarto_mem" />
 ##  importcarto_mem
 
  IMPORTCARTO provides a data structure from multiple carto files (from zip).
@@ -1190,6 +1326,7 @@ userdata = importcarto_mem()
 ---
 
 
+<a name=" importcarto_mem" />
 ##  importcarto_mem
 
  IMPORTCARTO provides a data structure from multiple carto files (from zip).
@@ -1223,6 +1360,7 @@ userdata = importcarto_mem()
 ---
 
 
+<a name=" importvisitag" />
 ##  importvisitag
 
  IMPORTVISITAG provides a data structure from Carto visitag files.
@@ -1237,19 +1375,6 @@ userdata = importcarto_mem()
  IMPORTVISITAG parses the data contained in a Visitag export from the
  Carto3 mapping system. The data is stored in a field '.rfindex' and the
  new userdata data structure with the appended ablation data is returned.
-
-    function colId = lCol(allNames, requiredName) %l for local
-        if iscell(requiredName)
-            for iName = 1:numel(requiredName)
-                colId(iName) = find(strcmpi(allNames, requiredName{iName}));
-            end
-        else
-            colId = find(strcmpi(allNames, requiredName));
-        end
-    end
-
-end
-
 
 
 #### Usage
@@ -1268,6 +1393,7 @@ end
 ---
 
 
+<a name=" importvisitag" />
 ##  importvisitag
 
  IMPORTVISITAG provides a data structure from carto visitag files.
@@ -1308,6 +1434,7 @@ end
 ---
 
 
+<a name=" openEP2VTK" />
 ##  openEP2VTK
 
  OPENEP2VTK Converts an OpenEP data structure to a VTK file
@@ -1348,6 +1475,7 @@ the path to the file that was written
 ---
 
 
+<a name=" plotAblationArea" />
 ##  plotAblationArea
 
  PLOTABLATIONAREA Adds the ablation area to the current figure
@@ -1374,6 +1502,7 @@ see importcarto_mem.m
 ---
 
 
+<a name=" plotElectrograms" />
 ##  plotElectrograms
 
  PLOTELECTROGRAMS Draws any number of electrograms in line.
@@ -1396,6 +1525,7 @@ PLOTELECTROGRAMS parameter-value pairs can be passed in as follows:
 'autogain', if true the electrograms are automatically scaled, default false
 'acttime', a vector of activation times to be plotted as red crosses
 'egmColors', cell array of colors. Same size as egmNames
+'linewidth', the width of the lines drawing the electrograms
 
 INSTRUCTIONS FOR A4 EGM PAGE
 1. Save figure as an .EPS file.
@@ -1410,188 +1540,6 @@ For example, at 1000Hz range should be specified as having width:
 25mm/s  - 2738  [-1119 1619]
 100mm/s - 684
 200mm/s - 342
-
-
-See also PLOTOPENEPEGMS
-
-Info on Code Testing:
----------------------------------------------------------------
-For an A4 page:
-pageSize = [5 0 29.7 21.0]; %A4 landscape
-plotElectrogram(egm ...
-, 'range', axisRange ...
-, 'paperSpeed', hBg.paperSpeed ...
-, 'position', pageSize ...
-, 'units', 'centimeters' ...
-, 'name', 'Exported from BardGUI' ...
-, 'sampleRate', hBg.hBard.SampleRate ...
-, 'autogain', true ...
-);
----------------------------------------------------------------
-
----------------------------------------------------------------
-code
----------------------------------------------------------------
-Validate input
-p = inputParser;
-p.addRequired('egmTraces', @iscell);
-p.addParamValue('egmNames', {}, @iscellstr);
-p.addParamValue('range', [NaN NaN], @(x)isnumeric(x) && numel(x)==2);
-p.addParamValue('sampleRate', NaN, @(x)isnumeric(x) && numel(x)==1);
-p.addParamValue('paperSpeed', NaN, @isnumeric);
-p.addParamValue('units', 'pixels', @(x)ischar(x) && strcmpi(x, 'pixels') || strcmpi(x, 'centimeters'));
-p.addParamValue('position', [200 200 300 600], @(x)isnumeric(x) && numel(x)==4);
-p.addParamValue('name', 'name', @isstr);
-p.addParamValue('separation', 5, @(x)isnumeric(x) && numel(x)==1);
-p.addParamValue('clipping', [-4 4], @(x)isnumeric(x) && numel(x)==2);
-p.addParamValue('gain', 2, @(x)isnumeric(x) && numel(x)==1);
-p.addParamValue('autogain', false, @islogical);
-p.addParamValue('center', false, @islogical);
-p.addParamValue('acttime', 0, @isnumeric);
-p.addParamValue('egmColors', {}, @iscellstr);
-p.addParamValue('axis', []);
-p.addParamValue('title', 'on', @isstr);
-p.parse(egmTraces, varargin{:});
-inputs = p.Results;
-egmTraces = inputs.egmTraces;
-numEgm = numel(egmTraces);
-len = NaN(numEgm,1);
-for i = 1:numEgm
-len(i) = length(egmTraces{i});
-end
-lengthEgm = nanmax(len);
-paperSpeed = inputs.paperSpeed;
-units = inputs.units;
-position = inputs.position;
-name = inputs.name;
-separation = inputs.separation; %mV
-clipping = inputs.clipping; %mV
-gain = inputs.gain;
-autogain = inputs.autogain;
-center = inputs.center;
-acttime = inputs.acttime;
-ax = inputs.axis;
-titleText = inputs.title;
-if isempty(inputs.egmNames)
-egmNames = num2cell(1:numEgm);
-else
-egmNames = inputs.egmNames;
-end
-if isnan(inputs.range)
-range = [1 lengthEgm];
-else
-range = inputs.range;
-end
-if isnan(inputs.sampleRate)
-sampleRate = 1000;
-sampleRateTitle = 'NaN';
-xAxisLabel = 'samples';
-else
-sampleRate = inputs.sampleRate;
-sampleRateTitle = num2str(sampleRate);
-xAxisLabel = 'time (s)';
-end
-if ~isempty(inputs.egmColors)
-egmColors = fliplr(inputs.egmColors);
-else
-egmColors = cell(1,numel(egmNames));
-egmColors(:) = {'k'};
-end
-Set up the figure
-if isempty(ax)
-hFig = figure;
-set(hFig, 'color', 'w' ...
-, 'units', units ...
-, 'position', position ...
-, 'name', name ...
-);
-end
-If necessary add zeros to the start or end of the trace
-deltaTime = range(2) - range(1) + 1;
-egm = NaN(floor(deltaTime), numEgm);
-for i = 1:numEgm
-try
-egm(:,i) = egmTraces{i};
-catch MeX
-if center
-lengthDif = length(egm(:,i)) - length(egmTraces{i});
-egm(floor(lengthDif/2+1):floor(lengthDif/2+length(egmTraces{i})),i) = egmTraces{i};
-else
-if range(1) < 0 % fill the left of the trace with zeros
-egm(end-length(egmTraces{i})+1:end,i) = egmTraces{i};
-disp(['PLOTELECTROGRAM: ' MeX.message ' Adding zeros to electrogram: ' egmNames{i}]);
-else % fill the right of the trace with zeros
-egm(1:length(egmTraces{i}),i) = egmTraces{i};
-disp(['PLOTELECTROGRAM: ' MeX.message ' Adding zeros to electrogram: ' egmNames{i}]);
-end
-end
-end
-end
-Apply gain, clipping and spacing
-if (autogain)
-for i = 1:numEgm
-egmDelta = nanmax(egm(:,i)) - nanmin(egm(:,i));
-multiplier = 0.9*separation/egmDelta;
-egm(:,i) = egm(:,i) * multiplier;
-end
-else
-egm = egm .* gain;
-end
-egm(egm>clipping(2)) = clipping(2);
-egm(egm<clipping(1)) = clipping(1);
-for i = 1:numEgm
-egm(:,i) = egm(:,i) + separation * i;
-end
-Draw the electrograms
-time = range(1):range(2);
-time = time';
-xValues = repmat(time, [1, numEgm]);
-for i = 1:size(xValues,2)
-line(xValues(:,i), egm(time,i) ...
-, 'color', colorBrewer(egmColors{i}) ...
-, 'linewidth', 1 ...
-);
-
-yTickPos = separation:separation:separation*numEgm;
-yTickLabel = egmNames;
-
-set(gca, 'YTick', yTickPos ...
-, 'YTickLabel', yTickLabel ...
-, 'YLim', [0 separation*(numEgm+1)] ...
-, 'XLim', [range(1) range(2)] ...
-, 'Color', 'w' ...
-);
-%    , 'Position', [0.09 0.11 0.861 0.815] ... % Fine adjustment for speed
-
-
-% Draw the acttimes
-if ~acttime==0
-hold on
-yVal = separation:separation:numel(acttime)*separation;
-plot(acttime, yVal, 'r.', 'markersize', 20);
-end
-
-% Sort out the x axis labels
-xTick = get(gca, 'XTick');
-xTickLabel = xTick / (sampleRate/1000);
-set(gca, 'XTickLabel', round(xTickLabel));
-
-% Set the title and the x-axis label
-if strcmpi(titleText, 'off')
-% do nothing
-else
-title(['Paper Speed: ' num2str(paperSpeed) ' mm/s | Sample Rate: ' sampleRateTitle ' Hz']);
-end
-if isnan(sampleRate)
-xlabel('samples');
-else
-xlabel(xAxisLabel);
-end
-
-% Turn on the grid lines
-%set(gca, 'XGrid', 'on');
-
-end
 ```
 
 #### Parameters
@@ -1605,6 +1553,7 @@ end
 ---
 
 
+<a name=" plotOpenEPEgms" />
 ##  plotOpenEPEgms
 
  PLOTOPENEPEGMS Plot eletrograms from OpenEP data
@@ -1649,12 +1598,15 @@ a handle to the plotted figure
            Whether to plot the reference channel, off by default userdata.electric.egm(iEgmArray,:) are selected for plotting
            To convert from Carto point numbers to iEgmArray use
            getIndexFromCartoPointNumber.
+   'linewidth', {1} | integer
+           The width of the lines drawing the electrograms
 
 **Author**  Steven Williams (2017) (Copyright)
 
 ---
 
 
+<a name=" plotTag" />
 ##  plotTag
 
  PLOTTAG Plots tag(s) on the current map
@@ -1692,6 +1644,7 @@ is an array of handles referencing the plotted surfaces
 ---
 
 
+<a name=" plotVisitags" />
 ##  plotVisitags
 
  PLOTVISITAGS Displays ablation data for a case
@@ -1727,6 +1680,7 @@ see importcarto_mem.m
 ---
 
 
+<a name=" pointStatus" />
 ##  pointStatus
 
  POINTSTATUS Returns the status of points relevant to userdata
@@ -1766,6 +1720,7 @@ whether points in the triangulation in userdata are
 ---
 
 
+<a name=" processSmartTouchForceData" />
 ##  processSmartTouchForceData
 
  PROCESSSMARTTOUCHFORCEDATA Gets a shell with force data
@@ -1797,6 +1752,7 @@ are the coordinates of the data in f (size: length(f) * 3)
 ---
 
 
+<a name=" read_ecgfile_v4" />
 ##  read_ecgfile_v4
 
  READ_ECGFILE loads this Carto3 ecg file.
@@ -1825,6 +1781,7 @@ this helps speed
 ---
 
 
+<a name=" read_ecgfile_v4_header" />
 ##  read_ecgfile_v4_header
 
  READ_ECGFILE_V4_HEADER loads the header from an ECG file.
@@ -1844,19 +1801,14 @@ this helps speed
 
 
 #### Description
-        name = '';
-        for j = 1:numel(iNeeded)
-            name = [name separator tokens{iNeeded(j)}];
-        end
-        name(1) = [];
-    end
-end
+
 
 **Author**  Steven Williams (2020) (Copyright)
 
 ---
 
 
+<a name=" read_forcefile_v2" />
 ##  read_forcefile_v2
 
  READ_FORCEFILE loads this Carto3 force file.
@@ -1901,6 +1853,7 @@ is the time course of the lateral angle
 ---
 
 
+<a name=" read_meshfile" />
 ##  read_meshfile
 
  READ_MESHFILE loads this Carto3 mesh file.
@@ -1929,6 +1882,7 @@ t = read_meshfile(filename)
 ---
 
 
+<a name=" read_positions_on_annotation_v2" />
 ##  read_positions_on_annotation_v2
 
  READ_POSITIONS_ON_ANNOTATION_V2 loads this Carto3 position file.
@@ -1952,6 +1906,7 @@ t = read_meshfile(filename)
 ---
 
 
+<a name=" read_visitag_file_v1" />
 ##  read_visitag_file_v1
 
  READ_VISITAG_FILE_V1 Reads a data file stored in a WiseTag or VisiTag
@@ -1987,6 +1942,7 @@ the file header
 ---
 
 
+<a name=" read_visitag_sites" />
 ##  read_visitag_sites
 
  READ_VISITAG_SITES loads Carto3 visitag sites.txt file.
@@ -2011,6 +1967,7 @@ the file header
 ---
 
 
+<a name=" read_visitagsettings" />
 ##  read_visitagsettings
 
  READ_VISITAGSETTINGS loads Carto3 visitag settings file.
@@ -2038,6 +1995,7 @@ the file header
 ---
 
 
+<a name=" voltageHistogramAnalysis" />
 ##  voltageHistogramAnalysis
 
  VOLTAGEHISTOGRAMANALYSIS Performs voltage histogram analysis
@@ -2046,7 +2004,7 @@ the file header
 
 #### Usage
 ```m
-areas = plotVoltageHistogram( userdata, varargin )
+areas = voltageHistogramAnalysis( userdata, varargin )
 ```
 
 #### Parameters

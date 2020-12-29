@@ -18,20 +18,18 @@ header:
     - label: Documentation
       url: /documentation
     - label: GitHub
-      url: https://github.com/openep/openep
+      url: https://github.com/openep/openep-core/
       primary: true
 footer:
-  logo_img: images/logo_alt.png
-  tagline: Tagline
+  logo_img: images/logo.png
+  tagline:
   has_nav: true
-  nav_title: Company
+  nav_title: OpenEP
   nav_links:
     - label: About Us
       url: /about
-    - label: Blog
-      url: /blog
-    - label: Sign Up
-      url: signup
+    - label: GitHub
+      url: https://github.com/openep/openep-core/
   has_social: true
   social_title: Community
   social_links:

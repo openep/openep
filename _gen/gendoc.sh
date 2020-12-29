@@ -79,7 +79,7 @@ for path in "$dir"/*.m; do
   in=`echo ${parts2[1]} | sed 's/[\(\)]//g'`
 
   printf "\n\n" >> "$apiFile"
-  content=`cat "$path" | sed '/function/,/% Author/!d;//d'`
+  content=`cat "$path" | sed '/^function/,/^% Author/!d;//d'`
 
   IFS=$'\n'
   lines=""
@@ -88,7 +88,7 @@ for path in "$dir"/*.m; do
   done
   unset IFS
 
-  printf "\n## %s\n\n" "$name" >> "$apiFile"
+  printf "\n<a name=\"%s\" />\n## %s\n\n" "$name" "$name" >> "$apiFile"
   IFS=""
   info="$(echo $lines | awk -F'Usage:' '{print $1}')"
   info=`echo "$info" | sed $'s/<br\/>/\\\\\\n/g'`
