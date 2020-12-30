@@ -1,9 +1,22 @@
 ---
 title: Examples
-layout: page
+layout: examples
+
+examples:
+  section_id: examples
+  type: section_grid
+  background: white
+  items:
+    - title: Ablation quantification
+      image: images/gallery-ablation.png
+      url: '#ablation-quantification'
+    - title: Activation mapping
+      image: images/gallery-interpolation.png
+      url: '#activation-mapping'
+    - title: Conduction velocity
+      image: images/gallery-cv.png
+      url: '#conduction-velocity'
 ---
-<img src="/images/examples.png">
-The figure above shows the key components of the OpenEP framework. There is a Data Parsing module which is used to convert proprietary electroanatomic mapping formats into the OpenEP data format. There are the Data Analytics modules which are used to visualise, interpret and analyse OpenEP data. Since these modules make use of the OpenEP data format, once electroanatomic mapping data is in this format each of these modules can be used to process the data. OpenEP data analysis modules are available to process activation data, voltage data, ablation data and geometric data.
 
 ## Ablation quantification
 <img src="/images/gallery-ablation.png">
@@ -50,10 +63,10 @@ ablArea = getAblationArea(userdata)
 plotAblationArea(userdata)
 ```
 ### API Links
-[getAblationArea.m](/api/#getAblationArea)
-[plotAblationArea.m](/api/#plotAblationArea)
-[plotVisitags.m](/api/#plotVisitags)
-[importvisitag.m](/api#importvisitag)
+getAblationArea.m
+plotAblationArea.m
+plotVisitags.m
+importvisitag.m
 
 ## Activation mapping
 <img src="/images/gallery-lat.png">

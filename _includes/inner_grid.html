@@ -1,0 +1,21 @@
+{% assign section = include.section %}
+
+  <div class="inner">
+    <div class="post-feed">
+      {% for item in section.items %}
+      <article class="post post-card">
+        <div class="post-card-inside">
+          {% assign thumb_image_is_not_empty = item.image | is_not_empty %}
+          {% if thumb_image_is_not_empty %}
+          <img class="thumbnail" src="{{ item.image | relative_url }}" alt="{{ item.image_alt }}" />
+          {% endif %}
+          <div class="post-card-content">
+            <header class="post-header">
+              <a href="{{ item.url }}"</a><h3 class="post-title">{{ item.title }}</h3></a>
+            </header>
+          </div><!-- .post-card-content -->
+        </div><!-- .post-card-inside -->
+      </article><!-- .post -->
+      {% endfor %}
+    </div><!-- .post-feed -->
+  </div><!-- .inner -->
