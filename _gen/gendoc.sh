@@ -75,7 +75,7 @@ for path in "$dir"/*.m; do
   fi
 
   IFS='('; parts2=(${parts[1]}); unset IFS;
-  name=${parts2[0]}
+  name=$(trim ${parts2[0]})
   in=`echo ${parts2[1]} | sed 's/[\(\)]//g'`
 
   printf "\n\n" >> "$apiFile"

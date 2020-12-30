@@ -45,8 +45,8 @@ td {
 
 
 
-<a name=" cartoMesh2VTK" />
-##  cartoMesh2VTK
+<a name="cartoMesh2VTK" />
+## cartoMesh2VTK
 
  CARTOMESH2VTK Converts a Carto mesh file to VTK file
 
@@ -72,8 +72,8 @@ a TriRep object
 ---
 
 
-<a name=" cvHistogram" />
-##  cvHistogram
+<a name="cvHistogram" />
+## cvHistogram
 
  CVHISTOGRAM Draws a conduction velocity histogram
 
@@ -100,8 +100,8 @@ see importcarto_mem
 ---
 
 
-<a name=" distanceBetweenPoints" />
-##  distanceBetweenPoints
+<a name="distanceBetweenPoints" />
+## distanceBetweenPoints
 
  DISTANCEBETWEENPOINTS Returns the distance from A to B.
  
@@ -135,8 +135,8 @@ is the second point
 ---
 
 
-<a name=" drawMap" />
-##  drawMap
+<a name="drawMap" />
+## drawMap
 
  DRAWMAP plots an OpenEP map
  
@@ -183,8 +183,8 @@ is a Carto data structure
 ---
 
 
-<a name=" editUserdata" />
-##  editUserdata
+<a name="editUserdata" />
+## editUserdata
 
  EDITUSERDATA Graphically remove regions from a Carto dataset
 
@@ -217,8 +217,8 @@ is the new Carto dataset with elements removed
 ---
 
 
-<a name=" fixVoltageAnnotations" />
-##  fixVoltageAnnotations
+<a name="fixVoltageAnnotations" />
+## fixVoltageAnnotations
 
  FIXVOLTAGEANNOTATIONS Fixes the uni/bip reversal identified in
  userdata.electric.voltages in August 2014. This function is not required
@@ -248,8 +248,8 @@ is the input, or 'openfile'
 ---
 
 
-<a name=" generateInterpData" />
-##  generateInterpData
+<a name="generateInterpData" />
+## generateInterpData
 
  GENERATEINTERPDATA Performs spatial interpolation of scalar data
 
@@ -301,8 +301,8 @@ is the interpolated data
 ---
 
 
-<a name=" getAblationArea" />
-##  getAblationArea
+<a name="getAblationArea" />
+## getAblationArea
 
  GETABLATIONAREA Calculates the area of a chamber which has been ablated
 
@@ -347,8 +347,8 @@ a Triangulation of the ablated tissue
 ---
 
 
-<a name=" getAnatomicalStructures" />
-##  getAnatomicalStructures
+<a name="getAnatomicalStructures" />
+## getAnatomicalStructures
 
  GETANATOMICALSTRUCTURES Returns the free boundaries (anatomical 
  structures) described in userdata
@@ -387,8 +387,8 @@ cell array of triangulations of each anatomical structure
 ---
 
 
-<a name=" getArea" />
-##  getArea
+<a name="getArea" />
+## getArea
 
  GETAREA Returns the surface area of an anatomical model
 
@@ -417,8 +417,8 @@ the surface area (cm^2)
 ---
 
 
-<a name=" getCentreOfMass" />
-##  getCentreOfMass
+<a name="getCentreOfMass" />
+## getCentreOfMass
 
  GETCENTREOFMASS Returns the centre of mass of the anatomical model 
  defined in userdata
@@ -448,8 +448,8 @@ the Cartesian co-ordinates of the centre of mass
 ---
 
 
-<a name=" getClosedSurface" />
-##  getClosedSurface
+<a name="getClosedSurface" />
+## getClosedSurface
 
  GETCLOSEDSURFACE Fills all the holes in the userdata surface
 
@@ -482,8 +482,8 @@ a triRep object
 ---
 
 
-<a name=" getConductionVelocity" />
-##  getConductionVelocity
+<a name="getConductionVelocity" />
+## getConductionVelocity
 
  GETCONDUCTIONVELOCITY Returns the conduction velocity map of the 
  chamber
@@ -518,8 +518,8 @@ the conduction velocities, in m/s
 ---
 
 
-<a name=" getEarliestActivationSite" />
-##  getEarliestActivationSite
+<a name="getEarliestActivationSite" />
+## getEarliestActivationSite
 
  GETEARLIESTACTIVATIONSITE Returns the earliest activation site
 
@@ -577,8 +577,8 @@ the calculated earliest activation time, relative to the
 ---
 
 
-<a name=" getEgmsAtPoints" />
-##  getEgmsAtPoints
+<a name="getEgmsAtPoints" />
+## getEgmsAtPoints
 
  GETEGMSATPOINTS Access eletrograms from stored in the OpenEP data format
 
@@ -624,8 +624,8 @@ names of the electrograms
 ---
 
 
-<a name=" getElectrogramDuration" />
-##  getElectrogramDuration
+<a name="getElectrogramDuration" />
+## getElectrogramDuration
 
  GETELECTROGRAMDURATION Returns the electrogram durations
 
@@ -662,8 +662,8 @@ the duration of activation for each electrogram
 ---
 
 
-<a name=" getFaces" />
-##  getFaces
+<a name="getFaces" />
+## getFaces
 
  GETFACES Returns the faces referenced by userdata
 
@@ -691,8 +691,8 @@ all the faces
 ---
 
 
-<a name=" getImpedanceValues" />
-##  getImpedanceValues
+<a name="getImpedanceValues" />
+## getImpedanceValues
 
  GETIMPEDANCEVALUE Returns the impedance value of given point(s)
 
@@ -723,8 +723,8 @@ the impedance values (Ohms)
 ---
 
 
-<a name=" getIndexFromCartoPointNumber" />
-##  getIndexFromCartoPointNumber
+<a name="getIndexFromCartoPointNumber" />
+## getIndexFromCartoPointNumber
 
  GETINDEXFROMCARTOPOINTNUMBER Finds the index of the mapping point at the 
  point number displayed on the Carto mapping system.
@@ -759,8 +759,8 @@ an index (or array of indices) for referencing into the
 ---
 
 
-<a name=" getLatestActivationSite" />
-##  getLatestActivationSite
+<a name="getLatestActivationSite" />
+## getLatestActivationSite
 
  GETLATESTACTIVATIONSITE Returns the latest activation site
 
@@ -818,8 +818,8 @@ The calculated latest activation time, relative to the
 ---
 
 
-<a name=" getLowVoltageArea" />
-##  getLowVoltageArea
+<a name="getLowVoltageArea" />
+## getLowVoltageArea
 
  GETLOWVOLTAGEAREA Returns the low voltage area
 
@@ -862,8 +862,8 @@ a triangulation of all the triangles referenced in iTri.
 ---
 
 
-<a name=" getMappingPointsWithinWoI" />
-##  getMappingPointsWithinWoI
+<a name="getMappingPointsWithinWoI" />
+## getMappingPointsWithinWoI
 
  GETMAPPINGPOINTSWITHINWOI Returns the indices of the mapping points with
  annotated local activation time within the window of interest
@@ -893,8 +893,8 @@ the list of valid points; indexes into userdata.electric
 ---
 
 
-<a name=" getMeanVoltage" />
-##  getMeanVoltage
+<a name="getMeanVoltage" />
+## getMeanVoltage
 
  GETMEANVOLTAGE Returns the mean voltage
 
@@ -924,8 +924,8 @@ the mean chamber voltage (mV)
 ---
 
 
-<a name=" getMesh" />
-##  getMesh
+<a name="getMesh" />
+## getMesh
 
  GETMESH Returns the triangulation-based mesh from userdata
 
@@ -953,8 +953,8 @@ a TriRep, or Triangulation, object
 ---
 
 
-<a name=" getNumPts" />
-##  getNumPts
+<a name="getNumPts" />
+## getNumPts
 
  GETNUMPTS Returns the number of mapping points in the OpenEP dataset
 
@@ -982,8 +982,8 @@ the number of mapping points
 ---
 
 
-<a name=" getPointImpedanceValue" />
-##  getPointImpedanceValue
+<a name="getPointImpedanceValue" />
+## getPointImpedanceValue
 
  GETPOINTIMPEDANCEVALUE Provides an algorithm for giving point impedance
  values
@@ -1015,8 +1015,8 @@ impedance values at times tim
 ---
 
 
-<a name=" getReferenceAnnotation" />
-##  getReferenceAnnotation
+<a name="getReferenceAnnotation" />
+## getReferenceAnnotation
 
  GETREFERENCEANNOTATION Returns the value of the reference annotation 
 
@@ -1047,8 +1047,8 @@ the value of the reference annotation
 ---
 
 
-<a name=" getSurfaceData" />
-##  getSurfaceData
+<a name="getSurfaceData" />
+## getSurfaceData
 
  GETSURFACEDATA Returns surface mapping data from userdata
 
@@ -1086,8 +1086,8 @@ The returned surface mapping data
 ---
 
 
-<a name=" getTotalActivationTime" />
-##  getTotalActivationTime
+<a name="getTotalActivationTime" />
+## getTotalActivationTime
 
  GETTOTALACTIVATIONTIME Returns the total activation time of the chamber
 
@@ -1120,8 +1120,8 @@ the total activation time, in ms
 ---
 
 
-<a name=" getVertices" />
-##  getVertices
+<a name="getVertices" />
+## getVertices
 
  GETVERTICES Returns the vertices referenced by userdata
 
@@ -1152,8 +1152,8 @@ whether the vertex is referenced by the triangulation
 ---
 
 
-<a name=" getVolume" />
-##  getVolume
+<a name="getVolume" />
+## getVolume
 
  GETVOLUME Calculates the volume of the chamber described in userdata
 
@@ -1184,8 +1184,8 @@ the volume, in cm^3
 ---
 
 
-<a name=" getWindowOfInterest" />
-##  getWindowOfInterest
+<a name="getWindowOfInterest" />
+## getWindowOfInterest
 
  GETWINDOWOFINTERST Returns the window of interest 
 
@@ -1217,8 +1217,8 @@ two-element array specifying the window of interest relative to
 ---
 
 
-<a name=" getpointelectrogramname" />
-##  getpointelectrogramname
+<a name="getpointelectrogramname" />
+## getpointelectrogramname
 
  GETPOINTELECTROGRAMNAME finds the electrode at xyz.
  
@@ -1254,8 +1254,8 @@ the electrode position corresponding to the second electrode
 ---
 
 
-<a name=" getpointelectrogramname" />
-##  getpointelectrogramname
+<a name="getpointelectrogramname" />
+## getpointelectrogramname
 
  GETELCTRODENAME finds the electrode at xyz.
 
@@ -1292,8 +1292,8 @@ the electrode position corresponding to the second electrode
 ---
 
 
-<a name=" importcarto_mem" />
-##  importcarto_mem
+<a name="importcarto_mem" />
+## importcarto_mem
 
  IMPORTCARTO provides a data structure from multiple carto files (from zip).
  
@@ -1326,8 +1326,8 @@ userdata = importcarto_mem()
 ---
 
 
-<a name=" importcarto_mem" />
-##  importcarto_mem
+<a name="importcarto_mem" />
+## importcarto_mem
 
  IMPORTCARTO provides a data structure from multiple carto files (from zip).
  
@@ -1360,8 +1360,8 @@ userdata = importcarto_mem()
 ---
 
 
-<a name=" importvisitag" />
-##  importvisitag
+<a name="importvisitag" />
+## importvisitag
 
  IMPORTVISITAG provides a data structure from Carto visitag files.
 
@@ -1393,8 +1393,8 @@ userdata = importcarto_mem()
 ---
 
 
-<a name=" importvisitag" />
-##  importvisitag
+<a name="importvisitag" />
+## importvisitag
 
  IMPORTVISITAG provides a data structure from carto visitag files.
  Usage
@@ -1434,8 +1434,8 @@ userdata = importcarto_mem()
 ---
 
 
-<a name=" openEP2VTK" />
-##  openEP2VTK
+<a name="openEP2VTK" />
+## openEP2VTK
 
  OPENEP2VTK Converts an OpenEP data structure to a VTK file
 
@@ -1475,8 +1475,8 @@ the path to the file that was written
 ---
 
 
-<a name=" plotAblationArea" />
-##  plotAblationArea
+<a name="plotAblationArea" />
+## plotAblationArea
 
  PLOTABLATIONAREA Adds the ablation area to the current figure
 
@@ -1502,8 +1502,8 @@ see importcarto_mem.m
 ---
 
 
-<a name=" plotElectrograms" />
-##  plotElectrograms
+<a name="plotElectrograms" />
+## plotElectrograms
 
  PLOTELECTROGRAMS Draws any number of electrograms in line.
 
@@ -1553,8 +1553,8 @@ For example, at 1000Hz range should be specified as having width:
 ---
 
 
-<a name=" plotOpenEPEgms" />
-##  plotOpenEPEgms
+<a name="plotOpenEPEgms" />
+## plotOpenEPEgms
 
  PLOTOPENEPEGMS Plot eletrograms from OpenEP data
 
@@ -1606,8 +1606,8 @@ a handle to the plotted figure
 ---
 
 
-<a name=" plotTag" />
-##  plotTag
+<a name="plotTag" />
+## plotTag
 
  PLOTTAG Plots tag(s) on the current map
 
@@ -1644,8 +1644,8 @@ is an array of handles referencing the plotted surfaces
 ---
 
 
-<a name=" plotVisitags" />
-##  plotVisitags
+<a name="plotVisitags" />
+## plotVisitags
 
  PLOTVISITAGS Displays ablation data for a case
 
@@ -1680,8 +1680,8 @@ see importcarto_mem.m
 ---
 
 
-<a name=" pointStatus" />
-##  pointStatus
+<a name="pointStatus" />
+## pointStatus
 
  POINTSTATUS Returns the status of points relevant to userdata
 
@@ -1720,8 +1720,8 @@ whether points in the triangulation in userdata are
 ---
 
 
-<a name=" processSmartTouchForceData" />
-##  processSmartTouchForceData
+<a name="processSmartTouchForceData" />
+## processSmartTouchForceData
 
  PROCESSSMARTTOUCHFORCEDATA Gets a shell with force data
  
@@ -1752,8 +1752,8 @@ are the coordinates of the data in f (size: length(f) * 3)
 ---
 
 
-<a name=" read_ecgfile_v4" />
-##  read_ecgfile_v4
+<a name="read_ecgfile_v4" />
+## read_ecgfile_v4
 
  READ_ECGFILE loads this Carto3 ecg file.
  
@@ -1781,8 +1781,8 @@ this helps speed
 ---
 
 
-<a name=" read_ecgfile_v4_header" />
-##  read_ecgfile_v4_header
+<a name="read_ecgfile_v4_header" />
+## read_ecgfile_v4_header
 
  READ_ECGFILE_V4_HEADER loads the header from an ECG file.
  
@@ -1808,8 +1808,8 @@ this helps speed
 ---
 
 
-<a name=" read_forcefile_v2" />
-##  read_forcefile_v2
+<a name="read_forcefile_v2" />
+## read_forcefile_v2
 
  READ_FORCEFILE loads this Carto3 force file.
  
@@ -1853,8 +1853,8 @@ is the time course of the lateral angle
 ---
 
 
-<a name=" read_meshfile" />
-##  read_meshfile
+<a name="read_meshfile" />
+## read_meshfile
 
  READ_MESHFILE loads this Carto3 mesh file.
  
@@ -1882,8 +1882,8 @@ t = read_meshfile(filename)
 ---
 
 
-<a name=" read_positions_on_annotation_v2" />
-##  read_positions_on_annotation_v2
+<a name="read_positions_on_annotation_v2" />
+## read_positions_on_annotation_v2
 
  READ_POSITIONS_ON_ANNOTATION_V2 loads this Carto3 position file.
  
@@ -1906,8 +1906,8 @@ t = read_meshfile(filename)
 ---
 
 
-<a name=" read_visitag_file_v1" />
-##  read_visitag_file_v1
+<a name="read_visitag_file_v1" />
+## read_visitag_file_v1
 
  READ_VISITAG_FILE_V1 Reads a data file stored in a WiseTag or VisiTag
  directory
@@ -1942,8 +1942,8 @@ the file header
 ---
 
 
-<a name=" read_visitag_sites" />
-##  read_visitag_sites
+<a name="read_visitag_sites" />
+## read_visitag_sites
 
  READ_VISITAG_SITES loads Carto3 visitag sites.txt file.
  
@@ -1967,8 +1967,8 @@ the file header
 ---
 
 
-<a name=" read_visitagsettings" />
-##  read_visitagsettings
+<a name="read_visitagsettings" />
+## read_visitagsettings
 
  READ_VISITAGSETTINGS loads Carto3 visitag settings file.
  
@@ -1995,8 +1995,8 @@ the file header
 ---
 
 
-<a name=" voltageHistogramAnalysis" />
-##  voltageHistogramAnalysis
+<a name="voltageHistogramAnalysis" />
+## voltageHistogramAnalysis
 
  VOLTAGEHISTOGRAMANALYSIS Performs voltage histogram analysis
 
