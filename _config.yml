@@ -22,14 +22,14 @@ header:
       primary: true
 footer:
   logo_img: images/logo.png
-  tagline:
+  tagline: The open-source solution for electrophysiology data analysis
   has_nav: true
   nav_title: OpenEP
   nav_links:
     - label: About Us
       url: /about
     - label: GitHub
-      url: https://github.com/openep/openep-core/
+      url: https://github.com/openep/
   has_social: true
   social_title: Contact Us
   social_links:
@@ -63,4 +63,3 @@ exclude:
   - stackbit-build.sh
   - stackbit-pull.js
   - _gen
-
