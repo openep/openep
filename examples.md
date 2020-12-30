@@ -50,10 +50,10 @@ ablArea = getAblationArea(userdata)
 plotAblationArea(userdata)
 ```
 ### API Links
-getAblationArea.m
-plotAblationArea.m
-plotVisitags.m
-importvisitag.m
+[getAblationArea.m](/api/#getAblationArea)
+[plotAblationArea.m](/api/#plotAblationArea)
+[plotVisitags.m](/api/#plotVisitags)
+[importvisitag.m](/api#importvisitag)
 
 ## Activation mapping
 <img src="/images/gallery-lat.png">
