@@ -1,0 +1,39 @@
+{% assign section = include.section %}
+<section id="{{ section.section_id }}" class="block posts-block bg-{{ section.background }} outer">
+  <div class="block-header inner-small">
+    {% assign title_is_not_empty = section.title | is_not_empty %}
+    {% if title_is_not_empty %}
+    <h2 class="block-title">{{ section.title }}</h2>
+    {% endif %}
+    {% assign subtitle_is_not_empty = section.subtitle | is_not_empty %}
+    {% if subtitle_is_not_empty %}
+    <p class="block-subtitle">
+      {{ section.subtitle }}
+    </p>
+    {% endif %}
+  </div><!-- .block-header -->
+  <div class="inner">
+    <div class="post-feed">
+      {% for item in section.items %}
+      <article class="post post-card">
+        <div class="post-card-inside">
+          {% assign thumb_image_is_not_empty = item.image | is_not_empty %}
+          {% if thumb_image_is_not_empty %}
+          <img class="thumbnail" src="{{ item.image | relative_url }}" alt="{{ item.image_alt }}" />
+          {% endif %}
+          <div class="post-card-content">
+            <header class="post-header">
+              <h3 class="post-title">{{ item.title }}</h3>
+            </header>
+            <div class="post-excerpt">
+              <p>{{ item.content }}</p>
+            </div>
+            
+            {% include blog_post_footer.html page=post date_type='short' %}
+          </div><!-- .post-card-content -->
+        </div><!-- .post-card-inside -->
+      </article><!-- .post -->
+      {% endfor %}
+    </div><!-- .post-feed -->
+  </div><!-- .inner -->
+</section><!-- .block -->

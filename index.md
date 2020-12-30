@@ -46,29 +46,19 @@ sections:
       - label: Github
         url: https://github.com/openep
         primary: true
-  - section_id: reviews
-    type: section_reviews
+  - section_id: partners
+    type: section_grid
     background: white
     title: Partner Institutions
     subtitle: >-
       OpenEP has been developed at King's College London, Imperial College London and The University of Edinburgh.
-    reviews:
-      - author: King's College London
-        avatar: images/kcl_logo.png
-        content: >-
-          Vestibulum a nunc ut eros condimentum posuere. Nullam dapibus quis
-          nunc non interdum. Pellentesque tortor ligula, gravida ac commodo eu.
-      - author: Imperial College London
-        avatar: images/imperial_logo.png
-        content: >-
-          Sed laoreet magna commodo libero euismod sodales. Nunc ac libero
-          convallis, interdum ligula vel, pretium diam. Integer commodo sem at
-          dui sollicitudin, vel posuere justo laoreet.
-      - author: The University of Edinburgh
-        avatar: images/edinburgh_logo.png
-        content: >-
-          Integer consectetur purus neque, ac porttitor enim convallis vitae.
-          Interdum et malesuada fames ac ante ipsum primis in faucibus.
+    items:
+      - title: King's College London
+        image: images/kcl_logo.png
+      - title: Imperial College London
+        image: images/imperial_logo.png
+      - title: The University of Edinburgh
+        image: images/edinburgh_logo.png
 
 layout: landing
 ---
