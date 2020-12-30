@@ -6,8 +6,8 @@ if [[ $# != 1 ]]; then
 fi
 
 function trim() {
-    local trimmed=`echo $1 | sed -e 's/^[[:space:]]*//' | sed -e 's/[[:space:]]*$//' | sed '/./,$!d'`
-    echo -n "$trimmed"  # Output trimmed string.
+  local trimmed=`echo $1 | sed -e 's/^[[:space:]]*//' | sed -e 's/[[:space:]]*$//' | sed '/./,$!d'`
+  echo -n "$trimmed"  # Output trimmed string.
 }
 
 dir=$1
@@ -104,32 +104,50 @@ for path in "$dir"/*.m; do
 
   info="$(echo $c2 | awk -F'<br/><br/>' '{print $1}')"
   info=`echo "$info" | sed $'s/<br\/>/\\\\\n/g'`
-  content="$(echo $c2 | awk -F'<br/><br/>' '{print $2}')"
-  content=`echo "$content" | sed $'s/<br\/>/\\\\\n/g'`
 
   printf "#### Parameters\n" >> "$apiFile"
 
-#  info=$(trim $info)
   IFS=$'\n'
   delimiter=" - "
 
   for line in $info; do
+    s=$line$delimiter
+    parts=();
+    while [[ $s ]]; do
+      parts+=( "${s%%"$delimiter"*}" );
+      s=${s#*"$delimiter"};
+    done;
 
-
-	  s=$line$delimiter
-	  parts=();
-	  while [[ $s ]];
-	  do
-	  parts+=( "${s%%"$delimiter"*}" );
-	  s=${s#*"$delimiter"};
-	  done;
-
-	  if [[ -z "${parts[1]}" ]]; then # not a parameter line
-		  printf '%s\n' ${parts[0]} >> "$apiFile"
-	  else
-		  printf '\n**%s**\n%s\n' $(trim ${parts[0]}) ${parts[1]} >> "$apiFile"
-	  fi
+    if [[ -z "${parts[1]}" ]]; then # not a parameter line
+      printf '&nbsp;&nbsp;&nbsp;&nbsp;%s  \n' ${parts[0]} >> "$apiFile"
+    else
+      printf '\n**%s**  \n&nbsp;&nbsp;&nbsp;&nbsp;%s  \n' $(trim ${parts[0]}) ${parts[1]} >> "$apiFile"
+    fi
   done
+
+  info=""
+  c2="$(trim $(echo $content | awk -F'accepts the following parameter-value pairs' '{print $2}'))"
+  if [[ ! -z "$c2" ]]; then 
+    info="$(echo $c2 | awk -F'<br/><br/>' '{print $1}')"
+    info=`echo "$info" | sed $'s/<br\/>/\\\\\n/g'`
+    content="$(echo $c2 | awk -F'<br/><br/>' '{print $2}')"
+  else
+    content="$(echo $content | awk -F'<br/><br/>' '{print $2}')"
+  fi
+  content=`echo "$content" | sed $'s/<br\/>/\\\\\n/g'`
+
+  if [[ ! -z "$info" ]]; then
+    printf "\n#### Parameter Value Pairs\n" >> "$apiFile"
+
+    for l in $info; do
+	  line=`echo $(trim $l) | sed -e 's_|_\\\|_g'`
+	  if [[ $line == "'"* ]]; then 
+		  printf '\n**%s**  \n' $line >> "$apiFile"
+	  else
+		  printf '&nbsp;&nbsp;&nbsp;&nbsp;%s  \n' $line >> "$apiFile"
+	  fi
+    done
+  fi
   unset IFS
 
   printf "\n\n#### Description\n" >> "$apiFile"

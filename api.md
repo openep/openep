@@ -59,8 +59,8 @@ tr = cartoMesh2VTK('openfile')
 
 #### Parameters
 
-**tr,**
-a TriRep object
+**tr,**  
+&nbsp;&nbsp;&nbsp;&nbsp;a TriRep object  
 
 
 #### Description
@@ -86,14 +86,19 @@ cvHistogram( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
+
+#### Parameter Value Pairs
+
+**'limits'    {[0 5]} \| array**  
+
+**'binwidth'  {0.1} \| double**  
 
 
 #### Description
- CVHISTOGRAM accepts the following parameter-value pairs
-   'limits'    {[0 5]} | array
-   'binwidth'  {0.1} | double
+ CVHISTOGRAM displays a histogram of conduction velocities. Limits are set
+ to exclude non-physiological conduction velocities
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -113,22 +118,29 @@ distance = distanceBetweenPoints(userdata, A, B)
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**P1**
-is the first point
+**P1**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the first point  
 
-**P2**
-is the second point
+**P2**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the second point  
+
+#### Parameter Value Pairs
+
+**'method'    {'linear'} \| 'geodesic'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specifies whether to calcualte linear or geodesic distances  
+
+**'plot'      {false} \| true**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specifies whether to draw a figure  
 
 
 #### Description
- DISTBETWEENPOINTS accepts the following parameter-value pairs
-   'method'    {'linear'} | 'geodesic'
-       - Specifies whether to calcualte linear or geodesic distances
-   'plot'      {false} | true
-       - Specifies whether to draw a figure
+ DISTBETWEENPOINTS returns the distance from A to B. A and B are specified
+ as row vectors [x, y, z] or matrices, with rows representing different
+ points. If npoints in A and B are different A must specify one and only
+ one point.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -149,34 +161,44 @@ hSurf = drawMap(userdata, varargin);
 
 #### Parameters
 
-**hSurf**
-is a handle to the surface
+**hSurf**  
+&nbsp;&nbsp;&nbsp;&nbsp;is a handle to the surface  
 
-**userdata**
-is a Carto data structure
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;is a Carto data structure  
+
+#### Parameter Value Pairs
+&nbsp;&nbsp;&nbsp;&nbsp;:  
+
+**'data' {[]} \| [d]**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Where d is a vector of data values and size(d) equals numel(userdata.surface.triRep.X)  
+
+**'type'  {'act'} \| 'bip' \| 'force' \| 'uni' \| 'none' \| 'cv'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specifies type of map - activation, bipolar or unipolar voltage  
+
+**'coloraxis' {[]} \| [a b]**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Where a and b are real numbers. See help colorShell  
+
+**'noLight' {false} \| true**  
+&nbsp;&nbsp;&nbsp;&nbsp;- If set to true no additional light will be drawn. Useful if  
+&nbsp;&nbsp;&nbsp;&nbsp;overlaying maps.  
+
+**'usrColorMap' {[]}\|cMap**  
+&nbsp;&nbsp;&nbsp;&nbsp;- If set, this colormap will be used instead of the defaults  
+&nbsp;&nbsp;&nbsp;&nbsp;colorbarlocation    'north' \| 'south' \| 'east' \| 'west' \| 'northoutside' \|  
+
+**'southoutside' \| 'eastoutside' \| {'westoutside'}**  
+
+**'orientation' {'AP'} \| 'PA'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specifies the view as AP or PA. LAO, RAO, LL, RL yet to be  
+&nbsp;&nbsp;&nbsp;&nbsp;defined  
+
+**'colorfillthreshold'   {10} \| c**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Where c is a scalar value; defaulting to 10mm  
 
 
 #### Description
- DRAWMAP is a wrapper function for colorShell.m which allows OpenEP data 
- to be plotted. DRAWMAP accepts the following parameter-value pairs:
-   'data' {[]} | [d]
-       - Where d is a vector of data values and size(d) equals numel(userdata.surface.triRep.X)
-   'type'  {'act'} | 'bip' | 'force' | 'uni' | 'none' | 'cv'
-       - Specifies type of map - activation, bipolar or unipolar voltage
-   'coloraxis' {[]} | [a b]
-       - Where a and b are real numbers. See help colorShell
-   'noLight' {false} | true
-       - If set to true no additional light will be drawn. Useful if
-       overlaying maps.
-   'usrColorMap' {[]}|cMap
-       - If set, this colormap will be used instead of the defaults
-   colorbarlocation    'north' | 'south' | 'east' | 'west' | 'northoutside' |
-                       'southoutside' | 'eastoutside' | {'westoutside'}
-   'orientation' {'AP'} | 'PA'
-       - Specifies the view as AP or PA. LAO, RAO, LL, RL yet to be
-       defined
-   'colorfillthreshold'   {10} | c
-       - Where c is a scalar value; defaulting to 10mm
+
 
 **Author**  Steven Williams (2016) (Copyright)
 
@@ -197,11 +219,11 @@ userdata2 = editUserdata(userdata)
 
 #### Parameters
 
-**userdata**
-is the original Carto dataset
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the original Carto dataset  
 
-**userdata2**
-is the new Carto dataset with elements removed
+**userdata2**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the new Carto dataset with elements removed  
 
 
 #### Description
@@ -233,11 +255,11 @@ userdata = fixVoltageAnnotations(userdata)
 
 #### Parameters
 
-**userdata**
-is the output
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the output  
 
-**userdata**
-is the input, or 'openfile'
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the input, or 'openfile'  
 
 
 #### Description
@@ -262,39 +284,52 @@ interpData = generateInterpData(userdata, datatype)
 
 #### Parameters
 
-**userdata**
-see, importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see, importcarto_mem  
 
-**datatype**
-the desired data type to return
+**datatype**  
+&nbsp;&nbsp;&nbsp;&nbsp;the desired data type to return  
 
-**interpData**
-is the interpolated data
+**interpData**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the interpolated data  
+
+#### Parameter Value Pairs
+
+**'interMethod'    'nearest'\|'linear'\|{'natural'}**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The interpolation method, default to natural  
+
+**'exterMethod'    {nearest}\|linear\|none**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The extrapolation method, defaults to linear  
+
+**'distanceThresh' {10}\|double**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The distance threshold, d, default 10mm  
+&nbsp;&nbsp;&nbsp;&nbsp;  
+&nbsp;&nbsp;&nbsp;&nbsp;GENERATEINTERPDDATA performs spatial interpolation of scalar data.  
+&nbsp;&nbsp;&nbsp;&nbsp;Userdata and datatype are mandatory arguments. Datatype may be one of:  
+
+**'bip-map' - bipolar voltage; from the exported voltage values**  
+
+**'uni-map' - unipolar voltage; from the exported voltage values**  
+
+**'lat-map' - local activation time; from the annotated electrograms**  
+
+**'bip-egm' - bipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)**  
+
+**'uni-egm' - unipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)**  
+
+**'lat-egm' - local activation time; measured by OpenEP on the egms (NOT IMPLEMENTED)**  
+
+**'cv' - conduction velocity**  
+
+**'egmduration' - electrogram duration**  
+&nbsp;&nbsp;&nbsp;&nbsp;GENERATEINTERPDATA removes any NaN values in data (and their  
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding location(s) in coords) before calling scatteredInterpolant  
+&nbsp;&nbsp;&nbsp;&nbsp;with the interpolation/extrapolation methods specified. Any values greater  
+&nbsp;&nbsp;&nbsp;&nbsp;than distancethresh are removed.  
 
 
 #### Description
- GENERATEINTERPDATA accepts the following parameter-value pairs
-   'interMethod'    'nearest'|'linear'|{'natural'}
-       - The interpolation method, default to natural
-   'exterMethod'    {nearest}|linear|none
-       - The extrapolation method, defaults to linear
-   'distanceThresh' {10}|double
-       - The distance threshold, d, default 10mm
- 
- GENERATEINTERPDDATA performs spatial interpolation of scalar data.
- Userdata and datatype are mandatory arguments. Datatype may be one of:
-         'bip-map' - bipolar voltage; from the exported voltage values
-         'uni-map' - unipolar voltage; from the exported voltage values
-         'lat-map' - local activation time; from the annotated electrograms
-         'bip-egm' - bipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
-         'uni-egm' - unipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
-         'lat-egm' - local activation time; measured by OpenEP on the egms (NOT IMPLEMENTED)
-         'cv' - conduction velocity
-         'egmduration' - electrogram duration
- GENERATEINTERPDATA removes any NaN values in data (and their
- corresponding location(s) in coords) before calling scatteredInterpolant
- with the interpolation/extrapolation methods specified. Any values greater
- than distancethresh are removed.
+ TODO: Separate the interpolation function into a subroutine to permit extensibility
 
 **Author**  Steven Williams (2018) (Copyright)
 
@@ -315,32 +350,39 @@ is the interpolated data
 
 #### Parameters
 
-**userdata**
-see importcarto_mem.m
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem.m  
 
-**ablArea**
-the total area of the chamber that has been ablated
+**ablArea**  
+&nbsp;&nbsp;&nbsp;&nbsp;the total area of the chamber that has been ablated  
 
-**isAblated**
-indexes into userdata.surface.triRep.Triangulation and
-               indicates whether a particular triangle is considered
-               ablated (1) or not (0).
+**isAblated**  
+&nbsp;&nbsp;&nbsp;&nbsp;indexes into userdata.surface.triRep.Triangulation and  
+&nbsp;&nbsp;&nbsp;&nbsp;               indicates whether a particular triangle is considered  
+&nbsp;&nbsp;&nbsp;&nbsp;               ablated (1) or not (0).  
 
-**trAbl**
-a Triangulation of the ablated tissue
+**trAbl**  
+&nbsp;&nbsp;&nbsp;&nbsp;a Triangulation of the ablated tissue  
+
+#### Parameter Value Pairs
+
+**'method'     {'tags'}\|'grid'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- specifies whether to calculate area based on the ablation tags or  
+&nbsp;&nbsp;&nbsp;&nbsp;the ablation grid  
+
+**'radius'    {5}\|double**  
+&nbsp;&nbsp;&nbsp;&nbsp;- specifies the radius around each ablation tag to consider ablated  
+
+**'thresholdmethod'    {'on'}\|'off'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- NOT YET IMPLEMENTED  
+
+**'thresholdvalue'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- NOT YET INMPLEMENTED  
 
 
 #### Description
- GETABLATIONAREA accepts the following parameter-value pairs
-   'method'     {'tags'}|'grid'
-       - specifies whether to calculate area based on the ablation tags or
-         the ablation grid
-   'radius'    {5}|double
-       - specifies the radius around each ablation tag to consider ablated
-   'thresholdmethod'    {'on'}|'off'
-       - NOT YET IMPLEMENTED
-   'thresholdvalue'
-       - NOT YET INMPLEMENTED
+ GETABLATIONAREA Requires a userdata structure which contains .rfindex as
+ its input, which can be created using importvisitag.m
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -362,25 +404,33 @@ a Triangulation of the ablated tissue
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**FF**
-see TriRep/freeBoundary, cell array
+**FF**  
+&nbsp;&nbsp;&nbsp;&nbsp;see TriRep/freeBoundary, cell array  
 
-**l**
-array of lengths (perimeters) of each anatomical structure
+**l**  
+&nbsp;&nbsp;&nbsp;&nbsp;array of lengths (perimeters) of each anatomical structure  
 
-**a**
-an array of areas of each anatomical structure
+**a**  
+&nbsp;&nbsp;&nbsp;&nbsp;an array of areas of each anatomical structure  
 
-**tr**
-cell array of triangulations of each anatomical structure
+**tr**  
+&nbsp;&nbsp;&nbsp;&nbsp;cell array of triangulations of each anatomical structure  
+
+#### Parameter Value Pairs
+
+**'plot'     {false}\|true**  
 
 
 #### Description
- GETANATOMICALSTRUCTURES accepts the following parameter-value pairs
-   'plot'     {false}|true
+ GETANATOMICALSTRUCTURES identifies all the anatomical structures of a 
+ given data set. Anatomical structures are boundary regions that have been 
+ added to an anatomical model in the clinical mapping system. For example, 
+ with respect of left atrial ablation, anatomical structures may represent 
+ the pulmonary vein ostia, mitral valve annulus or left atrial appendage 
+ ostium.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -401,16 +451,21 @@ area = getArea( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**area**
-the surface area (cm^2)
+**area**  
+&nbsp;&nbsp;&nbsp;&nbsp;the surface area (cm^2)  
+
+#### Parameter Value Pairs
+
+**'method'     {'nofill'}\|'fill'**  
 
 
 #### Description
- GETAREA accepts the following parameter-value pairs
-   'method'     {'nofill'}|'fill'
+ GETAREA Returns the surface area of an anatomical model. The anatomical
+ model can first be closed (filling any holes) by specifying the 'method',
+ 'fill' ('nofill' by default).
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -432,16 +487,24 @@ C = getCentreOfMass( userdata, varargin )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**C**
-the Cartesian co-ordinates of the centre of mass
+**C**  
+&nbsp;&nbsp;&nbsp;&nbsp;the Cartesian co-ordinates of the centre of mass  
+
+#### Parameter Value Pairs
+
+**'plot'     {false}\|true**  
 
 
 #### Description
- GETCENTREOFMASS accepts the following parameter-value pairs
-   'plot'     {false}|true
+ GETCENTREOFMASS calculates the centre of mass of the userdata by
+ accessing a closed surface via the OpenEP function getClosedSurface.m
+ before using centroidOfPolyhedron.m to calculate the centre of mass. The
+ function centroidOfPolyhedron.m was written by Isfandiyar RASHIDZADE,
+ available through the Mathworks FileExchange:
+     https://www.mathworks.com/matlabcentral/fileexchange/63614-centroid-of-triangulated-polyhedron
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -462,11 +525,11 @@ tr = getClosedSurface( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**tr**
-a triRep object
+**tr**  
+&nbsp;&nbsp;&nbsp;&nbsp;a triRep object  
 
 
 #### Description
@@ -497,11 +560,11 @@ cvdata = getConductionVelocity( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**cvdata**
-the conduction velocities, in m/s
+**cvdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;the conduction velocities, in m/s  
 
 
 #### Description
@@ -535,42 +598,71 @@ the conduction velocities, in m/s
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**X**
-the earliest activation site, in x,y,z format. For
-                   map-based methods (i.e. 'clinmap', 'clinmapprct',
-                   'openepmap'and 'openepmapprct'), X is identical to
-                   surfX.
+**X**  
+&nbsp;&nbsp;&nbsp;&nbsp;the earliest activation site, in x,y,z format. For  
+&nbsp;&nbsp;&nbsp;&nbsp;                   map-based methods (i.e. 'clinmap', 'clinmapprct',  
+&nbsp;&nbsp;&nbsp;&nbsp;                   'openepmap'and 'openepmapprct'), X is identical to  
+&nbsp;&nbsp;&nbsp;&nbsp;                   surfX.  
 
-**surfX**
-the surface projection of the eariest activation site
+**surfX**  
+&nbsp;&nbsp;&nbsp;&nbsp;the surface projection of the eariest activation site  
 
-**iPoint**
-the closest mapping point to the earliest activation
-                   site. For point-based methods (i.e. 'ptbased' or 
-                   'ptbasedprct'), iPoint indexes into userdata.electric.
-                   For map-based methods (i.e. 'clinmap', 'clinmapprct',
-                   'openepmap', 'openepmapprct'), iPoint indexes into
-                   userdata.surface.triRep.X. For percentile methods (i.e.
-                   'ptbasedprct', 'cinmapprct' or 'openepmapprct') iPoint
-                   returns all the points that were identified within the
-                   relevant percentile.
+**iPoint**  
+&nbsp;&nbsp;&nbsp;&nbsp;the closest mapping point to the earliest activation  
+&nbsp;&nbsp;&nbsp;&nbsp;                   site. For point-based methods (i.e. 'ptbased' or   
+&nbsp;&nbsp;&nbsp;&nbsp;                   'ptbasedprct'), iPoint indexes into userdata.electric.  
+&nbsp;&nbsp;&nbsp;&nbsp;                   For map-based methods (i.e. 'clinmap', 'clinmapprct',  
+&nbsp;&nbsp;&nbsp;&nbsp;                   'openepmap', 'openepmapprct'), iPoint indexes into  
+&nbsp;&nbsp;&nbsp;&nbsp;                   userdata.surface.triRep.X. For percentile methods (i.e.  
+&nbsp;&nbsp;&nbsp;&nbsp;                   'ptbasedprct', 'cinmapprct' or 'openepmapprct') iPoint  
+&nbsp;&nbsp;&nbsp;&nbsp;                   returns all the points that were identified within the  
+&nbsp;&nbsp;&nbsp;&nbsp;                   relevant percentile.  
 
-**t**
-the calculated earliest activation time, relative to the
-                   reference annotation
+**t**  
+&nbsp;&nbsp;&nbsp;&nbsp;the calculated earliest activation time, relative to the  
+&nbsp;&nbsp;&nbsp;&nbsp;                   reference annotation  
+
+#### Parameter Value Pairs
+
+**'method'    {'ptbased'}\|'ptbasedprct'\|'clinmap'\|'clinmapprct'\|'openepmap'\|'openmapprct'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specifies the method by which the earliest activation is  
+&nbsp;&nbsp;&nbsp;&nbsp;calculated.  
+
+**'prct'       {2.5} \| double**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The percentile to use for percentile mapping; only applicable if  
+
+**'method' is 'percentile'.**  
 
 
 #### Description
- GETEARLIESTACTIVATIONSITE accepts the following parameter-value pairs
-   'method'    {'ptbased'}|'ptbasedprct'|'clinmap'|'clinmapprct'|'openepmap'|'openmapprct'
-       - Specifies the method by which the earliest activation is
-           calculated.
-   'prct'       {2.5} | double
-       - The percentile to use for percentile mapping; only applicable if
-       'method' is 'percentile'.
+ GETEARLIESTACTIVATIONSITE By identifying the earliest activatin site,
+ this function can be used, for example, to identify the site in the
+ chamber closest to the pacing site. Several alternative methods are provided for caluclating the latest 
+ activation site, specified by setting the 'method' parameter-value pair 
+ to one of the following options:
+       'ptbased'    - Calculates the earliest activation time using 
+                       mapping points exported by the clinical system.
+       'ptbasedprct'- Calculates the earliest 2.5th percentile mapping 
+                       times on the exported electrogram annotations, then 
+                       calculates the mean of this sets of activation times.
+       'clinmap'    - Calculates the earliest activation time on the 
+                       local activation time map created by the clinical 
+                       mapping system
+       'clinmapprct'- First calculates the earliest 2.5th percentile 
+                       mapping times on the clinical local activation time 
+                       map, then calculates the mean of these sets of 
+                       activation times.
+       'openepmap'  - Calculates the earliest activation time on the local 
+                       activation time map created by OpenEP from the 
+                       exported electrogram annotations.
+       'openepmapprct'- First calculates the earliest 2.5th percentile 
+                       mapping times on the local activation time map 
+                       created by OpenEP from the exported electrogram 
+                       annotations. Then calculates the mean of this set of 
+                       activation times.
 
 **Author**  Steven Williams (2019) (Copyright)
 
@@ -591,33 +683,40 @@ the calculated earliest activation time, relative to the
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**egmTraces**
-cell array of the requested electrograms
+**egmTraces**  
+&nbsp;&nbsp;&nbsp;&nbsp;cell array of the requested electrograms  
 
-**acttime**
-cell array of activation times 
+**acttime**  
+&nbsp;&nbsp;&nbsp;&nbsp;cell array of activation times   
 
-**egmNames**
-names of the electrograms
+**egmNames**  
+&nbsp;&nbsp;&nbsp;&nbsp;names of the electrograms  
+
+#### Parameter Value Pairs
+
+**'iEgm'     {:}\|[a:b]**  
+&nbsp;&nbsp;&nbsp;&nbsp;an array indexing into userdata.electric.egm such that  
+&nbsp;&nbsp;&nbsp;&nbsp;userdata.electric.egm(iEgmArray,:) are selected for plotting  
+&nbsp;&nbsp;&nbsp;&nbsp;To convert from Carto point numbers to iEgmArray use  
+&nbsp;&nbsp;&nbsp;&nbsp;getIndexFromCartoPointNumber.  
+
+**'egmtype'   'bip'\|'uni'\|{'bip-uni'}**  
+&nbsp;&nbsp;&nbsp;&nbsp;Whether to plot only the bipolar electrograms, only the  
+&nbsp;&nbsp;&nbsp;&nbsp;unipolar electrograms or both  
+
+**'reference' 'off'\|{'on'}**  
+&nbsp;&nbsp;&nbsp;&nbsp;Whether to plot the reference channel, off by default userdata.electric.egm(iEgmArray,:) are selected for plotting  
+&nbsp;&nbsp;&nbsp;&nbsp;To convert from Carto point numbers to iEgmArray use  
+&nbsp;&nbsp;&nbsp;&nbsp;getIndexFromCartoPointNumber.  
 
 
 #### Description
- GETEGMSATPOINTS accepts the following parameter-value pairs
-   'iEgm'     {:}|[a:b]
-           an array indexing into userdata.electric.egm such that
-           userdata.electric.egm(iEgmArray,:) are selected for plotting
-           To convert from Carto point numbers to iEgmArray use
-           getIndexFromCartoPointNumber.
-   'egmtype'   'bip'|'uni'|{'bip-uni'}
-           Whether to plot only the bipolar electrograms, only the
-           unipolar electrograms or both
-   'reference' 'off'|{'on'}
-           Whether to plot the reference channel, off by default userdata.electric.egm(iEgmArray,:) are selected for plotting
-           To convert from Carto point numbers to iEgmArray use
-           getIndexFromCartoPointNumber.
+ GETEGMSATPOINTS by default returns all the electrograms of 'egmtype'. Use 
+ getIndexFromCartoPointNumber to convert from point numbers to index 
+ numbers.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -638,11 +737,11 @@ egmDuration = getElectrogramDuration( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**egmDuration**
-the duration of activation for each electrogram
+**egmDuration**  
+&nbsp;&nbsp;&nbsp;&nbsp;the duration of activation for each electrogram  
 
 
 #### Description
@@ -676,11 +775,11 @@ faces = getFaces( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**faces**
-all the faces
+**faces**  
+&nbsp;&nbsp;&nbsp;&nbsp;all the faces  
 
 
 #### Description
@@ -705,18 +804,30 @@ imp = getImpedanceValue( userdata, varargin )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**imp**
-the impedance values (Ohms)
+**imp**  
+&nbsp;&nbsp;&nbsp;&nbsp;the impedance values (Ohms)  
+
+#### Parameter Value Pairs
+
+**'method'    {'map'} \| 'egm'**  
+
+**'points'     {':'} \| int array**  
+
+**'vertices'  {':'} \| int array**  
 
 
 #### Description
- GETIMPEDANCEVALUES accepts the following parameter-value pairs
-   'method'    {'map'} | 'egm'
-   'points'     {':'} | int array
-   'vertices'  {':'} | int array
+ GETIMPEDANCEVALUES Returns the impedance values. By default, impedance
+ values are returned for all the points in the map. If 'method' is
+ specified to be 'egm' then impedance transients are returned for each
+ individual mapping point, along with time intervals for the impedances.
+ If one or more 'vertices' are specified then impedance values are only 
+ returned for those vertices (only valid if 'method' is 'map'). 
+ If one or more 'points' is specified then impedance values are only 
+ returned for those mapping points (only va;lid if 'method' is 'egm').
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -738,16 +849,16 @@ the impedance values (Ohms)
 
 #### Parameters
 
-**userdata**
-a userdata structure
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;a userdata structure  
 
-**pointNumber**
-a point number (or array of point numbers) as displayed
-                 on the Carto mapping system
+**pointNumber**  
+&nbsp;&nbsp;&nbsp;&nbsp;a point number (or array of point numbers) as displayed  
+&nbsp;&nbsp;&nbsp;&nbsp;                 on the Carto mapping system  
 
-**index**
-an index (or array of indices) for referencing into the
-                 data fields within userdata.electric
+**index**  
+&nbsp;&nbsp;&nbsp;&nbsp;an index (or array of indices) for referencing into the  
+&nbsp;&nbsp;&nbsp;&nbsp;                 data fields within userdata.electric  
 
 
 #### Description
@@ -776,42 +887,71 @@ an index (or array of indices) for referencing into the
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**X**
-Cartesian co-ordinates of the latest activation site. For
-                   map-based methods (i.e. 'clinmap', 'clinmapprct',
-                   'openepmap'and 'openepmapprct'), X is identical to
-                   surfX.
+**X**  
+&nbsp;&nbsp;&nbsp;&nbsp;Cartesian co-ordinates of the latest activation site. For  
+&nbsp;&nbsp;&nbsp;&nbsp;                   map-based methods (i.e. 'clinmap', 'clinmapprct',  
+&nbsp;&nbsp;&nbsp;&nbsp;                   'openepmap'and 'openepmapprct'), X is identical to  
+&nbsp;&nbsp;&nbsp;&nbsp;                   surfX.  
 
-**surfX**
-The surface projection of the latest activation site
+**surfX**  
+&nbsp;&nbsp;&nbsp;&nbsp;The surface projection of the latest activation site  
 
-**iPoint**
-The closest mapping point to the latest activation
-                   site. For point-based methods (i.e. 'ptbased' or 
-                   'ptbasedprct'), iPoint indexes into userdata.electric.
-                   For map-based methods (i.e. 'clinmap', 'clinmapprct',
-                   'openepmap', 'openepmapprct'), iPoint indexes into
-                   userdata.surface.triRep.X. For percentile methods (i.e.
-                   'ptbasedprct', 'clinmapprct' or 'openepmapprct') iPoint
-                   returns all the points that were identified within the
-                   relevant percentile.
+**iPoint**  
+&nbsp;&nbsp;&nbsp;&nbsp;The closest mapping point to the latest activation  
+&nbsp;&nbsp;&nbsp;&nbsp;                   site. For point-based methods (i.e. 'ptbased' or   
+&nbsp;&nbsp;&nbsp;&nbsp;                   'ptbasedprct'), iPoint indexes into userdata.electric.  
+&nbsp;&nbsp;&nbsp;&nbsp;                   For map-based methods (i.e. 'clinmap', 'clinmapprct',  
+&nbsp;&nbsp;&nbsp;&nbsp;                   'openepmap', 'openepmapprct'), iPoint indexes into  
+&nbsp;&nbsp;&nbsp;&nbsp;                   userdata.surface.triRep.X. For percentile methods (i.e.  
+&nbsp;&nbsp;&nbsp;&nbsp;                   'ptbasedprct', 'clinmapprct' or 'openepmapprct') iPoint  
+&nbsp;&nbsp;&nbsp;&nbsp;                   returns all the points that were identified within the  
+&nbsp;&nbsp;&nbsp;&nbsp;                   relevant percentile.  
 
-**t**
-The calculated latest activation time, relative to the
-                   reference annotation
+**t**  
+&nbsp;&nbsp;&nbsp;&nbsp;The calculated latest activation time, relative to the  
+&nbsp;&nbsp;&nbsp;&nbsp;                   reference annotation  
+
+#### Parameter Value Pairs
+
+**'method'    {'ptbased'}\|'ptbasedprct'\|'clinmap'\|'clinmapprct'\|'openepmap'\|'openmapprct'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specifies the method by which the latest activation is  
+&nbsp;&nbsp;&nbsp;&nbsp;calculated.  
+
+**'prct'       {2.5} \| double**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The percentile to use for percentile mapping; only applicable if  
+
+**'method' is 'percentile'.**  
 
 
 #### Description
- GETLATESTACTIVATIONSITE accepts the following parameter-value pairs
-   'method'    {'ptbased'}|'ptbasedprct'|'clinmap'|'clinmapprct'|'openepmap'|'openmapprct'
-       - Specifies the method by which the latest activation is 
-           calculated.
-   'prct'       {2.5} | double
-       - The percentile to use for percentile mapping; only applicable if
-       'method' is 'percentile'.
+ GETLATESTACTIVATOINSITE By identifying the latest activating site,
+ this function can be used, for example, to calculate the total activation
+ time. Several alternative methods are provided for caluclating the latest 
+ activation site, specified by setting the 'method' parameter-value pair 
+ to one of the following options:
+       'ptbased'    - Calculates the latest activation time using the 
+                       mapping points exported by the clinical system.
+       'ptbasedprct'- Calculates the latest 2.5th percentile mapping 
+                       times on the exported electrogram annotations, then 
+                       calculates the mean of this sets of activation times.
+       'clinmap'    - Calculates the latest activation time on the 
+                       local activation time map created by the clinical 
+                       mapping system
+       'clinmapprct'- First calculates the latest 2.5th percentile 
+                       mapping times on the clinical local activation time 
+                       map, then calculates the mean of this set of 
+                       activation times.
+       'openepmap'  - Calculates the latest activation time on the local 
+                       activation time map created by OpenEP from the 
+                       exported electrogram annotations.
+       'openepmapprct'- First calculates the latest 2.5th percentile 
+                       mapping times on the local activation time map 
+                       created by OpenEP from the exported electrogram 
+                       annotations. Then calculates the mean of this set of 
+                       activation times.
 
 **Author**  Steven Williams (2019) (Copyright)
 
@@ -832,30 +972,40 @@ The calculated latest activation time, relative to the
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**lowVArea**
-the low voltage area (cm^2)
+**lowVArea**  
+&nbsp;&nbsp;&nbsp;&nbsp;the low voltage area (cm^2)  
 
-**voltages**
-the voltages point values used to calculate areas
+**voltages**  
+&nbsp;&nbsp;&nbsp;&nbsp;the voltages point values used to calculate areas  
 
-**iTri**
-indexes into userdata.surface.triRep.Triangulation and refers
-          to the triangles that have voltage values within the range,
-          threshld
+**iTri**  
+&nbsp;&nbsp;&nbsp;&nbsp;indexes into userdata.surface.triRep.Triangulation and refers  
+&nbsp;&nbsp;&nbsp;&nbsp;          to the triangles that have voltage values within the range,  
+&nbsp;&nbsp;&nbsp;&nbsp;          threshld  
 
-**tr2**
-a triangulation of all the triangles referenced in iTri.
+**tr2**  
+&nbsp;&nbsp;&nbsp;&nbsp;a triangulation of all the triangles referenced in iTri.  
+
+#### Parameter Value Pairs
+
+**'method'    {'map'} \| 'egm'**  
+
+**'type'      {'bip'} \| 'uni'**  
+
+**'threshold' {[0.0 0.5]} \| array**  
 
 
 #### Description
-
- GETLOWVOLTAGEAREA accepts the following parameter-value pairs
-   'method'    {'map'} | 'egm'
-   'type'      {'bip'} | 'uni'
-   'threshold' {[0.0 0.5]} | array
+ GETLOWVOLTAGEAREA Returns the surface area of the chamber with voltage
+ less than the specified threshold, 0.5mV by default. By default low
+ voltage area is calculated using the surface data (stored in
+ userdat.surface). If 'method' is set to 'egm' then the bipolar voltage is 
+ first interpolated from the bipolar electrogram data (stored in
+ userdata.electric). If 'type' is set to 'uni' then unipolar voltages are
+ used for surface area calculation.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -877,11 +1027,11 @@ iPoint = getMappingPointsWithinWoI( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**iPoint**
-the list of valid points; indexes into userdata.electric
+**iPoint**  
+&nbsp;&nbsp;&nbsp;&nbsp;the list of valid points; indexes into userdata.electric  
 
 
 #### Description
@@ -907,17 +1057,26 @@ meanVoltage = getMeanVoltage( userdata, varargin )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**meanVoltage**
-the mean chamber voltage (mV)
+**meanVoltage**  
+&nbsp;&nbsp;&nbsp;&nbsp;the mean chamber voltage (mV)  
+
+#### Parameter Value Pairs
+
+**'method'    {'map'} \| 'egm'**  
+
+**'type'      {'bip'} \| 'uni'**  
 
 
 #### Description
- GETMEANVOLTAGE accepts the following parameter-value pairs
-   'method'    {'map'} | 'egm'
-   'type'      {'bip'} | 'uni'
+ GETMEANVOLTAGE Returns the mean voltage of a chamber. By default, the
+ mean bipolar voltage is calculated using the interpolated mapping data
+ from the clinical mapping system (stored in userdata.surface.act_bip). If
+ 'method' is set to 'egm' then the bipolar voltage is first interpolated 
+ from the bipolar electrogram data (stored in userdata.electric). If 
+ 'type' is set to 'uni' then unipolar voltages are returned.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -938,15 +1097,20 @@ tr = getMesh(userdata)
 
 #### Parameters
 
-**tr**
-a TriRep, or Triangulation, object
+**tr**  
+&nbsp;&nbsp;&nbsp;&nbsp;a TriRep, or Triangulation, object  
+
+#### Parameter Value Pairs
+
+**'type'     {'trirep'}\|'triangulation'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specifies whether to return the mesh as a TriRep object or as a  
+&nbsp;&nbsp;&nbsp;&nbsp;Triangulation object  
 
 
 #### Description
- GETMESH accepts the following parameter-value pairs
-   'type'     {'trirep'}|'triangulation'
-       - Specifies whether to return the mesh as a TriRep object or as a
-       Triangulation object
+ GETMESH Returns a face/vertex representation of the anatomical model. 
+ Supported data types include istances of the Matlab objects Trirep and 
+ Triangulation.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -967,11 +1131,11 @@ numpts = getNumPts( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**numpts**
-the number of mapping points
+**numpts**  
+&nbsp;&nbsp;&nbsp;&nbsp;the number of mapping points  
 
 
 #### Description
@@ -997,11 +1161,11 @@ h = myfunction(b)
 
 #### Parameters
 
-**a**
-is the output
+**a**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the output  
 
-**imp**
-impedance values at times tim
+**imp**  
+&nbsp;&nbsp;&nbsp;&nbsp;impedance values at times tim  
 
 
 #### Description
@@ -1029,11 +1193,11 @@ ref = getReferenceAnnotation( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**ref**
-the value of the reference annotation
+**ref**  
+&nbsp;&nbsp;&nbsp;&nbsp;the value of the reference annotation  
 
 
 #### Description
@@ -1061,15 +1225,15 @@ data = getSurfaceData( userdata, datatype )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**datatype**
-the required data. Must be one of:
-       'act', 'bip', 'uni', 'imp', 'frc'
+**datatype**  
+&nbsp;&nbsp;&nbsp;&nbsp;the required data. Must be one of:  
+&nbsp;&nbsp;&nbsp;&nbsp;       'act', 'bip', 'uni', 'imp', 'frc'  
 
-**data**
-The returned surface mapping data
+**data**  
+&nbsp;&nbsp;&nbsp;&nbsp;The returned surface mapping data  
 
 
 #### Description
@@ -1100,20 +1264,53 @@ tat = getTotalActivationTime( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**tat**
-the total activation time, in ms
+**tat**  
+&nbsp;&nbsp;&nbsp;&nbsp;the total activation time, in ms  
+
+#### Parameter Value Pairs
+
+**'method'    {'ptbased'} \| 'ptbasedprct' \| 'clinmap' \| 'clinmapprct' \| 'openepmap' \| 'openmapprct'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specifies the method by which total activation time is calculated  
+
+**'prct'   {2.5} \| double**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The percentile to use for percentile mapping; only applicable if  
+
+**'method' is one of 'ptbasedprct', 'clinmapprct' or 'openepmapprct'.**  
 
 
 #### Description
- GETTOTALACTIVATIONTIME accepts the following parameter-value pairs
-   'method'    {'ptbased'} | 'ptbasedprct' | 'clinmap' | 'clinmapprct' | 'openepmap' | 'openmapprct'
-       - Specifies the method by which total activation time is calculated
-   'prct'   {2.5} | double
-       - The percentile to use for percentile mapping; only applicable if
-        'method' is one of 'ptbasedprct', 'clinmapprct' or 'openepmapprct'.
+ GETTOTALACTIVATIONTIME Returns the total activatoin time of the chamber.
+ Several alternative methods are provided, and specified by setting the
+ 'method' parameter-value pair to one of the following options:
+       'ptbased'    - Calculates the difference in activation time between 
+                       the earliest and latest activation time mapping 
+                       points exported by the clinical system.
+       'ptbasedprct'- First calculates the earliest 2.5th percentile and 
+                       the latest 2.5th percentile mapping times on the 
+                       exported electrogram annotations, then calculates 
+                       the difference between the means of these sets of 
+                       activation times.
+       'clinmap'    - Calculates the difference between the earliest and 
+                       latest activation times on the local activation 
+                       time map created by the clinical mapping system
+       'clinmapprct'- First calculates the earliest 2.5th percentile and 
+                       latest 2.5th percentile mapping times on the 
+                       clinical local activation time map, then calculates 
+                       the difference between the means of these sets of 
+                       activation times.
+       'openepmap'  - Calculates the difference between the earliest and 
+                       latest activation times on the local activation 
+                       time map created by OpenEP from the exported 
+                       electrogram annotations.
+       'openepmapprct'- First calculates the earliest 2.5th percentile and 
+                       latest 2.5th percentile mapping times on the local 
+                       activation time map created by OpenEP from the 
+                       exported electrogram annotations. Then calculates 
+                       the difference between the means of these sets of 
+                       activation times.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1134,14 +1331,14 @@ the total activation time, in ms
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**vertices**
-all the vertices
+**vertices**  
+&nbsp;&nbsp;&nbsp;&nbsp;all the vertices  
 
-**isVertUsed**
-whether the vertex is referenced by the triangulation
+**isVertUsed**  
+&nbsp;&nbsp;&nbsp;&nbsp;whether the vertex is referenced by the triangulation  
 
 
 #### Description
@@ -1166,11 +1363,11 @@ volume = getVolume(userdata)
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**volume**
-the volume, in cm^3
+**volume**  
+&nbsp;&nbsp;&nbsp;&nbsp;the volume, in cm^3  
 
 
 #### Description
@@ -1198,12 +1395,12 @@ woi = getWindowOfInterest( userdata )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**woi**
-two-element array specifying the window of interest relative to
-          the reference annotation
+**woi**  
+&nbsp;&nbsp;&nbsp;&nbsp;two-element array specifying the window of interest relative to  
+&nbsp;&nbsp;&nbsp;&nbsp;          the reference annotation  
 
 
 #### Description
@@ -1229,21 +1426,21 @@ two-element array specifying the window of interest relative to
 ```
 
 #### Parameters
-   point_xyz 
-   pointFileName 
+&nbsp;&nbsp;&nbsp;&nbsp;   point_xyz   
+&nbsp;&nbsp;&nbsp;&nbsp;   pointFileName   
 
-**electrogramname_bip**
-the electrode name for the bipolar electrogram at point_xyz
+**electrogramname_bip**  
+&nbsp;&nbsp;&nbsp;&nbsp;the electrode name for the bipolar electrogram at point_xyz  
 
-**electrogramname_uni**
-cell array of the electrode names for the
-       unipolar electrogram at point_xyz and it's associated second electrode
-       that makes up electrogramname_bip
+**electrogramname_uni**  
+&nbsp;&nbsp;&nbsp;&nbsp;cell array of the electrode names for the  
+&nbsp;&nbsp;&nbsp;&nbsp;       unipolar electrogram at point_xyz and it's associated second electrode  
+&nbsp;&nbsp;&nbsp;&nbsp;       that makes up electrogramname_bip  
 
-**point_xyz_2**
-the electrode position corresponding to the second electrode
-       that makes up the bipole at point_xyz (needed for locating unipolar
-       electrograms)
+**point_xyz_2**  
+&nbsp;&nbsp;&nbsp;&nbsp;the electrode position corresponding to the second electrode  
+&nbsp;&nbsp;&nbsp;&nbsp;       that makes up the bipole at point_xyz (needed for locating unipolar  
+&nbsp;&nbsp;&nbsp;&nbsp;       electrograms)  
 
 
 #### Description
@@ -1267,21 +1464,21 @@ the electrode position corresponding to the second electrode
 ```
 
 #### Parameters
-   point_xyz 
-   pointFileName 
+&nbsp;&nbsp;&nbsp;&nbsp;   point_xyz   
+&nbsp;&nbsp;&nbsp;&nbsp;   pointFileName   
 
-**electrogramname_bip**
-the electrode name for the bipolar electrogram at point_xyz
+**electrogramname_bip**  
+&nbsp;&nbsp;&nbsp;&nbsp;the electrode name for the bipolar electrogram at point_xyz  
 
-**electrogramname_uni**
-cell array of the electrode names for the
-       unipolar electrogram at point_xyz and it's associated second electrode
-       that makes up electrogramname_bip
+**electrogramname_uni**  
+&nbsp;&nbsp;&nbsp;&nbsp;cell array of the electrode names for the  
+&nbsp;&nbsp;&nbsp;&nbsp;       unipolar electrogram at point_xyz and it's associated second electrode  
+&nbsp;&nbsp;&nbsp;&nbsp;       that makes up electrogramname_bip  
 
-**point_xyz_2**
-the electrode position corresponding to the second electrode
-       that makes up the bipole at point_xyz (needed for locating unipolar
-       electrograms)
+**point_xyz_2**  
+&nbsp;&nbsp;&nbsp;&nbsp;the electrode position corresponding to the second electrode  
+&nbsp;&nbsp;&nbsp;&nbsp;       that makes up the bipole at point_xyz (needed for locating unipolar  
+&nbsp;&nbsp;&nbsp;&nbsp;       electrograms)  
 
 
 #### Description
@@ -1306,9 +1503,9 @@ userdata = importcarto_mem()
 ```
 
 #### Parameters
-   dirName is the directory with all of the files corresponding to a map
-   userdata is a single data structure
-   matFileFullPath is the path to the .mat file, if opened or saved
+&nbsp;&nbsp;&nbsp;&nbsp;   dirName is the directory with all of the files corresponding to a map  
+&nbsp;&nbsp;&nbsp;&nbsp;   userdata is a single data structure  
+&nbsp;&nbsp;&nbsp;&nbsp;   matFileFullPath is the path to the .mat file, if opened or saved  
 
 
 #### Description
@@ -1340,20 +1537,94 @@ userdata = importcarto_mem()
 ```
 
 #### Parameters
-   dirName is the directory with all of the files corresponding to a map
-   userdata is a single data structure
-   matFileFullPath is the path to the .mat file, if opened or saved
+&nbsp;&nbsp;&nbsp;&nbsp;   dirName is the directory with all of the files corresponding to a map  
+&nbsp;&nbsp;&nbsp;&nbsp;   userdata is a single data structure  
+&nbsp;&nbsp;&nbsp;&nbsp;   matFileFullPath is the path to the .mat file, if opened or saved  
+
+#### Parameter Value Pairs
+
+**'maptoread'     {''}\|string\|double**  
+&nbsp;&nbsp;&nbsp;&nbsp;Specifies which map to read. Can be a string referring  
+&nbsp;&nbsp;&nbsp;&nbsp;to the map name or a double referring to the number of points in the  
+&nbsp;&nbsp;&nbsp;&nbsp;map. If there are multiple maps with the same number of points an error  
+&nbsp;&nbsp;&nbsp;&nbsp;will be thrown.  
+
+**'refchannel'    {''}\|string**  
+&nbsp;&nbsp;&nbsp;&nbsp;The name of the channel to pick as the refence channel. Typically  
+&nbsp;&nbsp;&nbsp;&nbsp;this is the pacing channel for the map. Specify a string such as  
+
+**'CS9-CS10'.**  
+
+**'ecgchannel'    {''}\|string**  
+&nbsp;&nbsp;&nbsp;&nbsp;The name of the channel to pick as the ECG channel. Typically  
+&nbsp;&nbsp;&nbsp;&nbsp;this is an informative ECG such as V1. Specify a string such as  
+
+**'V1'.**  
+
+**'savefilename'       {''}\|string**  
+&nbsp;&nbsp;&nbsp;&nbsp;The full path to the location in which to save the output.  
+
+**'verbose'       {true}\|false**  
+&nbsp;&nbsp;&nbsp;&nbsp;Not yet implemented  
 
 
 #### Description
- IMPORTCARTO can load data in 3 ways:
-   1) USERINPUT is a .zip file - the zip file will be unzipped into a
-   temporary file (deleted at the end). The data is packed into userdata
-   and the user is incouraged to save this for the future (long time take
-   to unzip).
-   2) USERINPUT is a .mat file containing userdata
-   3) USERINPUT is a .xml file - this must be the xml file in a folder
-   containing all the other Carto3 files.
+ userdata structure ...
+   .surface
+       .triRep         - TriRep object for the surface
+       .isVertexAtRim  - logical array indicating vertices at a 'rim'
+       .act_bip        - nVertices*2 array of activation and voltage data
+       .uni_imp_frc    - nVertices*3 array of uni voltage, impedance and contact force
+   .electric
+       .isPointLocationOnly    - logical array
+       .tags
+       .names
+       .egmX           - location of point
+       .egmSurfX       - location of surface nearest point
+       .barDirection   - normal to surface at egmSurfX
+       .egm            - bipolar electrogram
+       .egmUni         - matrix of unipolar electrograms
+       .egmUniX        - localtion of unipolar points
+       .egmRef         - electrogram of reference
+       .ecg            - ecg
+       .force
+           .force    - instantaneous force recording
+           .axialAngle    - axial angle
+           .lateralAngle  - lateral angle
+           .time_force - time course of force [(:,:,1)=time, (:,:,2)=force]
+           .time_axial - time course of axial angle [(:,:,1)=time, (:,:,2)=axial angle]
+           .time_lateral - time course of lateral angle [(:,:,1)=time, (:,:,2)=lateral angle]
+ Check that filename has an exact match in allfilenames. If not, then
+ search through filenames to see if there is a single string that contains
+ searchstring. If not then return empty string;
+tf = strcmp(filename, allfilenames);
+if any(tf)
+    fname = filename;
+    return
+end
+k = strfind(allfilenames, searchstring);
+iMatch = [];
+for i = 1:length(k)
+    if ~isempty(k{i})
+        if ~isempty(iMatch)
+            % we have already found a match
+            
+            warning('IMPORTCARTO3: there is more than one file that could represent this point.')
+            fname = [];
+            return;
+        else
+            iMatch = i;
+        end
+    end
+end
+if isempty(iMatch)
+    fname = [];
+    warning(['IMPORTCARTO3: the filename relating to ' char(39) searchstring char(39) ' is unexpected and no match was found.'])
+else
+    fname = allfilenames{iMatch};
+    warning(['IMPORTCARTO3: the filename relating to ' char(39) searchstring char(39) ' is unexpected but a match was found - ' fname])
+end
+end
 
 **Author**  Nick Linton (2011) (Copyright)
 
@@ -1448,27 +1719,35 @@ tr = openEP2VTK('openfile')
 
 #### Parameters
 
-**tr**
-a TriRep object
+**tr**  
+&nbsp;&nbsp;&nbsp;&nbsp;a TriRep object  
 
-**path2VTKfile**
-the path to the file that was written
+**path2VTKfile**  
+&nbsp;&nbsp;&nbsp;&nbsp;the path to the file that was written  
+
+#### Parameter Value Pairs
+
+**'datatype'     {'bip'} \| 'uni' \| 'lat'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- the required data, bipolar voltage, unipolar voltage or local  
+&nbsp;&nbsp;&nbsp;&nbsp;activation time  
+
+**'method'       {'map'} \| 'egm'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- the method of accessing the data; clinical-system map based  
+&nbsp;&nbsp;&nbsp;&nbsp;('map') or re-inteprolated by OpenEP from the raw egms ('egm');  
+
+**'outputfile'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- absolute path to the output file.  
+&nbsp;&nbsp;&nbsp;&nbsp;If empty then openEP2VTK outputs the VTK file to the current  
+&nbsp;&nbsp;&nbsp;&nbsp;directory using the current date/time as the filename  
+&nbsp;&nbsp;&nbsp;&nbsp;If strcmpi('outputfile','openfile') a GUI is used to place the  
+&nbsp;&nbsp;&nbsp;&nbsp;file  
 
 
 #### Description
- OPENEP2VTK accepts the following parameter-value pairs
-   'datatype'     {'bip'} | 'uni' | 'lat'
-       - the required data, bipolar voltage, unipolar voltage or local
-       activation time
-   'method'       {'map'} | 'egm'
-       - the method of accessing the data; clinical-system map based
-       ('map') or re-inteprolated by OpenEP from the raw egms ('egm');
-   'outputfile'
-       - absolute path to the output file. 
-       If empty then openEP2VTK outputs the VTK file to the current 
-        directory using the current date/time as the filename
-       If strcmpi('outputfile','openfile') a GUI is used to place the
-        file
+ OPENEP2VTK Converts between OpenEP format and VTK format. This
+ function takes map data and writes it to the VTK file, or if 'method' is
+ set to 'egm' it first uses generateInterpData.m to create interpolated
+ data.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1489,8 +1768,8 @@ plotAblationArea(userdata)
 
 #### Parameters
 
-**userdata**
-see importcarto_mem.m
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem.m  
 
 
 #### Description
@@ -1546,7 +1825,18 @@ For example, at 1000Hz range should be specified as having width:
 
 
 #### Description
-
+ PLOTELECTROGRAMS parameter-value pairs can be passed in as follows:
+ 'egmNames', cell array of electrogram names
+ 'range', two value vector [xmin xmax]
+ 'sampleRate', the sample rate in Hz
+ 'paperSpeed', the paper speed for plotting
+ 'separation', the separation between electrograms, default is 5mV
+ 'clipping', two value vector [clipmin clipmax] in mV
+ 'gain', the gain, default is 2
+ 'autogain', if true the electrograms are automatically scaled, default false
+ 'acttime', a vector of activation times to be plotted as red crosses
+ 'egmColors', cell array of colors. Same size as egmNames
+ 'linewidth', the width of the lines drawing the electrograms
 
 **Author**  Steven Williams (2012) (Copyright)
 
@@ -1567,39 +1857,47 @@ For example, at 1000Hz range should be specified as having width:
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**hFig**
-a handle to the plotted figure
+**hFig**  
+&nbsp;&nbsp;&nbsp;&nbsp;a handle to the plotted figure  
+
+#### Parameter Value Pairs
+
+**'iEgm'     {:}\|[a:b]**  
+&nbsp;&nbsp;&nbsp;&nbsp;an array indexing into userdata.electric.egm such that  
+&nbsp;&nbsp;&nbsp;&nbsp;%   'iEgm'     {:}\|[a:b]  
+&nbsp;&nbsp;&nbsp;&nbsp;an array indexing into userdata.electric.egm such that  
+&nbsp;&nbsp;&nbsp;&nbsp;userdata.electric.egm(iEgmArray,:) are selected for plotting  
+&nbsp;&nbsp;&nbsp;&nbsp;To convert from Carto point numbers to iEgmArray use  
+&nbsp;&nbsp;&nbsp;&nbsp;getIndexFromCartoPointNumber.  
+
+**'range'         {'window'}\|'all'**  
+&nbsp;&nbsp;&nbsp;&nbsp;By default ('window') only the electrogram within the window of  
+&nbsp;&nbsp;&nbsp;&nbsp;interest is drawn (+/-buffer). By specifying 'all' the entire point  
+&nbsp;&nbsp;&nbsp;&nbsp;electrogram is drawn.  
+
+**'buffer'        {50}\|double**  
+&nbsp;&nbsp;&nbsp;&nbsp;The time before and after the window of interest to draw. By  
+&nbsp;&nbsp;&nbsp;&nbsp;default, 20ms, but can be changed by setting 'buffer' to an  
+&nbsp;&nbsp;&nbsp;&nbsp;alternative value.  
+
+**'egmtype'   'bip'\|'uni'\|{'bip-uni'}**  
+&nbsp;&nbsp;&nbsp;&nbsp;Whether to plot only the bipolar electrograms, only the  
+&nbsp;&nbsp;&nbsp;&nbsp;unipolar electrograms or both  
+
+**'reference' 'off'\|{'on'}**  
+&nbsp;&nbsp;&nbsp;&nbsp;Whether to plot the reference channel, off by default userdata.electric.egm(iEgmArray,:) are selected for plotting  
+&nbsp;&nbsp;&nbsp;&nbsp;To convert from Carto point numbers to iEgmArray use  
+&nbsp;&nbsp;&nbsp;&nbsp;getIndexFromCartoPointNumber.  
+
+**'linewidth', {1} \| integer**  
+&nbsp;&nbsp;&nbsp;&nbsp;The width of the lines drawing the electrograms  
 
 
 #### Description
- PLOTOPENEPEGMS accepts the following parameter-value pairs
-   'iEgm'     {:}|[a:b]
-           an array indexing into userdata.electric.egm such that
-          %   'iEgm'     {:}|[a:b]
-           an array indexing into userdata.electric.egm such that
-           userdata.electric.egm(iEgmArray,:) are selected for plotting
-           To convert from Carto point numbers to iEgmArray use
-           getIndexFromCartoPointNumber.
-   'range'         {'window'}|'all'
-           By default ('window') only the electrogram within the window of
-           interest is drawn (+/-buffer). By specifying 'all' the entire point
-           electrogram is drawn.
-   'buffer'        {50}|double
-           The time before and after the window of interest to draw. By
-           default, 20ms, but can be changed by setting 'buffer' to an
-           alternative value.
-   'egmtype'   'bip'|'uni'|{'bip-uni'}
-           Whether to plot only the bipolar electrograms, only the
-           unipolar electrograms or both
-   'reference' 'off'|{'on'}
-           Whether to plot the reference channel, off by default userdata.electric.egm(iEgmArray,:) are selected for plotting
-           To convert from Carto point numbers to iEgmArray use
-           getIndexFromCartoPointNumber.
-   'linewidth', {1} | integer
-           The width of the lines drawing the electrograms
+ PLOTOPENEPEGMS is a wrapper function for plotElectrograms.
 
 **Author**  Steven Williams (2017) (Copyright)
 
@@ -1620,24 +1918,30 @@ h = plotTag( userdata, varargin )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**h(i)**
-is an array of handles referencing the plotted surfaces
+**h(i)**  
+&nbsp;&nbsp;&nbsp;&nbsp;is an array of handles referencing the plotted surfaces  
+
+#### Parameter Value Pairs
+
+**'coord'     {[x y x]}**  
+&nbsp;&nbsp;&nbsp;&nbsp;- A set of x,y,z coords where size(coords) = nx3 where n is the  
+&nbsp;&nbsp;&nbsp;&nbsp;number of tags to plot  
+
+**'pointnum'  [p1, p2, ... pn]**  
+&nbsp;&nbsp;&nbsp;&nbsp;- An array of size nx1 where n is the number of tags to plot  
+
+**'color'     {'r'}\|'g'\|'b'\|'p'\|'o'\|'y'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The color of the tag to draw  
+
+**'size'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The size of the tag to draw  
 
 
 #### Description
- PLOTTAG accepts the following parameter-value pairs
-   'coord'     {[x y x]}
-       - A set of x,y,z coords where size(coords) = nx3 where n is the
-       number of tags to plot
-   'pointnum'  [p1, p2, ... pn]
-       - An array of size nx1 where n is the number of tags to plot
-   'color'     {'r'}|'g'|'b'|'p'|'o'|'y'
-       - The color of the tag to draw
-   'size'
-       - The size of the tag to draw
+ PLOTTAG Plots tag(s) on the current map
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1658,22 +1962,29 @@ plotVisitags(userdata)
 
 #### Parameters
 
-**userdata**
-see importcarto_mem.m
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem.m  
+
+#### Parameter Value Pairs
+
+**'plot'     {'tags'}\|'grid'\|'both'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- specifies whether to show the tags, the grid, or both  
+
+**'shell'    {'on'}\|'off'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- specifies whether to show the chamber shell  
+
+**'colour'    {'r'}\|colorspec\|array**  
+&nbsp;&nbsp;&nbsp;&nbsp;- can be a string or colorspec specifying the color of all the  
+&nbsp;&nbsp;&nbsp;&nbsp;spheres  
+&nbsp;&nbsp;&nbsp;&nbsp;- can be an array of double values which is rendered as a  
+&nbsp;&nbsp;&nbsp;&nbsp;colorscale  
+
+**'orientation'   see drawMap.m**  
 
 
 #### Description
- PLOTVISITAG accepts the following parameter-value pairs
-   'plot'     {'tags'}|'grid'|'both'
-       - specifies whether to show the tags, the grid, or both
-   'shell'    {'on'}|'off'
-       - specifies whether to show the chamber shell
-   'colour'    {'r'}|colorspec|array     
-       - can be a string or colorspec specifying the color of all the
-       spheres
-       - can be an array of double values which is rendered as a
-       colorscale
-   'orientation'   see drawMap.m
+ PLOTVISITAG Requires a userdata structure which contains .rfindex as
+ its input, which can be created using importvisitag.m
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1694,26 +2005,32 @@ see importcarto_mem.m
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**inoutpts**
-whether points are internal (logical(1)) or external
-               (logical(0)) to the triangulation in userdata
+**inoutpts**  
+&nbsp;&nbsp;&nbsp;&nbsp;whether points are internal (logical(1)) or external  
+&nbsp;&nbsp;&nbsp;&nbsp;               (logical(0)) to the triangulation in userdata  
 
-**meshpts**
-whether points in the triangulation in userdata are
-               referenced in the triangulation (logical(1)) or not
-               (logical(0))
+**meshpts**  
+&nbsp;&nbsp;&nbsp;&nbsp;whether points in the triangulation in userdata are  
+&nbsp;&nbsp;&nbsp;&nbsp;               referenced in the triangulation (logical(1)) or not  
+&nbsp;&nbsp;&nbsp;&nbsp;               (logical(0))  
+
+#### Parameter Value Pairs
+&nbsp;&nbsp;&nbsp;&nbsp;:  
+
+**'tol' 0.1 \| double**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The distance threshold within which points are considered to be  
+&nbsp;&nbsp;&nbsp;&nbsp;internal or external to the triangulation  
+
+**'plot'     {false}\|true**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specify whether to plot the results  
 
 
 #### Description
- POINTSTATUS accepts the following parameter-value pairs:
-   'tol' 0.1 | double
-       - The distance threshold within which points are considered to be
-         internal or external to the triangulation
-   'plot'     {false}|true
-       - Specify whether to plot the results
+ POINTSTATUS depends on the package INPOLYHEDRON. See:
+   https://uk.mathworks.com/matlabcentral/fileexchange/37856-inpolyhedron-are-points-inside-a-triangulated-volume
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1733,14 +2050,14 @@ whether points in the triangulation in userdata are
 
 #### Parameters
 
-**userdata**
-is a Carto dataset
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;is a Carto dataset  
 
-**f**
-are the 1000ms window forces
+**f**  
+&nbsp;&nbsp;&nbsp;&nbsp;are the 1000ms window forces  
 
-**loc**
-are the coordinates of the data in f (size: length(f) * 3) 
+**loc**  
+&nbsp;&nbsp;&nbsp;&nbsp;are the coordinates of the data in f (size: length(f) * 3)   
 
 
 #### Description
@@ -1766,11 +2083,11 @@ channelVoltages = read_ecgfile(filename, names)
 ```
 
 #### Parameters
-   channelVoltages channelNames are voltages and names
-   filename is the Carto3 .txt file
+&nbsp;&nbsp;&nbsp;&nbsp;   channelVoltages channelNames are voltages and names  
+&nbsp;&nbsp;&nbsp;&nbsp;   filename is the Carto3 .txt file  
 
-**names is optional and is the desired channel names**
-this helps speed
+**names is optional and is the desired channel names**  
+&nbsp;&nbsp;&nbsp;&nbsp;this helps speed  
 
 
 #### Description
@@ -1795,9 +2112,9 @@ this helps speed
 ```
 
 #### Parameters
-   electrodename_bip   is the name of the electrode pair collecting the bipolar mapping point
-   electrodename_uni   is the name of the electrode collecting the unipolar mapping point
-   electrodename_ref   is the name of the reference electrode for the mapping point
+&nbsp;&nbsp;&nbsp;&nbsp;   electrodename_bip   is the name of the electrode pair collecting the bipolar mapping point  
+&nbsp;&nbsp;&nbsp;&nbsp;   electrodename_uni   is the name of the electrode collecting the unipolar mapping point  
+&nbsp;&nbsp;&nbsp;&nbsp;   electrodename_ref   is the name of the reference electrode for the mapping point  
 
 
 #### Description
@@ -1823,26 +2140,26 @@ force = read_forcefile(filename);
 
 #### Parameters
 
-**force**
-is the fixed time point force for this point
+**force**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the fixed time point force for this point  
 
-**axialAngle**
-is the fixed time point axial angle for this point
+**axialAngle**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the fixed time point axial angle for this point  
 
-**lateralAngle**
-is the fixed time point lateral angle for this point
+**lateralAngle**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the fixed time point lateral angle for this point  
 
-**t_time**
-is the time array (e.g. -7000ms->5000ms) for the time data
+**t_time**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the time array (e.g. -7000ms->5000ms) for the time data  
 
-**t_force**
-is the time course of force
+**t_force**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the time course of force  
 
-**t_axialAngle**
-is the time course of the axial angle
+**t_axialAngle**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the time course of the axial angle  
 
-**t_lateralAngle**
-is the time course of the lateral angle
+**t_lateralAngle**  
+&nbsp;&nbsp;&nbsp;&nbsp;is the time course of the lateral angle  
 
 
 #### Description
@@ -1867,10 +2184,10 @@ t = read_meshfile(filename)
 ```
 
 #### Parameters
-   filename is the filename
-   t is a TriRep object
-   isVertexAtEdge is a logical array indicating vertices at an edge
-   act_bip is a matrix of activation times and bipolar voltage by vertex
+&nbsp;&nbsp;&nbsp;&nbsp;   filename is the filename  
+&nbsp;&nbsp;&nbsp;&nbsp;   t is a TriRep object  
+&nbsp;&nbsp;&nbsp;&nbsp;   isVertexAtEdge is a logical array indicating vertices at an edge  
+&nbsp;&nbsp;&nbsp;&nbsp;   act_bip is a matrix of activation times and bipolar voltage by vertex  
 
 
 #### Description
@@ -1894,8 +2211,8 @@ t = read_meshfile(filename)
 ```
 
 #### Parameters
-   iElectrode is a vector of electrode numbers
-   xyz is an array of xyz positions
+&nbsp;&nbsp;&nbsp;&nbsp;   iElectrode is a vector of electrode numbers  
+&nbsp;&nbsp;&nbsp;&nbsp;   xyz is an array of xyz positions  
 
 
 #### Description
@@ -1921,14 +2238,14 @@ t = read_meshfile(filename)
 
 #### Parameters
 
-**filepath**
-path to the file to be read
+**filepath**  
+&nbsp;&nbsp;&nbsp;&nbsp;path to the file to be read  
 
-**data**
-the the file data
+**data**  
+&nbsp;&nbsp;&nbsp;&nbsp;the the file data  
 
-**header**
-the file header
+**header**  
+&nbsp;&nbsp;&nbsp;&nbsp;the file header  
 
 
 #### Description
@@ -1954,9 +2271,9 @@ the file header
 ```
 
 #### Parameters
-   data is a matrix of all the data from the file
-   labels is a cell array of the header lines from the file
-   filename is the full file path
+&nbsp;&nbsp;&nbsp;&nbsp;   data is a matrix of all the data from the file  
+&nbsp;&nbsp;&nbsp;&nbsp;   labels is a cell array of the header lines from the file  
+&nbsp;&nbsp;&nbsp;&nbsp;   filename is the full file path  
 
 
 #### Description
@@ -1979,8 +2296,8 @@ the file header
 ```
 
 #### Parameters
-   visitagSettings is a structure of the visitag settings
-   filename is the full file path
+&nbsp;&nbsp;&nbsp;&nbsp;   visitagSettings is a structure of the visitag settings  
+&nbsp;&nbsp;&nbsp;&nbsp;   filename is the full file path  
 
 
 #### Description
@@ -2009,21 +2326,32 @@ areas = voltageHistogramAnalysis( userdata, varargin )
 
 #### Parameters
 
-**userdata**
-see importcarto_mem
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
-**areas**
-he chamber areas within each of the voltage thresholds
+**areas**  
+&nbsp;&nbsp;&nbsp;&nbsp;he chamber areas within each of the voltage thresholds  
+
+#### Parameter Value Pairs
+
+**'method'    {'map'}\|'egm'**  
+
+**'type'      {'bip'}\|'uni'**  
+
+**'threshold' n x 2 matrix of threshold values, default:**  
+&nbsp;&nbsp;&nbsp;&nbsp;[ 0.01 0.11; 0.11 0.21; 0.21 0.30; 0.30 0.40; 0.40 0.50 ]  
+
+**'plot'      {false} \| true**  
+
+**'colors'      {colorBrewer colors r, y, g, b, p}\|**  
 
 
 #### Description
- VOLTAGEHISTOGRAMANALYSIS accepts the following parameter-value pairs
-   'method'    {'map'}|'egm'
-   'type'      {'bip'}|'uni'
-   'threshold' n x 2 matrix of threshold values, default:
-             [ 0.01 0.11; 0.11 0.21; 0.21 0.30; 0.30 0.40; 0.40 0.50 ]
-   'plot'      {false} | true
-   'colors'      {colorBrewer colors r, y, g, b, p}|
+ VOLTAGEHISTOGRAMANALYSIS displays a histogram of voltages coloured according
+ to voltages, threshold. If 'method' is set to 'egm' then the bipolar 
+ voltage is first interpolated from the bipolar electrogram data (stored 
+ in userdata.electric). If 'type' is set to 'uni' then unipolar voltages 
+ are used.
 
 **Author**  Steven Williams (2020) (Copyright)
 
