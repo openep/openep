@@ -168,7 +168,6 @@ hSurf = drawMap(userdata, varargin);
 &nbsp;&nbsp;&nbsp;&nbsp;is a Carto data structure  
 
 #### Parameter Value Pairs
-&nbsp;&nbsp;&nbsp;&nbsp;:  
 
 **'data' {[]} \| [d]**  
 &nbsp;&nbsp;&nbsp;&nbsp;- Where d is a vector of data values and size(d) equals numel(userdata.surface.triRep.X)  
@@ -198,7 +197,8 @@ hSurf = drawMap(userdata, varargin);
 
 
 #### Description
-
+ DRAWMAP is a wrapper function for colorShell.m which allows OpenEP data 
+ to be plotted. 
 
 **Author**  Steven Williams (2016) (Copyright)
 
@@ -603,8 +603,8 @@ cvdata = getConductionVelocity( userdata )
 
 **X**  
 &nbsp;&nbsp;&nbsp;&nbsp;the earliest activation site, in x,y,z format. For  
-&nbsp;&nbsp;&nbsp;&nbsp;                   map-based methods (i.e. 'clinmap', 'clinmapprct',  
-&nbsp;&nbsp;&nbsp;&nbsp;                   'openepmap'and 'openepmapprct'), X is identical to  
+&nbsp;&nbsp;&nbsp;&nbsp;                   map-based methods (i.e. `clinmap`, `clinmapprct`,  
+&nbsp;&nbsp;&nbsp;&nbsp;                   `openepmap` and `openepmapprct`), X is identical to  
 &nbsp;&nbsp;&nbsp;&nbsp;                   surfX.  
 
 **surfX**  
@@ -612,12 +612,12 @@ cvdata = getConductionVelocity( userdata )
 
 **iPoint**  
 &nbsp;&nbsp;&nbsp;&nbsp;the closest mapping point to the earliest activation  
-&nbsp;&nbsp;&nbsp;&nbsp;                   site. For point-based methods (i.e. 'ptbased' or   
-&nbsp;&nbsp;&nbsp;&nbsp;                   'ptbasedprct'), iPoint indexes into userdata.electric.  
-&nbsp;&nbsp;&nbsp;&nbsp;                   For map-based methods (i.e. 'clinmap', 'clinmapprct',  
-&nbsp;&nbsp;&nbsp;&nbsp;                   'openepmap', 'openepmapprct'), iPoint indexes into  
+&nbsp;&nbsp;&nbsp;&nbsp;                   site. For point-based methods (i.e. `ptbased` or   
+&nbsp;&nbsp;&nbsp;&nbsp;                   `ptbasedprct`), iPoint indexes into userdata.electric.  
+&nbsp;&nbsp;&nbsp;&nbsp;                   For map-based methods (i.e. `clinmap`, `clinmapprct`,  
+&nbsp;&nbsp;&nbsp;&nbsp;                   `openepmap`, `openepmapprct`), iPoint indexes into  
 &nbsp;&nbsp;&nbsp;&nbsp;                   userdata.surface.triRep.X. For percentile methods (i.e.  
-&nbsp;&nbsp;&nbsp;&nbsp;                   'ptbasedprct', 'cinmapprct' or 'openepmapprct') iPoint  
+&nbsp;&nbsp;&nbsp;&nbsp;                   `ptbasedprct`, `cinmapprct` or `openepmapprct`) iPoint  
 &nbsp;&nbsp;&nbsp;&nbsp;                   returns all the points that were identified within the  
 &nbsp;&nbsp;&nbsp;&nbsp;                   relevant percentile.  
 
@@ -643,22 +643,22 @@ cvdata = getConductionVelocity( userdata )
  chamber closest to the pacing site. Several alternative methods are provided for caluclating the latest 
  activation site, specified by setting the 'method' parameter-value pair 
  to one of the following options:
-       'ptbased'    - Calculates the earliest activation time using 
+       `ptbased`    - Calculates the earliest activation time using 
                        mapping points exported by the clinical system.
-       'ptbasedprct'- Calculates the earliest 2.5th percentile mapping 
+       `ptbasedprct`- Calculates the earliest 2.5th percentile mapping 
                        times on the exported electrogram annotations, then 
                        calculates the mean of this sets of activation times.
-       'clinmap'    - Calculates the earliest activation time on the 
+       `clinmap`    - Calculates the earliest activation time on the 
                        local activation time map created by the clinical 
                        mapping system
-       'clinmapprct'- First calculates the earliest 2.5th percentile 
+       `clinmapprct`- First calculates the earliest 2.5th percentile 
                        mapping times on the clinical local activation time 
                        map, then calculates the mean of these sets of 
                        activation times.
-       'openepmap'  - Calculates the earliest activation time on the local 
+       `openepmap`  - Calculates the earliest activation time on the local 
                        activation time map created by OpenEP from the 
                        exported electrogram annotations.
-       'openepmapprct'- First calculates the earliest 2.5th percentile 
+       `openepmapprct`- First calculates the earliest 2.5th percentile 
                        mapping times on the local activation time map 
                        created by OpenEP from the exported electrogram 
                        annotations. Then calculates the mean of this set of 
@@ -821,13 +821,13 @@ imp = getImpedanceValue( userdata, varargin )
 
 #### Description
  GETIMPEDANCEVALUES Returns the impedance values. By default, impedance
- values are returned for all the points in the map. If 'method' is
- specified to be 'egm' then impedance transients are returned for each
+ values are returned for all the points in the map. If `method` is
+ specified to be `egm` then impedance transients are returned for each
  individual mapping point, along with time intervals for the impedances.
- If one or more 'vertices' are specified then impedance values are only 
- returned for those vertices (only valid if 'method' is 'map'). 
- If one or more 'points' is specified then impedance values are only 
- returned for those mapping points (only va;lid if 'method' is 'egm').
+ If one or more `vertices` are specified then impedance values are only 
+ returned for those vertices (only valid if `method` is `map`). 
+ If one or more `points` is specified then impedance values are only 
+ returned for those mapping points (only valid if `method` is `egm`).
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -892,8 +892,8 @@ imp = getImpedanceValue( userdata, varargin )
 
 **X**  
 &nbsp;&nbsp;&nbsp;&nbsp;Cartesian co-ordinates of the latest activation site. For  
-&nbsp;&nbsp;&nbsp;&nbsp;                   map-based methods (i.e. 'clinmap', 'clinmapprct',  
-&nbsp;&nbsp;&nbsp;&nbsp;                   'openepmap'and 'openepmapprct'), X is identical to  
+&nbsp;&nbsp;&nbsp;&nbsp;                   map-based methods (i.e. `clinmap`, `clinmapprct`,  
+&nbsp;&nbsp;&nbsp;&nbsp;                   `openepmap` and `openepmapprct`), X is identical to  
 &nbsp;&nbsp;&nbsp;&nbsp;                   surfX.  
 
 **surfX**  
@@ -901,12 +901,12 @@ imp = getImpedanceValue( userdata, varargin )
 
 **iPoint**  
 &nbsp;&nbsp;&nbsp;&nbsp;The closest mapping point to the latest activation  
-&nbsp;&nbsp;&nbsp;&nbsp;                   site. For point-based methods (i.e. 'ptbased' or   
-&nbsp;&nbsp;&nbsp;&nbsp;                   'ptbasedprct'), iPoint indexes into userdata.electric.  
-&nbsp;&nbsp;&nbsp;&nbsp;                   For map-based methods (i.e. 'clinmap', 'clinmapprct',  
-&nbsp;&nbsp;&nbsp;&nbsp;                   'openepmap', 'openepmapprct'), iPoint indexes into  
+&nbsp;&nbsp;&nbsp;&nbsp;                   site. For point-based methods (i.e. `ptbased` or   
+&nbsp;&nbsp;&nbsp;&nbsp;                   `ptbasedprct`), iPoint indexes into userdata.electric.  
+&nbsp;&nbsp;&nbsp;&nbsp;                   For map-based methods (i.e. `clinmap`, `clinmapprct`,  
+&nbsp;&nbsp;&nbsp;&nbsp;                   `openepmap`, `openepmapprct`), iPoint indexes into  
 &nbsp;&nbsp;&nbsp;&nbsp;                   userdata.surface.triRep.X. For percentile methods (i.e.  
-&nbsp;&nbsp;&nbsp;&nbsp;                   'ptbasedprct', 'clinmapprct' or 'openepmapprct') iPoint  
+&nbsp;&nbsp;&nbsp;&nbsp;                   `ptbasedprct`, `clinmapprct` or `openepmapprct`) iPoint  
 &nbsp;&nbsp;&nbsp;&nbsp;                   returns all the points that were identified within the  
 &nbsp;&nbsp;&nbsp;&nbsp;                   relevant percentile.  
 
@@ -932,22 +932,22 @@ imp = getImpedanceValue( userdata, varargin )
  time. Several alternative methods are provided for caluclating the latest 
  activation site, specified by setting the 'method' parameter-value pair 
  to one of the following options:
-       'ptbased'    - Calculates the latest activation time using the 
+       `ptbased`    - Calculates the latest activation time using the 
                        mapping points exported by the clinical system.
-       'ptbasedprct'- Calculates the latest 2.5th percentile mapping 
+       `ptbasedprct`- Calculates the latest 2.5th percentile mapping 
                        times on the exported electrogram annotations, then 
                        calculates the mean of this sets of activation times.
-       'clinmap'    - Calculates the latest activation time on the 
+       `clinmap`    - Calculates the latest activation time on the 
                        local activation time map created by the clinical 
                        mapping system
-       'clinmapprct'- First calculates the latest 2.5th percentile 
+       `clinmapprct`- First calculates the latest 2.5th percentile 
                        mapping times on the clinical local activation time 
                        map, then calculates the mean of this set of 
                        activation times.
-       'openepmap'  - Calculates the latest activation time on the local 
+       `openepmap`  - Calculates the latest activation time on the local 
                        activation time map created by OpenEP from the 
                        exported electrogram annotations.
-       'openepmapprct'- First calculates the latest 2.5th percentile 
+       `openepmapprct`- First calculates the latest 2.5th percentile 
                        mapping times on the local activation time map 
                        created by OpenEP from the exported electrogram 
                        annotations. Then calculates the mean of this set of 
@@ -1002,9 +1002,9 @@ imp = getImpedanceValue( userdata, varargin )
  GETLOWVOLTAGEAREA Returns the surface area of the chamber with voltage
  less than the specified threshold, 0.5mV by default. By default low
  voltage area is calculated using the surface data (stored in
- userdat.surface). If 'method' is set to 'egm' then the bipolar voltage is 
+ `userdata.surface`). If `method` is set to `egm` then the bipolar voltage is 
  first interpolated from the bipolar electrogram data (stored in
- userdata.electric). If 'type' is set to 'uni' then unipolar voltages are
+ `userdata.electric`). If `type` is set to `uni` then unipolar voltages are
  used for surface area calculation.
 
 **Author**  Steven Williams (2020) (Copyright)
@@ -1171,7 +1171,7 @@ h = myfunction(b)
 #### Description
  Impedance values are streaming every 100ms to Carto 3 system from the 
  RF Generator. A time range of -7.5s to +2.5s is output for each point and
- saved in userdata.electric.impedances (.time and .value) in the mat
+ saved in `userdata.electric.impedances` (`.time` and `.value`) in the mat
  files.
 
 **Author**  Steven Williams (2014) (Copyright)
@@ -1199,12 +1199,15 @@ ref = getReferenceAnnotation( userdata )
 **ref**  
 &nbsp;&nbsp;&nbsp;&nbsp;the value of the reference annotation  
 
+#### Parameter Value Pairs
+
+**'iegm'    {:} \| integer \| array**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The electrogram point(s) for which the reference annotation is  
+&nbsp;&nbsp;&nbsp;&nbsp;required  
+
 
 #### Description
- GETREFERENCEANNOTATION Accepts the following parameter-value pairs.
-   'iegm'    {:} | integer | array
-        - The electrogram point(s) for which the reference annotation is
-        required
+ GETREFERENCEANNOTATION Returns the value fo the reference annotation.
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1238,12 +1241,12 @@ data = getSurfaceData( userdata, datatype )
 
 #### Description
  GETSURFACEDATA Returns surface mapping data from userdata. Data type is
- specified by the 'datatype' argument:
-   'act' - activation time
-   'bip' - bipolar voltage
-   'uni' - unipolar voltage
-   'imp' - impedance
-   'frc' - contact force
+ specified by the `datatype` argument:
+   `act` - activation time
+   `bip` - bipolar voltage
+   `uni` - unipolar voltage
+   `imp` - impedance
+   `frc` - contact force
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1277,35 +1280,34 @@ tat = getTotalActivationTime( userdata )
 
 **'prct'   {2.5} \| double**  
 &nbsp;&nbsp;&nbsp;&nbsp;- The percentile to use for percentile mapping; only applicable if  
-
-**'method' is one of 'ptbasedprct', 'clinmapprct' or 'openepmapprct'.**  
+&nbsp;&nbsp;&nbsp;&nbsp;`method` is one of `ptbasedprct`, `clinmapprct` or `openepmapprct`.  
 
 
 #### Description
  GETTOTALACTIVATIONTIME Returns the total activatoin time of the chamber.
  Several alternative methods are provided, and specified by setting the
  'method' parameter-value pair to one of the following options:
-       'ptbased'    - Calculates the difference in activation time between 
+       `ptbased`    - Calculates the difference in activation time between 
                        the earliest and latest activation time mapping 
                        points exported by the clinical system.
-       'ptbasedprct'- First calculates the earliest 2.5th percentile and 
+       `ptbasedprct`- First calculates the earliest 2.5th percentile and 
                        the latest 2.5th percentile mapping times on the 
                        exported electrogram annotations, then calculates 
                        the difference between the means of these sets of 
                        activation times.
-       'clinmap'    - Calculates the difference between the earliest and 
+       `clinmap`    - Calculates the difference between the earliest and 
                        latest activation times on the local activation 
                        time map created by the clinical mapping system
-       'clinmapprct'- First calculates the earliest 2.5th percentile and 
+       `clinmapprct`- First calculates the earliest 2.5th percentile and 
                        latest 2.5th percentile mapping times on the 
                        clinical local activation time map, then calculates 
                        the difference between the means of these sets of 
                        activation times.
-       'openepmap'  - Calculates the difference between the earliest and 
+       `openepmap`  - Calculates the difference between the earliest and 
                        latest activation times on the local activation 
                        time map created by OpenEP from the exported 
                        electrogram annotations.
-       'openepmapprct'- First calculates the earliest 2.5th percentile and 
+       `openepmapprct`- First calculates the earliest 2.5th percentile and 
                        latest 2.5th percentile mapping times on the local 
                        activation time map created by OpenEP from the 
                        exported electrogram annotations. Then calculates 
@@ -1402,12 +1404,14 @@ woi = getWindowOfInterest( userdata )
 &nbsp;&nbsp;&nbsp;&nbsp;two-element array specifying the window of interest relative to  
 &nbsp;&nbsp;&nbsp;&nbsp;          the reference annotation  
 
+#### Parameter Value Pairs
+
+**'iEgm'    {:} \| integer \| array**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The electrogram point(s) for which the window of interst is required  
+
 
 #### Description
- GETWINDOWOFINTEREST Accepts the following parameter-value pairs.
-   'iEgm'    {:} | integer | array
-        - The electrogram point(s) for which the window of interst is
-        required
+
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1426,8 +1430,12 @@ woi = getWindowOfInterest( userdata )
 ```
 
 #### Parameters
-&nbsp;&nbsp;&nbsp;&nbsp;   point_xyz   
-&nbsp;&nbsp;&nbsp;&nbsp;   pointFileName   
+
+**point_xyz**  
+&nbsp;&nbsp;&nbsp;&nbsp;co-ordinates  
+
+**pointFileName**  
+&nbsp;&nbsp;&nbsp;&nbsp;filename  
 
 **electrogramname_bip**  
 &nbsp;&nbsp;&nbsp;&nbsp;the electrode name for the bipolar electrogram at point_xyz  
@@ -1464,8 +1472,12 @@ woi = getWindowOfInterest( userdata )
 ```
 
 #### Parameters
-&nbsp;&nbsp;&nbsp;&nbsp;   point_xyz   
-&nbsp;&nbsp;&nbsp;&nbsp;   pointFileName   
+
+**point_xyz**  
+&nbsp;&nbsp;&nbsp;&nbsp;co-ordinates  
+
+**pointFileName**  
+&nbsp;&nbsp;&nbsp;&nbsp;filename  
 
 **electrogramname_bip**  
 &nbsp;&nbsp;&nbsp;&nbsp;the electrode name for the bipolar electrogram at point_xyz  
@@ -1543,28 +1555,26 @@ userdata = importcarto_mem()
 
 #### Parameter Value Pairs
 
-**'maptoread'     {''}\|string\|double**  
+**'maptoread'     {''} \| string \| double**  
 &nbsp;&nbsp;&nbsp;&nbsp;Specifies which map to read. Can be a string referring  
 &nbsp;&nbsp;&nbsp;&nbsp;to the map name or a double referring to the number of points in the  
 &nbsp;&nbsp;&nbsp;&nbsp;map. If there are multiple maps with the same number of points an error  
 &nbsp;&nbsp;&nbsp;&nbsp;will be thrown.  
 
-**'refchannel'    {''}\|string**  
+**'refchannel'    {''} \| string**  
 &nbsp;&nbsp;&nbsp;&nbsp;The name of the channel to pick as the refence channel. Typically  
 &nbsp;&nbsp;&nbsp;&nbsp;this is the pacing channel for the map. Specify a string such as  
 
 **'CS9-CS10'.**  
 
-**'ecgchannel'    {''}\|string**  
+**'ecgchannel'    {''} \| string**  
 &nbsp;&nbsp;&nbsp;&nbsp;The name of the channel to pick as the ECG channel. Typically  
-&nbsp;&nbsp;&nbsp;&nbsp;this is an informative ECG such as V1. Specify a string such as  
+&nbsp;&nbsp;&nbsp;&nbsp;this is an informative ECG such as V1. Specify a string such as 'V1'.  
 
-**'V1'.**  
-
-**'savefilename'       {''}\|string**  
+**'savefilename'       {''} \| string**  
 &nbsp;&nbsp;&nbsp;&nbsp;The full path to the location in which to save the output.  
 
-**'verbose'       {true}\|false**  
+**'verbose'       {true} \| false**  
 &nbsp;&nbsp;&nbsp;&nbsp;Not yet implemented  
 
 
@@ -1636,24 +1646,27 @@ end
 
  IMPORTVISITAG provides a data structure from Carto visitag files.
 
- Usage
-   visitag = importvisitag(userdata, dirName)
-   visitag = imporvisitag()
- Where:
-   dirName is the directory with all of the files corresponding to WiseTag
-   visitag is a single data structure
-
- IMPORTVISITAG parses the data contained in a Visitag export from the
- Carto3 mapping system. The data is stored in a field '.rfindex' and the
- new userdata data structure with the appended ablation data is returned.
-
+ 
 
 #### Usage
 ```m
-
+visitag = importvisitag(userdata, dirName)
+visitag = imporvisitag()
 ```
 
 #### Parameters
+&nbsp;&nbsp;&nbsp;&nbsp;  
+
+**dirName**  
+&nbsp;&nbsp;&nbsp;&nbsp;the directory with all of the files corresponding to WiseTag  
+
+**visitag**  
+&nbsp;&nbsp;&nbsp;&nbsp;a single data structure  
+&nbsp;&nbsp;&nbsp;&nbsp;  
+&nbsp;&nbsp;&nbsp;&nbsp; IMPORTVISITAG parses the data contained in a Visitag export from the  
+&nbsp;&nbsp;&nbsp;&nbsp; Carto3 mapping system. The data is stored in a field `.rfindex` and the  
+&nbsp;&nbsp;&nbsp;&nbsp; new userdata data structure with the appended ablation data is returned.  
+&nbsp;&nbsp;&nbsp;&nbsp;  
 
 
 #### Description
@@ -1773,8 +1786,8 @@ plotAblationArea(userdata)
 
 
 #### Description
- PLOTABLATIONAREA Requires a userdata structure which contains .rfindex as
- its input, which can be created using importvisitag.m
+ PLOTABLATIONAREA Requires a userdata structure which contains `.rfindex` as
+ its input, which can be created using `importvisitag.m`
 
 **Author**  Steven Williams (2020) (Copyright)
 
@@ -1792,51 +1805,64 @@ plotAblationArea(userdata)
 ```m
 hFig = PLOTELECTROGRAMS(egmTraces)
 hFig = PLOTELECTROGRAMS(egmTraces, varargin)
-
-PLOTELECTROGRAMS parameter-value pairs can be passed in as follows:
-'egmNames', cell array of electrogram names
-'range', two value vector [xmin xmax]
-'sampleRate', the sample rate in Hz
-'paperSpeed', the paper speed for plotting
-'separation', the separation between electrograms, default is 5mV
-'clipping', two value vector [clipmin clipmax] in mV
-'gain', the gain, default is 2
-'autogain', if true the electrograms are automatically scaled, default false
-'acttime', a vector of activation times to be plotted as red crosses
-'egmColors', cell array of colors. Same size as egmNames
-'linewidth', the width of the lines drawing the electrograms
-
-INSTRUCTIONS FOR A4 EGM PAGE
-1. Save figure as an .EPS file.
-2. Open in Corel draw and export as a .PDF file.
-
-INSTRUCTIONS FOR TIMING SINGLE BEAT TRACES
-The default position gives a width of 300pixels, which corresponds to an
-x axis width of 68.44mm. The number of samples to plot in this
-width (ie width of 'range' parameter) is given by:
-n = (sampleRate / paperSpeed) * 68.44
-For example, at 1000Hz range should be specified as having width:
-25mm/s  - 2738  [-1119 1619]
-100mm/s - 684
-200mm/s - 342
 ```
 
 #### Parameters
 
+**egmTraces**  
+&nbsp;&nbsp;&nbsp;&nbsp;the electrograms to plot  
+
+**hFig**  
+&nbsp;&nbsp;&nbsp;&nbsp;a handle to the plotted figure  
+
+#### Parameter Value Pairs
+
+**'egmNames'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- cell array of electrogram names  
+
+**'range'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- two value vector [xmin xmax]  
+
+**'sampleRate'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- the sample rate in Hz  
+
+**'paperSpeed'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- the paper speed for plotting  
+
+**'separation'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- the separation between electrograms, default is 5mV  
+
+**'clipping'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- two value vector [clipmin clipmax] in mV  
+
+**'gain'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- the gain, default is 2  
+
+**'autogain'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- if true the electrograms are automatically scaled, default false  
+
+**'acttime'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- a vector of activation times to be plotted as red crosses  
+
+**'egmColors'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- cell array of colors. Same size as egmNames  
+
+**'linewidth'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- the width of the lines drawing the electrograms  
+
 
 #### Description
- PLOTELECTROGRAMS parameter-value pairs can be passed in as follows:
- 'egmNames', cell array of electrogram names
- 'range', two value vector [xmin xmax]
- 'sampleRate', the sample rate in Hz
- 'paperSpeed', the paper speed for plotting
- 'separation', the separation between electrograms, default is 5mV
- 'clipping', two value vector [clipmin clipmax] in mV
- 'gain', the gain, default is 2
- 'autogain', if true the electrograms are automatically scaled, default false
- 'acttime', a vector of activation times to be plotted as red crosses
- 'egmColors', cell array of colors. Same size as egmNames
- 'linewidth', the width of the lines drawing the electrograms
+ PLOTELECTROGRAMS is used to plot electrograms. To plot an A4 electrogram
+ page: 1. Save figure as an .EPS file; 2. Open in Corel draw (or similar) 
+ and export as a .PDF file. INSTRUCTIONS FOR TIMING SINGLE BEAT TRACES
+ The default position gives a width of 300pixels, which corresponds to an
+ x axis width of 68.44mm. The number of samples to plot in this
+ width (ie width of 'range' parameter) is given by:
+   n = (sampleRate / paperSpeed) * 68.44
+ For example, at 1000Hz range should be specified as having width:
+   25mm/s  - 2738  [-1119 1619]
+   100mm/s - 684
+   200mm/s - 342
 
 **Author**  Steven Williams (2012) (Copyright)
 
@@ -1865,32 +1891,31 @@ For example, at 1000Hz range should be specified as having width:
 
 #### Parameter Value Pairs
 
-**'iEgm'     {:}\|[a:b]**  
-&nbsp;&nbsp;&nbsp;&nbsp;an array indexing into userdata.electric.egm such that  
-&nbsp;&nbsp;&nbsp;&nbsp;%   'iEgm'     {:}\|[a:b]  
+**'iEgm'     {:} \| [a:b]**  
 &nbsp;&nbsp;&nbsp;&nbsp;an array indexing into userdata.electric.egm such that  
 &nbsp;&nbsp;&nbsp;&nbsp;userdata.electric.egm(iEgmArray,:) are selected for plotting  
 &nbsp;&nbsp;&nbsp;&nbsp;To convert from Carto point numbers to iEgmArray use  
 &nbsp;&nbsp;&nbsp;&nbsp;getIndexFromCartoPointNumber.  
 
-**'range'         {'window'}\|'all'**  
+**'range'         {'window'} \| 'all'**  
 &nbsp;&nbsp;&nbsp;&nbsp;By default ('window') only the electrogram within the window of  
 &nbsp;&nbsp;&nbsp;&nbsp;interest is drawn (+/-buffer). By specifying 'all' the entire point  
 &nbsp;&nbsp;&nbsp;&nbsp;electrogram is drawn.  
 
-**'buffer'        {50}\|double**  
+**'buffer'        {50} \| double**  
 &nbsp;&nbsp;&nbsp;&nbsp;The time before and after the window of interest to draw. By  
 &nbsp;&nbsp;&nbsp;&nbsp;default, 20ms, but can be changed by setting 'buffer' to an  
 &nbsp;&nbsp;&nbsp;&nbsp;alternative value.  
 
-**'egmtype'   'bip'\|'uni'\|{'bip-uni'}**  
+**'egmtype'   'bip' \| 'uni' \| {'bip-uni'}**  
 &nbsp;&nbsp;&nbsp;&nbsp;Whether to plot only the bipolar electrograms, only the  
 &nbsp;&nbsp;&nbsp;&nbsp;unipolar electrograms or both  
 
-**'reference' 'off'\|{'on'}**  
-&nbsp;&nbsp;&nbsp;&nbsp;Whether to plot the reference channel, off by default userdata.electric.egm(iEgmArray,:) are selected for plotting  
+**'reference' 'off' \| {'on'}**  
+&nbsp;&nbsp;&nbsp;&nbsp;Whether to plot the reference channel, off by default  
+&nbsp;&nbsp;&nbsp;&nbsp;userdata.electric.egm(iEgmArray,:) are selected for plotting.  
 &nbsp;&nbsp;&nbsp;&nbsp;To convert from Carto point numbers to iEgmArray use  
-&nbsp;&nbsp;&nbsp;&nbsp;getIndexFromCartoPointNumber.  
+&nbsp;&nbsp;&nbsp;&nbsp;`getIndexFromCartoPointNumber.m`  
 
 **'linewidth', {1} \| integer**  
 &nbsp;&nbsp;&nbsp;&nbsp;The width of the lines drawing the electrograms  
@@ -1967,19 +1992,20 @@ plotVisitags(userdata)
 
 #### Parameter Value Pairs
 
-**'plot'     {'tags'}\|'grid'\|'both'**  
+**'plot'     {'tags'} \| 'grid' \| 'both'**  
 &nbsp;&nbsp;&nbsp;&nbsp;- specifies whether to show the tags, the grid, or both  
 
-**'shell'    {'on'}\|'off'**  
+**'shell'    {'on'} \| 'off'**  
 &nbsp;&nbsp;&nbsp;&nbsp;- specifies whether to show the chamber shell  
 
-**'colour'    {'r'}\|colorspec\|array**  
+**'colour'    {'r'} \| colorspec \| array**  
 &nbsp;&nbsp;&nbsp;&nbsp;- can be a string or colorspec specifying the color of all the  
 &nbsp;&nbsp;&nbsp;&nbsp;spheres  
 &nbsp;&nbsp;&nbsp;&nbsp;- can be an array of double values which is rendered as a  
 &nbsp;&nbsp;&nbsp;&nbsp;colorscale  
 
-**'orientation'   see drawMap.m**  
+**'orientation'**  
+&nbsp;&nbsp;&nbsp;&nbsp;- see `drawMap.m`  
 
 
 #### Description
@@ -2018,7 +2044,6 @@ plotVisitags(userdata)
 &nbsp;&nbsp;&nbsp;&nbsp;               (logical(0))  
 
 #### Parameter Value Pairs
-&nbsp;&nbsp;&nbsp;&nbsp;:  
 
 **'tol' 0.1 \| double**  
 &nbsp;&nbsp;&nbsp;&nbsp;- The distance threshold within which points are considered to be  
@@ -2083,11 +2108,18 @@ channelVoltages = read_ecgfile(filename, names)
 ```
 
 #### Parameters
-&nbsp;&nbsp;&nbsp;&nbsp;   channelVoltages channelNames are voltages and names  
-&nbsp;&nbsp;&nbsp;&nbsp;   filename is the Carto3 .txt file  
 
-**names is optional and is the desired channel names**  
-&nbsp;&nbsp;&nbsp;&nbsp;this helps speed  
+**channelVoltages**  
+&nbsp;&nbsp;&nbsp;&nbsp;voltages  
+
+**channelNames**  
+&nbsp;&nbsp;&nbsp;&nbsp;names  
+
+**filename**  
+&nbsp;&nbsp;&nbsp;&nbsp;the Carto3 .txt file  
+
+**names**  
+&nbsp;&nbsp;&nbsp;&nbsp;is optional and is the desired channel names which helps speed  
 
 
 #### Description
