@@ -55,10 +55,13 @@ sections:
     items:
       - title: King's College London
         image: images/kcl_logo.png
+        url: https://www.kcl.ac.uk/
       - title: Imperial College London
         image: images/imperial_logo.png
+        url: https://www.imperial.ac.uk/
       - title: The University of Edinburgh
         image: images/edinburgh_logo.png
+        url: https://www.ed.ac.uk/
 
 layout: landing
 ---
