@@ -14,6 +14,11 @@ layout: page
   font-size: 90%;
 }
 
+.post-content h2 {
+  padding-top: 85pt;
+  margin-top: -85pt;
+}
+
 pre.highlight {
   padding: 5pt;
   font-size: 90%;
@@ -68,52 +73,52 @@ td {
 <div class="apilinks">
 
 
-<div class="apilink"><a href="#cartoMesh2VTK">cartoMesh2VTK</a></div>
-<div class="apilink"><a href="#cvHistogram">cvHistogram</a></div>
-<div class="apilink"><a href="#distanceBetweenPoints">distanceBetweenPoints</a></div>
-<div class="apilink"><a href="#drawMap">drawMap</a></div>
-<div class="apilink"><a href="#editUserdata">editUserdata</a></div>
-<div class="apilink"><a href="#fixVoltageAnnotations">fixVoltageAnnotations</a></div>
-<div class="apilink"><a href="#generateInterpData">generateInterpData</a></div>
-<div class="apilink"><a href="#getAblationArea">getAblationArea</a></div>
-<div class="apilink"><a href="#getAnatomicalStructures">getAnatomicalStructures</a></div>
-<div class="apilink"><a href="#getArea">getArea</a></div>
-<div class="apilink"><a href="#getCentreOfMass">getCentreOfMass</a></div>
-<div class="apilink"><a href="#getClosedSurface">getClosedSurface</a></div>
-<div class="apilink"><a href="#getConductionVelocity">getConductionVelocity</a></div>
-<div class="apilink"><a href="#getEarliestActivationSite">getEarliestActivationSite</a></div>
-<div class="apilink"><a href="#getEgmsAtPoints">getEgmsAtPoints</a></div>
-<div class="apilink"><a href="#getElectrogramDuration">getElectrogramDuration</a></div>
-<div class="apilink"><a href="#getFaces">getFaces</a></div>
-<div class="apilink"><a href="#getImpedanceValues">getImpedanceValues</a></div>
-<div class="apilink"><a href="#getIndexFromCartoPointNumber">getIndexFromCartoPointNumber</a></div>
-<div class="apilink"><a href="#getLatestActivationSite">getLatestActivationSite</a></div>
-<div class="apilink"><a href="#getLowVoltageArea">getLowVoltageArea</a></div>
-<div class="apilink"><a href="#getMappingPointsWithinWoI">getMappingPointsWithinWoI</a></div>
-<div class="apilink"><a href="#getMeanVoltage">getMeanVoltage</a></div>
-<div class="apilink"><a href="#getMesh">getMesh</a></div>
-<div class="apilink"><a href="#getNumPts">getNumPts</a></div>
-<div class="apilink"><a href="#getPointImpedanceValue">getPointImpedanceValue</a></div>
-<div class="apilink"><a href="#getReferenceAnnotation">getReferenceAnnotation</a></div>
-<div class="apilink"><a href="#getSurfaceData">getSurfaceData</a></div>
-<div class="apilink"><a href="#getTotalActivationTime">getTotalActivationTime</a></div>
-<div class="apilink"><a href="#getVertices">getVertices</a></div>
-<div class="apilink"><a href="#getVolume">getVolume</a></div>
-<div class="apilink"><a href="#getWindowOfInterest">getWindowOfInterest</a></div>
+<div class="apilink"><a href="#cartomesh2vtk">cartoMesh2VTK</a></div>
+<div class="apilink"><a href="#cvhistogram">cvHistogram</a></div>
+<div class="apilink"><a href="#distancebetweenpoints">distanceBetweenPoints</a></div>
+<div class="apilink"><a href="#drawmap">drawMap</a></div>
+<div class="apilink"><a href="#edituserdata">editUserdata</a></div>
+<div class="apilink"><a href="#fixvoltageannotations">fixVoltageAnnotations</a></div>
+<div class="apilink"><a href="#generateinterpdata">generateInterpData</a></div>
+<div class="apilink"><a href="#getablationarea">getAblationArea</a></div>
+<div class="apilink"><a href="#getanatomicalstructures">getAnatomicalStructures</a></div>
+<div class="apilink"><a href="#getarea">getArea</a></div>
+<div class="apilink"><a href="#getcentreofmass">getCentreOfMass</a></div>
+<div class="apilink"><a href="#getclosedsurface">getClosedSurface</a></div>
+<div class="apilink"><a href="#getconductionvelocity">getConductionVelocity</a></div>
+<div class="apilink"><a href="#getearliestactivationsite">getEarliestActivationSite</a></div>
+<div class="apilink"><a href="#getegmsatpoints">getEgmsAtPoints</a></div>
+<div class="apilink"><a href="#getelectrogramduration">getElectrogramDuration</a></div>
+<div class="apilink"><a href="#getfaces">getFaces</a></div>
+<div class="apilink"><a href="#getimpedancevalues">getImpedanceValues</a></div>
+<div class="apilink"><a href="#getindexfromcartopointnumber">getIndexFromCartoPointNumber</a></div>
+<div class="apilink"><a href="#getlatestactivationsite">getLatestActivationSite</a></div>
+<div class="apilink"><a href="#getlowvoltagearea">getLowVoltageArea</a></div>
+<div class="apilink"><a href="#getmappingpointswithinwoi">getMappingPointsWithinWoI</a></div>
+<div class="apilink"><a href="#getmeanvoltage">getMeanVoltage</a></div>
+<div class="apilink"><a href="#getmesh">getMesh</a></div>
+<div class="apilink"><a href="#getnumpts">getNumPts</a></div>
+<div class="apilink"><a href="#getpointimpedancevalue">getPointImpedanceValue</a></div>
+<div class="apilink"><a href="#getreferenceannotation">getReferenceAnnotation</a></div>
+<div class="apilink"><a href="#getsurfacedata">getSurfaceData</a></div>
+<div class="apilink"><a href="#gettotalactivationtime">getTotalActivationTime</a></div>
+<div class="apilink"><a href="#getvertices">getVertices</a></div>
+<div class="apilink"><a href="#getvolume">getVolume</a></div>
+<div class="apilink"><a href="#getwindowofinterest">getWindowOfInterest</a></div>
 <div class="apilink"><a href="#getpointelectrogramname">getpointelectrogramname</a></div>
 <div class="apilink"><a href="#getpointelectrogramname">getpointelectrogramname</a></div>
 <div class="apilink"><a href="#importcarto_mem">importcarto_mem</a></div>
 <div class="apilink"><a href="#importcarto_mem">importcarto_mem</a></div>
 <div class="apilink"><a href="#importvisitag">importvisitag</a></div>
 <div class="apilink"><a href="#importvisitag">importvisitag</a></div>
-<div class="apilink"><a href="#openEP2VTK">openEP2VTK</a></div>
-<div class="apilink"><a href="#plotAblationArea">plotAblationArea</a></div>
-<div class="apilink"><a href="#plotElectrograms">plotElectrograms</a></div>
-<div class="apilink"><a href="#plotOpenEPEgms">plotOpenEPEgms</a></div>
-<div class="apilink"><a href="#plotTag">plotTag</a></div>
-<div class="apilink"><a href="#plotVisitags">plotVisitags</a></div>
-<div class="apilink"><a href="#pointStatus">pointStatus</a></div>
-<div class="apilink"><a href="#processSmartTouchForceData">processSmartTouchForceData</a></div>
+<div class="apilink"><a href="#openep2vtk">openEP2VTK</a></div>
+<div class="apilink"><a href="#plotablationarea">plotAblationArea</a></div>
+<div class="apilink"><a href="#plotelectrograms">plotElectrograms</a></div>
+<div class="apilink"><a href="#plotopenepegms">plotOpenEPEgms</a></div>
+<div class="apilink"><a href="#plottag">plotTag</a></div>
+<div class="apilink"><a href="#plotvisitags">plotVisitags</a></div>
+<div class="apilink"><a href="#pointstatus">pointStatus</a></div>
+<div class="apilink"><a href="#processsmarttouchforcedata">processSmartTouchForceData</a></div>
 <div class="apilink"><a href="#read_ecgfile_v4">read_ecgfile_v4</a></div>
 <div class="apilink"><a href="#read_ecgfile_v4_header">read_ecgfile_v4_header</a></div>
 <div class="apilink"><a href="#read_forcefile_v2">read_forcefile_v2</a></div>
@@ -122,13 +127,12 @@ td {
 <div class="apilink"><a href="#read_visitag_file_v1">read_visitag_file_v1</a></div>
 <div class="apilink"><a href="#read_visitag_sites">read_visitag_sites</a></div>
 <div class="apilink"><a href="#read_visitagsettings">read_visitagsettings</a></div>
-<div class="apilink"><a href="#voltageHistogramAnalysis">voltageHistogramAnalysis</a></div>
+<div class="apilink"><a href="#voltagehistogramanalysis">voltageHistogramAnalysis</a></div>
 </div>
 
 
 
 
-<a name="cartoMesh2VTK" />
 ## cartoMesh2VTK
 
  CARTOMESH2VTK Converts a Carto mesh file to VTK file
@@ -155,7 +159,6 @@ tr = cartoMesh2VTK('openfile')
 ---
 
 
-<a name="cvHistogram" />
 ## cvHistogram
 
  CVHISTOGRAM Draws a conduction velocity histogram
@@ -188,7 +191,6 @@ cvHistogram( userdata )
 ---
 
 
-<a name="distanceBetweenPoints" />
 ## distanceBetweenPoints
 
  DISTANCEBETWEENPOINTS Returns the distance from A to B.
@@ -230,7 +232,6 @@ distance = distanceBetweenPoints(userdata, A, B)
 ---
 
 
-<a name="drawMap" />
 ## drawMap
 
  DRAWMAP plots an OpenEP map
@@ -288,7 +289,6 @@ hSurf = drawMap(userdata, varargin);
 ---
 
 
-<a name="editUserdata" />
 ## editUserdata
 
  EDITUSERDATA Graphically remove regions from a Carto dataset
@@ -322,7 +322,6 @@ userdata2 = editUserdata(userdata)
 ---
 
 
-<a name="fixVoltageAnnotations" />
 ## fixVoltageAnnotations
 
  FIXVOLTAGEANNOTATIONS Fixes the uni/bip reversal identified in
@@ -353,7 +352,6 @@ userdata = fixVoltageAnnotations(userdata)
 ---
 
 
-<a name="generateInterpData" />
 ## generateInterpData
 
  GENERATEINTERPDATA Performs spatial interpolation of scalar data
@@ -409,7 +407,6 @@ interpData = generateInterpData(userdata, datatype)
 ---
 
 
-<a name="getAblationArea" />
 ## getAblationArea
 
  GETABLATIONAREA Calculates the area of a chamber which has been ablated
@@ -462,7 +459,6 @@ interpData = generateInterpData(userdata, datatype)
 ---
 
 
-<a name="getAnatomicalStructures" />
 ## getAnatomicalStructures
 
  GETANATOMICALSTRUCTURES Returns the free boundaries (anatomical 
@@ -510,7 +506,6 @@ interpData = generateInterpData(userdata, datatype)
 ---
 
 
-<a name="getArea" />
 ## getArea
 
  GETAREA Returns the surface area of an anatomical model
@@ -545,7 +540,6 @@ area = getArea( userdata )
 ---
 
 
-<a name="getCentreOfMass" />
 ## getCentreOfMass
 
  GETCENTREOFMASS Returns the centre of mass of the anatomical model 
@@ -584,7 +578,6 @@ C = getCentreOfMass( userdata, varargin )
 ---
 
 
-<a name="getClosedSurface" />
 ## getClosedSurface
 
  GETCLOSEDSURFACE Fills all the holes in the userdata surface
@@ -618,7 +611,6 @@ tr = getClosedSurface( userdata )
 ---
 
 
-<a name="getConductionVelocity" />
 ## getConductionVelocity
 
  GETCONDUCTIONVELOCITY Returns the conduction velocity map of the 
@@ -654,7 +646,6 @@ cvdata = getConductionVelocity( userdata )
 ---
 
 
-<a name="getEarliestActivationSite" />
 ## getEarliestActivationSite
 
  GETEARLIESTACTIVATIONSITE Returns the earliest activation site
@@ -742,7 +733,6 @@ cvdata = getConductionVelocity( userdata )
 ---
 
 
-<a name="getEgmsAtPoints" />
 ## getEgmsAtPoints
 
  GETEGMSATPOINTS Access eletrograms from stored in the OpenEP data format
@@ -796,7 +786,6 @@ cvdata = getConductionVelocity( userdata )
 ---
 
 
-<a name="getElectrogramDuration" />
 ## getElectrogramDuration
 
  GETELECTROGRAMDURATION Returns the electrogram durations
@@ -834,7 +823,6 @@ egmDuration = getElectrogramDuration( userdata )
 ---
 
 
-<a name="getFaces" />
 ## getFaces
 
  GETFACES Returns the faces referenced by userdata
@@ -863,7 +851,6 @@ faces = getFaces( userdata )
 ---
 
 
-<a name="getImpedanceValues" />
 ## getImpedanceValues
 
  GETIMPEDANCEVALUE Returns the impedance value of given point(s)
@@ -907,7 +894,6 @@ imp = getImpedanceValue( userdata, varargin )
 ---
 
 
-<a name="getIndexFromCartoPointNumber" />
 ## getIndexFromCartoPointNumber
 
  GETINDEXFROMCARTOPOINTNUMBER Finds the index of the mapping point at the 
@@ -943,7 +929,6 @@ imp = getImpedanceValue( userdata, varargin )
 ---
 
 
-<a name="getLatestActivationSite" />
 ## getLatestActivationSite
 
  GETLATESTACTIVATIONSITE Returns the latest activation site
@@ -1031,7 +1016,6 @@ imp = getImpedanceValue( userdata, varargin )
 ---
 
 
-<a name="getLowVoltageArea" />
 ## getLowVoltageArea
 
  GETLOWVOLTAGEAREA Returns the low voltage area
@@ -1085,7 +1069,6 @@ imp = getImpedanceValue( userdata, varargin )
 ---
 
 
-<a name="getMappingPointsWithinWoI" />
 ## getMappingPointsWithinWoI
 
  GETMAPPINGPOINTSWITHINWOI Returns the indices of the mapping points with
@@ -1116,7 +1099,6 @@ iPoint = getMappingPointsWithinWoI( userdata )
 ---
 
 
-<a name="getMeanVoltage" />
 ## getMeanVoltage
 
  GETMEANVOLTAGE Returns the mean voltage
@@ -1156,7 +1138,6 @@ meanVoltage = getMeanVoltage( userdata, varargin )
 ---
 
 
-<a name="getMesh" />
 ## getMesh
 
  GETMESH Returns the triangulation-based mesh from userdata
@@ -1190,7 +1171,6 @@ tr = getMesh(userdata)
 ---
 
 
-<a name="getNumPts" />
 ## getNumPts
 
  GETNUMPTS Returns the number of mapping points in the OpenEP dataset
@@ -1219,7 +1199,6 @@ numpts = getNumPts( userdata )
 ---
 
 
-<a name="getPointImpedanceValue" />
 ## getPointImpedanceValue
 
  GETPOINTIMPEDANCEVALUE Provides an algorithm for giving point impedance
@@ -1252,7 +1231,6 @@ h = myfunction(b)
 ---
 
 
-<a name="getReferenceAnnotation" />
 ## getReferenceAnnotation
 
  GETREFERENCEANNOTATION Returns the value of the reference annotation 
@@ -1287,7 +1265,6 @@ ref = getReferenceAnnotation( userdata )
 ---
 
 
-<a name="getSurfaceData" />
 ## getSurfaceData
 
  GETSURFACEDATA Returns surface mapping data from userdata
@@ -1326,7 +1303,6 @@ data = getSurfaceData( userdata, datatype )
 ---
 
 
-<a name="getTotalActivationTime" />
 ## getTotalActivationTime
 
  GETTOTALACTIVATIONTIME Returns the total activation time of the chamber
@@ -1392,7 +1368,6 @@ tat = getTotalActivationTime( userdata )
 ---
 
 
-<a name="getVertices" />
 ## getVertices
 
  GETVERTICES Returns the vertices referenced by userdata
@@ -1424,7 +1399,6 @@ tat = getTotalActivationTime( userdata )
 ---
 
 
-<a name="getVolume" />
 ## getVolume
 
  GETVOLUME Calculates the volume of the chamber described in userdata
@@ -1456,7 +1430,6 @@ volume = getVolume(userdata)
 ---
 
 
-<a name="getWindowOfInterest" />
 ## getWindowOfInterest
 
  GETWINDOWOFINTERST Returns the window of interest 
@@ -1491,7 +1464,6 @@ woi = getWindowOfInterest( userdata )
 ---
 
 
-<a name="getpointelectrogramname" />
 ## getpointelectrogramname
 
  GETPOINTELECTROGRAMNAME finds the electrode at xyz.
@@ -1532,7 +1504,6 @@ woi = getWindowOfInterest( userdata )
 ---
 
 
-<a name="getpointelectrogramname" />
 ## getpointelectrogramname
 
  GETELCTRODENAME finds the electrode at xyz.
@@ -1574,7 +1545,6 @@ woi = getWindowOfInterest( userdata )
 ---
 
 
-<a name="importcarto_mem" />
 ## importcarto_mem
 
  IMPORTCARTO provides a data structure from multiple carto files (from zip).
@@ -1608,7 +1578,6 @@ userdata = importcarto_mem()
 ---
 
 
-<a name="importcarto_mem" />
 ## importcarto_mem
 
  IMPORTCARTO provides a data structure from multiple carto files (from zip).
@@ -1684,7 +1653,6 @@ userdata = importcarto_mem()
 ---
 
 
-<a name="importvisitag" />
 ## importvisitag
 
  IMPORTVISITAG provides a data structure from Carto visitag files.
@@ -1720,7 +1688,6 @@ visitag = imporvisitag()
 ---
 
 
-<a name="importvisitag" />
 ## importvisitag
 
  IMPORTVISITAG provides a data structure from carto visitag files.
@@ -1761,7 +1728,6 @@ visitag = imporvisitag()
 ---
 
 
-<a name="openEP2VTK" />
 ## openEP2VTK
 
  OPENEP2VTK Converts an OpenEP data structure to a VTK file
@@ -1810,7 +1776,6 @@ tr = openEP2VTK('openfile')
 ---
 
 
-<a name="plotAblationArea" />
 ## plotAblationArea
 
  PLOTABLATIONAREA Adds the ablation area to the current figure
@@ -1837,7 +1802,6 @@ plotAblationArea(userdata)
 ---
 
 
-<a name="plotElectrograms" />
 ## plotElectrograms
 
  PLOTELECTROGRAMS Draws any number of electrograms in line.
@@ -1912,7 +1876,6 @@ hFig = PLOTELECTROGRAMS(egmTraces, varargin)
 ---
 
 
-<a name="plotOpenEPEgms" />
 ## plotOpenEPEgms
 
  PLOTOPENEPEGMS Plot eletrograms from OpenEP data
@@ -1972,7 +1935,6 @@ hFig = PLOTELECTROGRAMS(egmTraces, varargin)
 ---
 
 
-<a name="plotTag" />
 ## plotTag
 
  PLOTTAG Plots tag(s) on the current map
@@ -2016,7 +1978,6 @@ h = plotTag( userdata, varargin )
 ---
 
 
-<a name="plotVisitags" />
 ## plotVisitags
 
  PLOTVISITAGS Displays ablation data for a case
@@ -2060,7 +2021,6 @@ plotVisitags(userdata)
 ---
 
 
-<a name="pointStatus" />
 ## pointStatus
 
  POINTSTATUS Returns the status of points relevant to userdata
@@ -2105,7 +2065,6 @@ plotVisitags(userdata)
 ---
 
 
-<a name="processSmartTouchForceData" />
 ## processSmartTouchForceData
 
  PROCESSSMARTTOUCHFORCEDATA Gets a shell with force data
@@ -2137,7 +2096,6 @@ plotVisitags(userdata)
 ---
 
 
-<a name="read_ecgfile_v4" />
 ## read_ecgfile_v4
 
  READ_ECGFILE loads this Carto3 ecg file.
@@ -2173,7 +2131,6 @@ channelVoltages = read_ecgfile(filename, names)
 ---
 
 
-<a name="read_ecgfile_v4_header" />
 ## read_ecgfile_v4_header
 
  READ_ECGFILE_V4_HEADER loads the header from an ECG file.
@@ -2200,7 +2157,6 @@ channelVoltages = read_ecgfile(filename, names)
 ---
 
 
-<a name="read_forcefile_v2" />
 ## read_forcefile_v2
 
  READ_FORCEFILE loads this Carto3 force file.
@@ -2245,7 +2201,6 @@ force = read_forcefile(filename);
 ---
 
 
-<a name="read_meshfile" />
 ## read_meshfile
 
  READ_MESHFILE loads this Carto3 mesh file.
@@ -2274,7 +2229,6 @@ t = read_meshfile(filename)
 ---
 
 
-<a name="read_positions_on_annotation_v2" />
 ## read_positions_on_annotation_v2
 
  READ_POSITIONS_ON_ANNOTATION_V2 loads this Carto3 position file.
@@ -2298,7 +2252,6 @@ t = read_meshfile(filename)
 ---
 
 
-<a name="read_visitag_file_v1" />
 ## read_visitag_file_v1
 
  READ_VISITAG_FILE_V1 Reads a data file stored in a WiseTag or VisiTag
@@ -2334,7 +2287,6 @@ t = read_meshfile(filename)
 ---
 
 
-<a name="read_visitag_sites" />
 ## read_visitag_sites
 
  READ_VISITAG_SITES loads Carto3 visitag sites.txt file.
@@ -2359,7 +2311,6 @@ t = read_meshfile(filename)
 ---
 
 
-<a name="read_visitagsettings" />
 ## read_visitagsettings
 
  READ_VISITAGSETTINGS loads Carto3 visitag settings file.
@@ -2387,7 +2338,6 @@ t = read_meshfile(filename)
 ---
 
 
-<a name="voltageHistogramAnalysis" />
 ## voltageHistogramAnalysis
 
  VOLTAGEHISTOGRAMANALYSIS Performs voltage histogram analysis

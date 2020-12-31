@@ -29,6 +29,11 @@ layout: page
   font-size: 90%;
 }
 
+.post-content h2 {
+  padding-top: 85pt;
+  margin-top: -85pt;
+}
+
 pre.highlight {
   padding: 5pt;
   font-size: 90%;
@@ -103,7 +108,8 @@ for path in "$dir"/*.m; do
 
   IFS='('; parts2=(${parts[1]}); unset IFS;
   name=$(trim ${parts2[0]})
-  printf "<div class=\"apilink\"><a href=\"#%s\">%s</a></div>\n" "$name" "$name" >> "$apiFile"
+  href=$(echo "$name" | awk '{print tolower($0)}')
+  printf "<div class=\"apilink\"><a href=\"#%s\">%s</a></div>\n" "$href" "$name" >> "$apiFile"
 done
 
 echo '</div>
@@ -139,7 +145,7 @@ for path in "$dir"/*.m; do
   done
   unset IFS
 
-  printf "\n<a name=\"%s\" />\n## %s\n\n" "$name" "$name" >> "$apiFile"
+  printf "\n## %s\n\n" "$name" >> "$apiFile"
   IFS=""
   info="$(echo $lines | awk -F'Usage:' '{print $1}')"
   info=`echo "$info" | sed $'s/<br\/>/\\\\\\n/g'`

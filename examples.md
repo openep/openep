@@ -37,6 +37,13 @@ examples:
 
 ---
 
+<style>
+.post-content h2 {
+  padding-top: 85pt;
+  margin-top: -85pt;
+}
+</style>
+
 ## Ablation quantification
 <img src="/images/gallery-ablation.png">
 OpenEP can be used to display representations of ablation points and to quantify the ablation area. The worked-through example here uses "visitag" data from the Carto3 electroanatomic mapping platform. This data is not loaded automatically using a call to importcarto_mem and needs to be loaded separately. This is done by using the following code, but has already been done for Example 1.
