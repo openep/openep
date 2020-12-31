@@ -14,6 +14,7 @@ Steven is an BHF Intermediate Clinical Research Fellow in Cardiac Electrophysiol
 
 Nick is Senior Lecturer in Cardiovascular Bioengineering at Imperial College London, combined with being a Consultant Cardiologist and Electrophysiologist at Imperial Healthcare. His research interests include mapping of complex arrhythmias and the development of predictive tools for arrhythmia.
 
+
 ## Adam Connolly
 <img src="/images/portrait-ac.png">
 
