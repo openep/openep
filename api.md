@@ -39,8 +39,91 @@ td>p {
 td {
   padding: 0;//
 }
+
+.apilinks {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.83333em 1.66667em;
+}
+
+.apilinks div {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 0 0 33.333%;
+  -ms-flex: 0 0 33.333%;
+  flex: 0 0 33.333%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.apilinks a {
+  width: max-content;
+}
 </style>
 
+<div class="apilinks">
+
+
+<div class="apilink"><a href="#cartoMesh2VTK">cartoMesh2VTK</a></div>
+<div class="apilink"><a href="#cvHistogram">cvHistogram</a></div>
+<div class="apilink"><a href="#distanceBetweenPoints">distanceBetweenPoints</a></div>
+<div class="apilink"><a href="#drawMap">drawMap</a></div>
+<div class="apilink"><a href="#editUserdata">editUserdata</a></div>
+<div class="apilink"><a href="#fixVoltageAnnotations">fixVoltageAnnotations</a></div>
+<div class="apilink"><a href="#generateInterpData">generateInterpData</a></div>
+<div class="apilink"><a href="#getAblationArea">getAblationArea</a></div>
+<div class="apilink"><a href="#getAnatomicalStructures">getAnatomicalStructures</a></div>
+<div class="apilink"><a href="#getArea">getArea</a></div>
+<div class="apilink"><a href="#getCentreOfMass">getCentreOfMass</a></div>
+<div class="apilink"><a href="#getClosedSurface">getClosedSurface</a></div>
+<div class="apilink"><a href="#getConductionVelocity">getConductionVelocity</a></div>
+<div class="apilink"><a href="#getEarliestActivationSite">getEarliestActivationSite</a></div>
+<div class="apilink"><a href="#getEgmsAtPoints">getEgmsAtPoints</a></div>
+<div class="apilink"><a href="#getElectrogramDuration">getElectrogramDuration</a></div>
+<div class="apilink"><a href="#getFaces">getFaces</a></div>
+<div class="apilink"><a href="#getImpedanceValues">getImpedanceValues</a></div>
+<div class="apilink"><a href="#getIndexFromCartoPointNumber">getIndexFromCartoPointNumber</a></div>
+<div class="apilink"><a href="#getLatestActivationSite">getLatestActivationSite</a></div>
+<div class="apilink"><a href="#getLowVoltageArea">getLowVoltageArea</a></div>
+<div class="apilink"><a href="#getMappingPointsWithinWoI">getMappingPointsWithinWoI</a></div>
+<div class="apilink"><a href="#getMeanVoltage">getMeanVoltage</a></div>
+<div class="apilink"><a href="#getMesh">getMesh</a></div>
+<div class="apilink"><a href="#getNumPts">getNumPts</a></div>
+<div class="apilink"><a href="#getPointImpedanceValue">getPointImpedanceValue</a></div>
+<div class="apilink"><a href="#getReferenceAnnotation">getReferenceAnnotation</a></div>
+<div class="apilink"><a href="#getSurfaceData">getSurfaceData</a></div>
+<div class="apilink"><a href="#getTotalActivationTime">getTotalActivationTime</a></div>
+<div class="apilink"><a href="#getVertices">getVertices</a></div>
+<div class="apilink"><a href="#getVolume">getVolume</a></div>
+<div class="apilink"><a href="#getWindowOfInterest">getWindowOfInterest</a></div>
+<div class="apilink"><a href="#getpointelectrogramname">getpointelectrogramname</a></div>
+<div class="apilink"><a href="#getpointelectrogramname">getpointelectrogramname</a></div>
+<div class="apilink"><a href="#importcarto_mem">importcarto_mem</a></div>
+<div class="apilink"><a href="#importcarto_mem">importcarto_mem</a></div>
+<div class="apilink"><a href="#importvisitag">importvisitag</a></div>
+<div class="apilink"><a href="#importvisitag">importvisitag</a></div>
+<div class="apilink"><a href="#openEP2VTK">openEP2VTK</a></div>
+<div class="apilink"><a href="#plotAblationArea">plotAblationArea</a></div>
+<div class="apilink"><a href="#plotElectrograms">plotElectrograms</a></div>
+<div class="apilink"><a href="#plotOpenEPEgms">plotOpenEPEgms</a></div>
+<div class="apilink"><a href="#plotTag">plotTag</a></div>
+<div class="apilink"><a href="#plotVisitags">plotVisitags</a></div>
+<div class="apilink"><a href="#pointStatus">pointStatus</a></div>
+<div class="apilink"><a href="#processSmartTouchForceData">processSmartTouchForceData</a></div>
+<div class="apilink"><a href="#read_ecgfile_v4">read_ecgfile_v4</a></div>
+<div class="apilink"><a href="#read_ecgfile_v4_header">read_ecgfile_v4_header</a></div>
+<div class="apilink"><a href="#read_forcefile_v2">read_forcefile_v2</a></div>
+<div class="apilink"><a href="#read_meshfile">read_meshfile</a></div>
+<div class="apilink"><a href="#read_positions_on_annotation_v2">read_positions_on_annotation_v2</a></div>
+<div class="apilink"><a href="#read_visitag_file_v1">read_visitag_file_v1</a></div>
+<div class="apilink"><a href="#read_visitag_sites">read_visitag_sites</a></div>
+<div class="apilink"><a href="#read_visitagsettings">read_visitagsettings</a></div>
+<div class="apilink"><a href="#voltageHistogramAnalysis">voltageHistogramAnalysis</a></div>
+</div>
 
 
 

@@ -16,6 +16,25 @@ examples:
     - title: Conduction velocity
       image: images/gallery-cv.png
       url: '#conduction-velocity'
+    - title: Data input, storage and batch processing
+      image: images/gallery-dataimport.png
+      url: '#data-input-storage-and-batch-processing'
+    - title: Earliest/Latest activation
+      image: images/gallery-lat.png
+      url: '#earliestlatest-activation'
+    - title: Electrogram display / annotation
+      image: images/gallery-egm.png
+      url: '#electrogram-displayannotation'
+    - title: Geometry analysis
+      image: images/gallery-geometry.png
+      url: '#geometry-analysis'
+    - title: Voltage mapping
+      image: images/gallery-voltage.png
+      url: '#voltage-mapping'
+    - title: Voltage histogram analysis
+      image: images/gallery-vha.png
+      url: '#voltage-histogram-analysis'
+
 ---
 
 ## Ablation quantification

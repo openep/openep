@@ -54,9 +54,60 @@ td>p {
 td {
   padding: 0;//
 }
+
+.apilinks {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.83333em 1.66667em;
+}
+
+.apilinks div {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 0 0 33.333%;
+  -ms-flex: 0 0 33.333%;
+  flex: 0 0 33.333%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.apilinks a {
+  width: max-content;
+}
 </style>
 
+<div class="apilinks">
+
 ' > "$apiFile"
+
+
+for path in "$dir"/*.m; do
+  file=$(basename "$path")
+  name=`echo "$file" | cut -d'.' -f1`
+
+  funcLine=`grep -m 1 "^func" "$path"`
+  if [[ -z "$funcLine" ]]; then continue; fi
+
+  line=${funcLine#"function"}
+  IFS='='; parts=($line); unset IFS;
+  out=`echo ${parts[0]} | sed 's/[][]//g'`
+
+  if [[ -z "${parts[1]}" ]]; then # no output parameters
+    out=""
+    parts[1]=${parts[0]}
+  fi
+
+  IFS='('; parts2=(${parts[1]}); unset IFS;
+  name=$(trim ${parts2[0]})
+  printf "<div class=\"apilink\"><a href=\"#%s\">%s</a></div>\n" "$name" "$name" >> "$apiFile"
+done
+
+echo '</div>
+' >> "$apiFile"
 
 for path in "$dir"/*.m; do
   file=$(basename "$path")
