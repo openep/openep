@@ -12,6 +12,9 @@ team:
   - title: Nick Linton
     image: images/portrait-nl.png
     content: Nick is Senior Lecturer in Cardiovascular Bioengineering at Imperial College London, combined with being a Consultant Cardiologist and Electrophysiologist at Imperial Healthcare. His research interests include mapping of complex arrhythmias and the development of predictive tools for arrhythmia.
+  - title: Steve Niederer
+    image: images/portrait-sn.png
+    content: Steve is the head of the King’s College London Cardiac Electro-Mechanics Research Group  (CEMRG). The group focus on using physiology and physics encoded in biophysical models to interpret diagnostic and imaging data from the heart. The team works closely with cardiac imaging, cardiology, cardiovascular research and data science collaborators  to bring novel technologies to bear to study and treat cardiovascular diseases.
   - title: Adam Connolly
     image: images/portrait-ac.png
     content: Adam is a Data Scientist at Invicro UK where he develops deep neural networks for various biomedical and image processing tasks, alongside general software development work. Prior to this he was a research associate in computational cardiac electrophysiology at King's College London. Adam has a PhD in aerospace engineering from Imperial College London.
