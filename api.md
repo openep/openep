@@ -386,33 +386,23 @@ interpData = generateInterpData(userdata, datatype)
 
 **'distanceThresh' {10}\|double**  
 &nbsp;&nbsp;&nbsp;&nbsp;- The distance threshold, d, default 10mm  
-&nbsp;&nbsp;&nbsp;&nbsp;  
-&nbsp;&nbsp;&nbsp;&nbsp;GENERATEINTERPDDATA performs spatial interpolation of scalar data.  
-&nbsp;&nbsp;&nbsp;&nbsp;Userdata and datatype are mandatory arguments. Datatype may be one of:  
-
-**'bip-map' - bipolar voltage; from the exported voltage values**  
-
-**'uni-map' - unipolar voltage; from the exported voltage values**  
-
-**'lat-map' - local activation time; from the annotated electrograms**  
-
-**'bip-egm' - bipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)**  
-
-**'uni-egm' - unipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)**  
-
-**'lat-egm' - local activation time; measured by OpenEP on the egms (NOT IMPLEMENTED)**  
-
-**'cv' - conduction velocity**  
-
-**'egmduration' - electrogram duration**  
-&nbsp;&nbsp;&nbsp;&nbsp;GENERATEINTERPDATA removes any NaN values in data (and their  
-&nbsp;&nbsp;&nbsp;&nbsp;corresponding location(s) in coords) before calling scatteredInterpolant  
-&nbsp;&nbsp;&nbsp;&nbsp;with the interpolation/extrapolation methods specified. Any values greater  
-&nbsp;&nbsp;&nbsp;&nbsp;than distancethresh are removed.  
 
 
 #### Description
- TODO: Separate the interpolation function into a subroutine to permit extensibility
+ GENERATEINTERPDDATA performs spatial interpolation of scalar data.
+ Userdata and datatype are mandatory arguments. Datatype may be one of:
+         'bip-map' - bipolar voltage; from the exported voltage values
+         'uni-map' - unipolar voltage; from the exported voltage values
+         'lat-map' - local activation time; from the annotated electrograms
+         'bip-egm' - bipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
+         'uni-egm' - unipolar voltage; measured by OpenEP on the egms (NOT IMPLEMENTED)
+         'lat-egm' - local activation time; measured by OpenEP on the egms (NOT IMPLEMENTED)
+         'cv' - conduction velocity
+         'egmduration' - electrogram duration
+ GENERATEINTERPDATA removes any NaN values in data (and their
+ corresponding location(s) in coords) before calling scatteredInterpolant
+ with the interpolation/extrapolation methods specified. Any values greater
+ than distancethresh are removed.
 
 **Author**  Steven Williams (2018) (Copyright)
 
@@ -1659,34 +1649,34 @@ userdata = importcarto_mem()
 
 **'verbose'       {true} \| false**  
 &nbsp;&nbsp;&nbsp;&nbsp;Not yet implemented  
+&nbsp;&nbsp;&nbsp;&nbsp;userdata structure ...  
+&nbsp;&nbsp;&nbsp;&nbsp;.surface  
+&nbsp;&nbsp;&nbsp;&nbsp;.triRep         - TriRep object for the surface  
+&nbsp;&nbsp;&nbsp;&nbsp;.isVertexAtRim  - logical array indicating vertices at a 'rim'  
+&nbsp;&nbsp;&nbsp;&nbsp;.act_bip        - nVertices*2 array of activation and voltage data  
+&nbsp;&nbsp;&nbsp;&nbsp;.uni_imp_frc    - nVertices*3 array of uni voltage, impedance and contact force  
+&nbsp;&nbsp;&nbsp;&nbsp;.electric  
+&nbsp;&nbsp;&nbsp;&nbsp;.isPointLocationOnly    - logical array  
+&nbsp;&nbsp;&nbsp;&nbsp;.tags  
+&nbsp;&nbsp;&nbsp;&nbsp;.names  
+&nbsp;&nbsp;&nbsp;&nbsp;.egmX           - location of point  
+&nbsp;&nbsp;&nbsp;&nbsp;.egmSurfX       - location of surface nearest point  
+&nbsp;&nbsp;&nbsp;&nbsp;.barDirection   - normal to surface at egmSurfX  
+&nbsp;&nbsp;&nbsp;&nbsp;.egm            - bipolar electrogram  
+&nbsp;&nbsp;&nbsp;&nbsp;.egmUni         - matrix of unipolar electrograms  
+&nbsp;&nbsp;&nbsp;&nbsp;.egmUniX        - localtion of unipolar points  
+&nbsp;&nbsp;&nbsp;&nbsp;.egmRef         - electrogram of reference  
+&nbsp;&nbsp;&nbsp;&nbsp;.ecg            - ecg  
+&nbsp;&nbsp;&nbsp;&nbsp;.force  
+&nbsp;&nbsp;&nbsp;&nbsp;.force    - instantaneous force recording  
+&nbsp;&nbsp;&nbsp;&nbsp;.axialAngle    - axial angle  
+&nbsp;&nbsp;&nbsp;&nbsp;.lateralAngle  - lateral angle  
+&nbsp;&nbsp;&nbsp;&nbsp;.time_force - time course of force [(:,:,1)=time, (:,:,2)=force]  
+&nbsp;&nbsp;&nbsp;&nbsp;.time_axial - time course of axial angle [(:,:,1)=time, (:,:,2)=axial angle]  
+&nbsp;&nbsp;&nbsp;&nbsp;.time_lateral - time course of lateral angle [(:,:,1)=time, (:,:,2)=lateral angle]  
 
 
 #### Description
- userdata structure ...
-   .surface
-       .triRep         - TriRep object for the surface
-       .isVertexAtRim  - logical array indicating vertices at a 'rim'
-       .act_bip        - nVertices*2 array of activation and voltage data
-       .uni_imp_frc    - nVertices*3 array of uni voltage, impedance and contact force
-   .electric
-       .isPointLocationOnly    - logical array
-       .tags
-       .names
-       .egmX           - location of point
-       .egmSurfX       - location of surface nearest point
-       .barDirection   - normal to surface at egmSurfX
-       .egm            - bipolar electrogram
-       .egmUni         - matrix of unipolar electrograms
-       .egmUniX        - localtion of unipolar points
-       .egmRef         - electrogram of reference
-       .ecg            - ecg
-       .force
-           .force    - instantaneous force recording
-           .axialAngle    - axial angle
-           .lateralAngle  - lateral angle
-           .time_force - time course of force [(:,:,1)=time, (:,:,2)=force]
-           .time_axial - time course of axial angle [(:,:,1)=time, (:,:,2)=axial angle]
-           .time_lateral - time course of lateral angle [(:,:,1)=time, (:,:,2)=lateral angle]
  Check that filename has an exact match in allfilenames. If not, then
  search through filenames to see if there is a single string that contains
  searchstring. If not then return empty string;
