@@ -11,7 +11,7 @@ examples:
       image: images/gallery-ablation.png
       url: '#ablation-quantification'
     - title: Activation mapping
-      image: images/gallery-interpolation.png
+      image: images/gallery-lat.png
       url: '#activation-mapping'
     - title: Conduction velocity
       image: images/gallery-cv.png
@@ -20,7 +20,7 @@ examples:
       image: images/gallery-dataimport.png
       url: '#data-input-storage-and-batch-processing'
     - title: Earliest/Latest activation
-      image: images/gallery-lat.png
+      image: images/gallery-earlylateact.png
       url: '#earliestlatest-activation'
     - title: Electrogram display / annotation
       image: images/gallery-egm.png
