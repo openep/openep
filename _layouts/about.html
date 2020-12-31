@@ -10,9 +10,9 @@ layout: page
 {% assign section = include.section %}
 
   <div class="inner">
-    <div class="post-feed">
+    <div class="post-feed team">
       {% for item in page.team %}
-      <article class="post post-card">
+      <article class="post post-card team-card">
         <div class="post-card-inside">
           {% assign thumb_image_is_not_empty = item.image | is_not_empty %}
           {% if thumb_image_is_not_empty %}
