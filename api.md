@@ -1677,37 +1677,7 @@ userdata = importcarto_mem()
 
 
 #### Description
- Check that filename has an exact match in allfilenames. If not, then
- search through filenames to see if there is a single string that contains
- searchstring. If not then return empty string;
-tf = strcmp(filename, allfilenames);
-if any(tf)
-    fname = filename;
-    return
-end
-k = strfind(allfilenames, searchstring);
-iMatch = [];
-for i = 1:length(k)
-    if ~isempty(k{i})
-        if ~isempty(iMatch)
-            % we have already found a match
-            
-            warning('IMPORTCARTO3: there is more than one file that could represent this point.')
-            fname = [];
-            return;
-        else
-            iMatch = i;
-        end
-    end
-end
-if isempty(iMatch)
-    fname = [];
-    warning(['IMPORTCARTO3: the filename relating to ' char(39) searchstring char(39) ' is unexpected and no match was found.'])
-else
-    fname = allfilenames{iMatch};
-    warning(['IMPORTCARTO3: the filename relating to ' char(39) searchstring char(39) ' is unexpected but a match was found - ' fname])
-end
-end
+
 
 **Author**  Nick Linton (2011) (Copyright)
 

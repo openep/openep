@@ -130,7 +130,7 @@ for path in "$dir"/*.m; do
   in=`echo ${parts2[1]} | sed 's/[\(\)]//g'`
 
   printf "\n\n" >> "$apiFile"
-  content=`cat "$path" | sed '/^function/,/^% Author/!d;//d'`
+  content=`cat "$path" | sed '0,/^function/d;/^% Author/,$d;1d'`
 
   IFS=$'\n'
   lines=""
