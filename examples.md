@@ -89,10 +89,10 @@ ablArea = getAblationArea(userdata)
 plotAblationArea(userdata)
 ```
 ### API Links
-getAblationArea.m
-plotAblationArea.m
-plotVisitags.m
-importvisitag.m
+[getAblationArea.m](/api#getablationarea)
+[plotAblationArea.m](/api#plotablationarea)
+[plotVisitags.m](/api#plotvisitags)
+[importvisitag.m](/api#importvisitag)
 
 ## Activation mapping
 <img src="/images/gallery-lat.png">
@@ -142,9 +142,9 @@ drawMap(userdata, 'type', 'act', 'orientation', 'ap', 'data', interpData, 'color
 
 
 ### API Links
-drawMap.m
-getSurfaceData.m
-generateInterpData.m
+[drawMap.m](/api#drawmap)
+[getSurfaceData.m](/api#getsurfacedata)
+[generateInterpData.m](/api#generateinterpdata)
 
 ## Conduction velocity
 <img src="/images/gallery-cv.png">
@@ -191,9 +191,9 @@ cvHistogram(userdata, 'limits', [0 2], 'binwidth', 0.01);
 ```
 
 ### API Links
-getConductionVelocity.m
-drawMap.m
-cvHistogram.m
+[getConductionVelocity.m](/api#getconductionvelocity)
+[drawMap.m](/api#drawmap)
+[cvHistogram.m](/api#cvhitogram)
 
 
 ## Data input, storage and batch processing
@@ -237,8 +237,8 @@ batchProcess
 ```
 
 ### API Links
-importcarto_mem.m
-batchImport.m
+[importcarto_mem.m](/api#importcarto_mem)
+[batchImport.m](/api#batchimport)
 
 ## Earliest/Latest activation
 <img src="/images/gallery-earlylateact.png">
@@ -282,7 +282,8 @@ Three final observations:
 * Whilst the above discussion has focussed on `getEarliestActivationSite.m` the same parameter/value pairs are used to customise the function `getLatestActivationSite.m`.
 
 ### API Links
-getEarliestActivationSite.m getLatestActivationSite.m
+[getEarliestActivationSite.m](/api#getearliestactivationsite)
+[getLatestActivationSite.m](/api#getlatestactivationsite)
 
 ## Electrogram display/annotation
 <img src="/images/gallery-egm.png">
@@ -341,10 +342,10 @@ iPoint = getMappingPointsWithinWoI(userdata);
 ```
 
 ### API Links
-getIndexFromCartoPointNumber.m
-plotOpenEPEgms.m
-getEgmsAtPoints.m
-getMappingPointsWithinWoI.m
+[getIndexFromCartoPointNumber.m](/api#getindexfromcartopointnumber)
+[plotOpenEPEgms.m](/api#plotopenepegms)
+[getEgmsAtPoints.m](/api#getegmsatpoints)
+[getMappingPointsWithinWoI.m](/api#getmappingpointswithinwoi)
 
 ## Geometry analysis
 <img src="/images/gallery-geometry.png">
@@ -436,15 +437,15 @@ faces = getFaces(userdata);
 ```
 
 ### API Links
-getArea.m
-getVolume.m
-getCentreOfMass.m
-getAnatomicalStructures.m
-getClosedSurface.m
-distanceBetweenPoints.m
-getFaces.m
-getMesh.m
-getVertices.m
+[getArea.m](/api#getarea)
+[getVolume.m](/api#getvolume)
+[getCentreOfMass.m](/api#getcentreofmass)
+[getAnatomicalStructures.m](/api#getanatomicalstructures)
+[getClosedSurface.m](/api#getclosedsurface)
+[distanceBetweenPoints.m](/api#distancebetweenpoints)
+[getFaces.m](/api#getfaces)
+[getMesh.m](/api#getmesh)
+[getVertices.m](/api#getvertices)
 
 ## Voltage mapping
 <img src="/images/gallery-voltage.png">
@@ -517,10 +518,10 @@ v = getMeanVoltage(userdata, 'method', 'egm')
 v = getMeanVoltage(userdata, 'method', 'egm', 'type', 'uni')
 ```
 ### API Links
-drawMap.m
-getLowVoltageArea.m
-getMeanVoltage.m
-generateInterpData.m
+[drawMap.m](/api#drawmap)
+[getLowVoltageArea.m](/api#getlowvoltagearea)
+[getMeanVoltage.m](/api#getmeanvoltage)
+[generateInterpData.m](/api#generateinterpdata)
 
 ## Voltage histogram analysis
 <img src="/images/gallery-vha.png">
@@ -538,5 +539,5 @@ areas = voltageHistogramAnalysis(userdata)
 Compared to the technique available in clinical systems, voltage histogram analysis performed in OpenEP can make use of the map-based data or the electrogram-based data, by setting `'method'` to either `'map'` or `'egm'` and can operate on either unipolar or bipolar voltage data. See the API docs for full details.
 
 ### API Links
-voltageHistogramAnalysis.m
-generateInterpData.m
+[voltageHistogramAnalysis.m](/api#voltagehistogramanalysis)
+[generateInterpData.m](/api#generateinterpdata)
