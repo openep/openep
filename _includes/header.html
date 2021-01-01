@@ -2,6 +2,16 @@
   <div class="inner">
     <div class="site-header-inside">
 
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-T89BP61RKZ"></script>
+      <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-T89BP61RKZ');
+        </script>
+
       <div class="site-branding">
         {% assign logo_img_is_not_empty = site.header.logo_img | is_not_empty %}
         {% if logo_img_is_not_empty %}
