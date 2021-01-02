@@ -18,5 +18,7 @@ team:
   - title: Adam Connolly
     image: images/portrait-ac.png
     content: Adam is a Data Scientist at Invicro UK where he develops deep neural networks for various biomedical and image processing tasks, alongside general software development work. Prior to this he was a research associate in computational cardiac electrophysiology at King's College London. Adam has a PhD in aerospace engineering from Imperial College London.
-
+  - title: Caroline Roney
+    image: images/portrait-cr.png
+    content: Caroline is an MRC Skills Development Fellow working in the School of Biomedical Engineering & Imaging Sciences at King’s College London. She uses a combination of signal processing, machine learning and computational modelling techniques to develop novel methodologies for investigating atrial fibrillation mechanisms from clinical imaging data and electrical recordings.
 ---
