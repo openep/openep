@@ -24,6 +24,11 @@ mkdir ~/openep
 cd ~/openep
 git clone https://github.com/openep/openep-core.git
 ```
+
+Checkout the develop branch
+```bash
+git checkout develop
+```
 * Step 2
 
 Launch Matlab and add the OpenEP directories to the path
