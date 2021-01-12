@@ -94,6 +94,7 @@ td {
 <div class="apilink"><a href="#getindexfromcartopointnumber">getIndexFromCartoPointNumber</a></div>
 <div class="apilink"><a href="#getlatestactivationsite">getLatestActivationSite</a></div>
 <div class="apilink"><a href="#getlowvoltagearea">getLowVoltageArea</a></div>
+<div class="apilink"><a href="#getmappingpointswithinmesh">getMappingPointsWithinMesh</a></div>
 <div class="apilink"><a href="#getmappingpointswithinwoi">getMappingPointsWithinWoI</a></div>
 <div class="apilink"><a href="#getmeanvoltage">getMeanVoltage</a></div>
 <div class="apilink"><a href="#getmesh">getMesh</a></div>
@@ -1069,6 +1070,47 @@ imp = getImpedanceValue( userdata, varargin )
 ---
 
 
+## getMappingPointsWithinMesh
+
+ GETMAPPINGPOINTSWITHINMESH Returns the indices of the mapping points
+ which are located internal to the mesh
+
+ 
+
+#### Usage
+```m
+iPoint = getMappingPointsWithinMesh( userdata )
+```
+
+#### Parameters
+
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
+
+**iPoint**  
+&nbsp;&nbsp;&nbsp;&nbsp;logical array list of valid points; indexes into userdata.electric  
+
+#### Parameter Value Pairs
+
+**'tol' 0.1 \| double**  
+&nbsp;&nbsp;&nbsp;&nbsp;- The distance threshold within which points are considered to be  
+&nbsp;&nbsp;&nbsp;&nbsp;internal or external to the triangulation  
+
+**'plot'     {false}\|true**  
+&nbsp;&nbsp;&nbsp;&nbsp;- Specify whether to plot the results  
+
+
+#### Description
+ GETMAPPINGPOINTSWITHINMESH Returns the indices of the mapping points
+ which are located internal to the mesh. The OpenEP function pointStatus.m
+ is used to identify these points. The parameter value pairs are passed
+ directly onto pointStatus.m
+
+**Author**  Steven Williams (2020) (Copyright)
+
+---
+
+
 ## getMappingPointsWithinWoI
 
  GETMAPPINGPOINTSWITHINWOI Returns the indices of the mapping points with
@@ -1087,7 +1129,7 @@ iPoint = getMappingPointsWithinWoI( userdata )
 &nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
 
 **iPoint**  
-&nbsp;&nbsp;&nbsp;&nbsp;the list of valid points; indexes into userdata.electric  
+&nbsp;&nbsp;&nbsp;&nbsp;logicla array list of valid points; indexes into userdata.electric  
 
 
 #### Description
