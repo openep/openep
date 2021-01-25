@@ -34,7 +34,7 @@ git checkout develop
 Launch Matlab and add the OpenEP directories to the path
   ```matlab
   openEpPath = '~/openep/openep-core';
-  addpath(genpath(openEpPath);
+  addpath(genpath(openEpPath));
   ```
 * Step 3
 
@@ -42,7 +42,17 @@ OpenEP is now ready to use!
 
 ## Usage
 
-To test out your new OpenEP installation, try:
+To test out your new OpenEP installation, try working with the OpenEP Example Datasets:
+```
+cd ~/openep
+git clone https://github.com/openep/openep-examples.git
+```
+Make sure the `openep-examples` directory is added to your Matlab path.
+```matlab
+openEpExPath = '~/openep/openep-examples'
+addpath(genpath(openEpExPath));
+```
+You shoud now be able to try the OpenEP demo:
 ```matlab
 openep_demo
 ```
