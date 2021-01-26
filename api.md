@@ -74,6 +74,7 @@ td {
 
 
 <div class="apilink"><a href="#cartomesh2vtk">cartoMesh2VTK</a></div>
+<div class="apilink"><a href="#cemrg2carto">cemrg2carto</a></div>
 <div class="apilink"><a href="#cvhistogram">cvHistogram</a></div>
 <div class="apilink"><a href="#distancebetweenpoints">distanceBetweenPoints</a></div>
 <div class="apilink"><a href="#drawmap">drawMap</a></div>
@@ -89,6 +90,7 @@ td {
 <div class="apilink"><a href="#getearliestactivationsite">getEarliestActivationSite</a></div>
 <div class="apilink"><a href="#getegmsatpoints">getEgmsAtPoints</a></div>
 <div class="apilink"><a href="#getelectrogramduration">getElectrogramDuration</a></div>
+<div class="apilink"><a href="#getelectrogramx">getElectrogramX</a></div>
 <div class="apilink"><a href="#getfaces">getFaces</a></div>
 <div class="apilink"><a href="#getimpedancevalues">getImpedanceValues</a></div>
 <div class="apilink"><a href="#getindexfromcartopointnumber">getIndexFromCartoPointNumber</a></div>
@@ -156,6 +158,35 @@ tr = cartoMesh2VTK('openfile')
  object
 
 **Author**  Steven Williams (2015) (Copyright)
+
+---
+
+
+## cemrg2carto
+
+ CEMRG2CARTO Converts a VTK for loading into Carto
+ 
+
+#### Usage
+```m
+op = cemrg2carto(infile, outfile)
+```
+
+#### Parameters
+
+**infile**  
+&nbsp;&nbsp;&nbsp;&nbsp;a VTK file created by CEMRG  
+
+**outfile**  
+&nbsp;&nbsp;&nbsp;&nbsp;a VTK file formatted for Carto  
+
+
+#### Description
+ Where:
+   infile - a VTK file created by CEMRG
+   outfile - a VTK file formatted for Carto
+
+**Author**  Steven Williams (2016)
 
 ---
 
@@ -692,14 +723,13 @@ cvdata = getConductionVelocity( userdata )
 
 #### Parameter Value Pairs
 
-**'method'    {'ptbased'}\|'ptbasedprct'\|'clinmap'\|'clinmapprct'\|'openepmap'\|'openmapprct'**  
+**'method'    {'ptbased'} \| 'ptbasedprct' \| 'clinmap' \| 'clinmapprct' \| 'openepmap' \| 'openmapprct'**  
 &nbsp;&nbsp;&nbsp;&nbsp;- Specifies the method by which the earliest activation is  
 &nbsp;&nbsp;&nbsp;&nbsp;calculated.  
 
 **'prct'       {2.5} \| double**  
 &nbsp;&nbsp;&nbsp;&nbsp;- The percentile to use for percentile mapping; only applicable if  
-
-**'method' is 'percentile'.**  
+&nbsp;&nbsp;&nbsp;&nbsp;`'method'` is `'ptbasedprct'`, `'clinmapprct'` or `'openmapprct'`  
 
 
 #### Description
@@ -710,20 +740,20 @@ cvdata = getConductionVelocity( userdata )
  to one of the following options:
        `ptbased`    - Calculates the earliest activation time using 
                        mapping points exported by the clinical system.
-       `ptbasedprct`- Calculates the earliest 2.5th percentile mapping 
+       `ptbasedprct`- Calculates the 0-2.5th percentile mapping 
                        times on the exported electrogram annotations, then 
                        calculates the mean of this sets of activation times.
        `clinmap`    - Calculates the earliest activation time on the 
                        local activation time map created by the clinical 
                        mapping system
-       `clinmapprct`- First calculates the earliest 2.5th percentile 
+       `clinmapprct`- First calculates the 0-2.5th percentile 
                        mapping times on the clinical local activation time 
                        map, then calculates the mean of these sets of 
                        activation times.
        `openepmap`  - Calculates the earliest activation time on the local 
                        activation time map created by OpenEP from the 
                        exported electrogram annotations.
-       `openepmapprct`- First calculates the earliest 2.5th percentile 
+       `openepmapprct`- First calculates the 0-2.5th percentile 
                        mapping times on the local activation time map 
                        created by OpenEP from the exported electrogram 
                        annotations. Then calculates the mean of this set of 
@@ -820,6 +850,42 @@ egmDuration = getElectrogramDuration( userdata )
  noise as continuous activation, for example.
 
 **Author**  Steven Williams (2020) (Copyright)
+
+---
+
+
+## getElectrogramX
+
+ GETELECTROGRAMX Returns the the electrode recording positions
+
+ 
+
+#### Usage
+```m
+C = getCentreOfMass( userdata, varargin )
+```
+
+#### Parameters
+
+**userdata**  
+&nbsp;&nbsp;&nbsp;&nbsp;see importcarto_mem  
+
+**X**  
+&nbsp;&nbsp;&nbsp;&nbsp;the 3D Cartesian co-ordinates  
+
+**surfX**  
+&nbsp;&nbsp;&nbsp;&nbsp;the surface-projected 3D Cartesian co-ordinates  
+
+#### Parameter Value Pairs
+
+**'type'     {'bip'}\|'uni'**  
+
+
+#### Description
+ GETELECTROGRAMX can be used to access the Cartesian co-ordinates of the
+ electrodes used to record the electrograms.
+
+**Author**  Steven Williams (2021) (Copyright)
 
 ---
 
@@ -981,8 +1047,7 @@ imp = getImpedanceValue( userdata, varargin )
 
 **'prct'       {2.5} \| double**  
 &nbsp;&nbsp;&nbsp;&nbsp;- The percentile to use for percentile mapping; only applicable if  
-
-**'method' is 'percentile'.**  
+&nbsp;&nbsp;&nbsp;&nbsp;`'method'` is `'ptbasedprct'`, `'clinmapprct'` or `'openmapprct'`  
 
 
 #### Description
@@ -993,20 +1058,20 @@ imp = getImpedanceValue( userdata, varargin )
  to one of the following options:
        `ptbased`    - Calculates the latest activation time using the 
                        mapping points exported by the clinical system.
-       `ptbasedprct`- Calculates the latest 2.5th percentile mapping 
+       `ptbasedprct`- Calculates the 97.5-100th percentile mapping 
                        times on the exported electrogram annotations, then 
                        calculates the mean of this sets of activation times.
        `clinmap`    - Calculates the latest activation time on the 
                        local activation time map created by the clinical 
                        mapping system
-       `clinmapprct`- First calculates the latest 2.5th percentile 
+       `clinmapprct`- First calculates the 97.5-100th percentile 
                        mapping times on the clinical local activation time 
                        map, then calculates the mean of this set of 
                        activation times.
        `openepmap`  - Calculates the latest activation time on the local 
                        activation time map created by OpenEP from the 
                        exported electrogram annotations.
-       `openepmapprct`- First calculates the latest 2.5th percentile 
+       `openepmapprct`- First calculates the 97.5-100th percentile 
                        mapping times on the local activation time map 
                        created by OpenEP from the exported electrogram 
                        annotations. Then calculates the mean of this set of 
@@ -1381,16 +1446,16 @@ tat = getTotalActivationTime( userdata )
        `ptbased`    - Calculates the difference in activation time between 
                        the earliest and latest activation time mapping 
                        points exported by the clinical system.
-       `ptbasedprct`- First calculates the earliest 2.5th percentile and 
-                       the latest 2.5th percentile mapping times on the 
+       `ptbasedprct`- First calculates the 0-2.5th percentile and 
+                       the 97.5-100th percentile mapping times on the 
                        exported electrogram annotations, then calculates 
                        the difference between the means of these sets of 
                        activation times.
        `clinmap`    - Calculates the difference between the earliest and 
                        latest activation times on the local activation 
                        time map created by the clinical mapping system
-       `clinmapprct`- First calculates the earliest 2.5th percentile and 
-                       latest 2.5th percentile mapping times on the 
+       `clinmapprct`- First calculates the 0-2.5th percentile and 
+                       the 97.5-100th percentile mapping times on the 
                        clinical local activation time map, then calculates 
                        the difference between the means of these sets of 
                        activation times.
@@ -1398,8 +1463,8 @@ tat = getTotalActivationTime( userdata )
                        latest activation times on the local activation 
                        time map created by OpenEP from the exported 
                        electrogram annotations.
-       `openepmapprct`- First calculates the earliest 2.5th percentile and 
-                       latest 2.5th percentile mapping times on the local 
+       `openepmapprct`- First calculates the 0-2.5th percentile and 
+                       the 97.5-100th percentile mapping times on the local 
                        activation time map created by OpenEP from the 
                        exported electrogram annotations. Then calculates 
                        the difference between the means of these sets of 
@@ -1675,8 +1740,10 @@ userdata = importcarto_mem()
 &nbsp;&nbsp;&nbsp;&nbsp;.barDirection   - normal to surface at egmSurfX  
 &nbsp;&nbsp;&nbsp;&nbsp;.egm            - bipolar electrogram  
 &nbsp;&nbsp;&nbsp;&nbsp;.egmUni         - matrix of unipolar electrograms  
-&nbsp;&nbsp;&nbsp;&nbsp;.egmUniX        - localtion of unipolar points  
+&nbsp;&nbsp;&nbsp;&nbsp;.egmUniX        - location of unipolar points  
+&nbsp;&nbsp;&nbsp;&nbsp;.egmRefNames    - names of egmRef  
 &nbsp;&nbsp;&nbsp;&nbsp;.egmRef         - electrogram of reference  
+&nbsp;&nbsp;&nbsp;&nbsp;.ecgNames       - ecg names (or other channel names)  
 &nbsp;&nbsp;&nbsp;&nbsp;.ecg            - ecg  
 &nbsp;&nbsp;&nbsp;&nbsp;.force  
 &nbsp;&nbsp;&nbsp;&nbsp;.force    - instantaneous force recording  
