@@ -21,4 +21,7 @@ team:
   - title: Caroline Roney
     image: images/portrait-cr.png
     content: Caroline is an MRC Skills Development Fellow working in the School of Biomedical Engineering & Imaging Sciences at King’s College London. She uses a combination of signal processing, machine learning and computational modelling techniques to develop novel methodologies for investigating atrial fibrillation mechanisms from clinical imaging data and electrical recordings.
+  - title: Cesare Corrado
+    image: images/portrait-cc.png
+    content: Dr Cesare Corrado is a postdoctoral research associate in the School of Biomedical Engineering & Imaging Sciences at King’s College London. His earlier research concerned computational models for multi-physics problems and data assimilation techniques (reverse engineering). Using computational models of the human heart, personalised from clinical data (MRI, Electrograms), he develops new methodologies to improve the treatment of cardiac arrhythmias.
 ---
