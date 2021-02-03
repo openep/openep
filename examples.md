@@ -162,7 +162,7 @@ There are now two options. Firstly, `drawMap.m` can be used directly to calculat
 drawMap(userdata, 'type', 'cv', 'orientation', 'ap');
 
 % Limit colour scale to physiological values
-drawMap(userdata, 'type', 'cv', 'orientation', 'ap', 'colorscale', [0 2]);
+drawMap(userdata, 'type', 'cv', 'orientation', 'ap', 'coloraxis', [0 2]);
 ```
 
 Alternatively, the `'data'` flag of the `drawMap.m` function can be used, together with `getConductionVelocity.m` which will return the conduction velocity data. This method can be used, for example, to remove non-physiological values before plotting.
@@ -305,15 +305,15 @@ iEgm = getIndexFromCartoPointNumber(userdata,pointNumber))
 
 Once we have the correct index for the desired point number we can plot the electrograms associated with that point using `plotOpenEPEgms.m`
 ```matlab
-plotOpenEPEgms(userdata, 'iegm', iEgm))
+plotOpenEPEgms(userdata, 'iegm', iEgm)
 ```
 A call to `plotOpenEPEgms.m` such as the above will, by default, plot the bipolar electrogram associated with the mapping point together with the associated unipolar mapping pair. The range of the plotted electrogram will be equivalent to the mapping window with a buffer of 50 samples before and after applied. The reference and electrogram channels will both be shown on the plot. All of these preferences can be changed using the appropriate parameter/value pairs (see the API documentation for the full list). For example, if we do not want to show the reference channel we can call the following:
 ```matlab
-plotOpenEPEgms(userdata, 'iegm', iEgm, 'reference', 'off'))
+plotOpenEPEgms(userdata, 'iegm', iEgm, 'reference', 'off')
 ```
 Similarly, if we only want to show the bipolar electrogram then we can call the following:
 ```matlab
-plotOpenEPEgms(userdata, 'iegm', iEgm, 'egmtype', 'bip'))
+plotOpenEPEgms(userdata, 'iegm', iEgm, 'egmtype', 'bip')
 ```
 
 For signal processing purposes it is necessary not just to display the electrograms but to access the raw electrogram data. This is done via the OpenEP function `getEgmsAtPoints.m`. For example, if we want to access the bipolar electrogram associated with the above mapping point then we would call:
@@ -395,7 +395,7 @@ Calling the second of these function calls displays a figure representing the an
 
 It is also possible to use `getAnatomicalStructures.m` to return information about each anatomical structure such as the perimeter and the area:
 ```matlab
-[~, l, a]] = getAnatomicalStructures(userdata);
+[~, l, a] = getAnatomicalStructures(userdata);
 ```
 
 The same function, `getAnatomicalStructures.m` can create new triangulation representations of each anatomical structure:
