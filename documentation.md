@@ -71,4 +71,20 @@ The data format for OpenEP is also documented here - [Data Reference Documentati
 
 ## Citing OpenEP
 
-OpenEP has been in continually development for the past 10 years during the course of the developers' active electrophysiology research. The OpenEP platform itself was available to selected collaborators throughout this time but was made available to the community at the end of 2020 with the first official release planned for early 2021. At this time a manuscript is under review with Frontiers in Physiology and the full citation will be posted here if accepted.
+If you use OpenEP in your research, please cite the Frontiers in Physiology publication together with the Zenodo DOI for the particular OpenEP release that you use
+
+### Frontiers in Physiology Publication
+
+Williams SE, Roney CH, Connolly A, Sim I, Whitaker J, O’Hare D, Kotadia I, O’Neill L, Corrado C, Bishop M, Niederer SA, Wright M, O’Neill M and Linton NWF (2021) OpenEP: A Cross-Platform Electroanatomic Mapping Data Format and Analysis Platform for Electrophysiology Research. Front. Physiol. 12:646023. doi: 10.3389/fphys.2021.646023
+
+### OpenEP Releases (Zenodo)
+
+Williams SE and Linton NL (DATE). OpenEP/openep-core: vX.X.XX (Version vX.X.XX). Zenodo. https://doi.org/10.5281/zenodo.4471318
+
+Note that the DOI above always resolves to the latest OpenEP release, but the Date and Version Numbers need to be updated.
+
+## Contributing to OpenEP
+
+OpenEP has been in continually development for the past 10 years during the course of the developers' active electrophysiology research. The OpenEP platform itself was available to selected collaborators throughout this time but was made available to the community at the end of 2020 with the first official release in February 2021. 
+
+We hope that the open source nature of this platform will now support future collaborative developments in open electrophysiology data analysis and we encourage interested researchers, academcis and industry partners to contact mailto:steven.williams@.ed.ac.uk to discuss collaborations.
