@@ -79,7 +79,7 @@ Williams SE, Roney CH, Connolly A, Sim I, Whitaker J, Oâ€™Hare D, Kotadia I, Oâ€
 
 ### OpenEP Releases (Zenodo)
 
-Williams SE and Linton NL (DATE). OpenEP/openep-core: vX.X.XX (Version vX.X.XX). Zenodo. https://doi.org/10.5281/zenodo.4471318
+Williams SE and Linton NWF (DATE). OpenEP/openep-core: vX.X.XX (Version vX.X.XX). Zenodo. https://doi.org/10.5281/zenodo.4471318
 
 Note that the DOI above always resolves to the latest OpenEP release, but the Date and Version Numbers need to be updated.
 
