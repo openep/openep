@@ -10,7 +10,7 @@ layout: page
 
 <script type="text/javascript">
   DiscourseEmbed = { discourseUrl: 'https://openep.trydiscourse.com/',
-                     discourseEmbedUrl: 'https://openep.io/support' };
+                     discourseEmbedUrl: 'https://openep.io/support/' };
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
