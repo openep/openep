@@ -27,3 +27,10 @@
 .github-bug p {
 	margin-bottom: 0;
 }
+
+/* Discourse */
+
+d-topics-list iframe {
+    width: 100%;
+}
+
