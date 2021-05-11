@@ -6,15 +6,7 @@ subtitle: >-
 layout: page
 ---
 
-<d-topics-list discourse-url="https://openep.trydiscourse.com/"></d-topics-list>
+<d-topics-list discourse-url="https://openep.trydiscourse.com/" template="complete"></d-topics-list>
 
-<script type="text/javascript">
-  DiscourseEmbed = { discourseUrl: 'https://openep.trydiscourse.com/',
-                     discourseEmbedUrl: 'https://openep.io/support/' };
+<script type="text/javascript" src="https://openep.trydiscourse.com/javascripts/embed-topics.js"></script>
 
-  (function() {
-    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed-topics.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-  })();
-</script>
