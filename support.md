@@ -7,7 +7,7 @@ layout: page
 ---
 
 This page shows recently asked questions, you can find more questions and answers at the OpenEP [support forum](https://support.openep.io).  
-You can ask a **[&#43; new question](&#43;)**.
+You can ask a **[&#43; new question](https://support.openep.io/new-topic?)**.
 
 <d-topics-list discourse-url="https://openep.trydiscourse.com/" template="complete"></d-topics-list>
 
