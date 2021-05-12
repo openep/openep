@@ -5,6 +5,7 @@ subtitle: >-
 
 layout: page
 ---
+The OpenEP support forum is available at (https://support.openep.io)[https://support.openep.io]. Please use this forum to post your queries.
 
 <d-topics-list discourse-url="https://openep.trydiscourse.com/" template="complete"></d-topics-list>
 
