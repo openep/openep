@@ -34,3 +34,30 @@ d-topics-list iframe {
     width: 100%;
 }
 
+/* Support */
+
+.engage {
+    display: inline-block;
+    width: 180pt;
+    height: 180pt;
+    text-decoration: none;
+    border: 3pt solid #367fb8;
+    color: #367fb8;
+    background-color: #eee;
+    margin: 18pt 16pt;
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 3pt 5pt 8pt #4c5267;
+    border-radius: 12pt;
+}
+
+.engage:hover {
+    background-color: #ddd;
+}
+
+.engage span.material-icons {
+    font-size: 80pt;
+    padding-top: 40pt;
+    padding-bottom: 18pt;
+}

@@ -1,15 +1,15 @@
 ---
 title: Engagement
 subtitle: >-
-  Answers for all of your OpenEP questions
+  Engage with the OpenEP community
 
 layout: page
 ---
 
-This page shows recently asked questions, you can find more questions and answers at the OpenEP [support forum](https://support.openep.io).  
-You can ask a **[&#43; new question](https://support.openep.io/new-topic?)**.
-
-<d-topics-list discourse-url="https://openep.discourse.group/" template="complete"></d-topics-list>
-
-<script type="text/javascript" src="https://openep.discourse.group/javascripts/embed-topics.js"></script>
+<div style="text-align: center">
+<a href="/forum/" class="engage"><span class="material-icons">&#xe8af;</span><br />forum</a>
+<a href="/contributing/" class="engage"><span class="material-icons">&#xe89c;</span><br />contributing</a>
+<a href="/about/" class="engage"><span class="material-icons">&#xe8d3;</span><br />contributors</a>
+<a href="/workflows/" class="engage"><span class="material-icons">&#xe915;</span><br />workflows</a>
+</div>
 
