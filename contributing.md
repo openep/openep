@@ -1,7 +1,6 @@
 ---
 title: Contributing
 subtitle: >-
-  Giving back to the OpenEP project
 
 layout: page
 ---

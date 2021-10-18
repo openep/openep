@@ -6,8 +6,8 @@ subtitle: >-
 layout: page
 ---
 
-This page shows recently asked questions, you can find more questions and answers at the OpenEP [support forum](https://support.openep.io).  
-You can ask a **[&#43; new question](https://support.openep.io/new-topic?)**.
+This page shows recently asked questions, you can find more questions and answers at the OpenEP [support forum](https://openep.discourse.group/).  
+You can ask a **[&#43; new question](https://openep.discourse.group/new-topic?)**.
 
 <d-topics-list discourse-url="https://openep.discourse.group/" template="complete"></d-topics-list>
 
