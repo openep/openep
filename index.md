@@ -62,6 +62,9 @@ sections:
       - title: The University of Edinburgh
         image: images/edinburgh_logo.png
         url: https://www.ed.ac.uk/
+      - title: University of Birmingham
+        images: images/birmingham_logo.png
+        url: https://www.birmingham.ac.uk
 
 layout: landing
 ---
