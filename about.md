@@ -24,7 +24,7 @@ team:
   - title: Cesare Corrado
     image: images/portrait-cc.png
     content: Dr Cesare Corrado is a postdoctoral research associate in the School of Biomedical Engineering & Imaging Sciences at King’s College London. His earlier research concerned computational models for multi-physics problems and data assimilation techniques (reverse engineering). Using computational models of the human heart, personalised from clinical data (MRI, Electrograms), he develops new methodologies to improve the treatment of cardiac arrhythmias.
-    - title: Chris O'Shea
-      image: images/portrait-cos.jpg
-      content: Chris is a Sir Henry Wellcome fellow at the University of Birmingham. His research aims to develop new tools and combine expertise and knowledge from preclinical optical mapping and clinical electroanatomical mapping to improve understanding and treatment of cardiac arrhythmias.
+  - title: Chris O'Shea
+    image: images/portrait-cos.jpg
+    content: Chris is a Sir Henry Wellcome fellow at the University of Birmingham. His research aims to develop new tools and combine expertise and knowledge from preclinical optical mapping and clinical electroanatomical mapping to improve understanding and treatment of cardiac arrhythmias.
 ---
