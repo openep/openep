@@ -51,7 +51,7 @@ sections:
     background: white
     title: Partner Institutions
     subtitle: >-
-      OpenEP has been developed at King's College London, Imperial College London and The University of Edinburgh.
+      OpenEP has been developed at King's College London, Imperial College London, The University of Edinburgh and The University of Birmingham.
     items:
       - title: King's College London
         image: images/kcl_logo.png
