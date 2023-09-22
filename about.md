@@ -28,6 +28,6 @@ team:
     image: images/portrait-cos.png
     content: Chris is a Sir Henry Wellcome fellow at the University of Birmingham. His research aims to develop new tools and combine expertise and knowledge from preclinical optical mapping and clinical electroanatomical mapping to improve understanding and treatment of cardiac arrhythmias.
   - title: Julius Obbergassel
-    image: images/portrait-jo.pnv
+    image: images/portrait-jo.png
     content: Julius Obergassel is a clinician-scientist specializing in interventional electrophysiology. He merges classical statistics with data science and machine learning for his clinical and translational research while also aiming to create secure, GDPR-compliant research platforms for efficient clinic-based and decentralized patient-near research. As a post-doctoral researcher, Julius focuses on atrial fibrillation and atrial cardiomyopathy using innovative computing-based approaches. He's a principal investigator in a cross-disciplinary lab at the Hamburg House of Computing and Datascience (HCDS) and works on non-invasive diagnostics for atrial cardiomyopathy in the PREDACM project, funded by the German Heart Foundation.
 ---
