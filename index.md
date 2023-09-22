@@ -65,6 +65,9 @@ sections:
       - title: University of Birmingham
         image: images/birmingham-logo.png
         url: https://www.birmingham.ac.uk
+      - title: University Medical Center Hamburg-Eppendorf
+        image: images/UKE_Logo_600ppi.png
+        url: https://www.uke.de
 
 layout: landing
 ---
